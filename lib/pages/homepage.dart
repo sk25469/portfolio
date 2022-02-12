@@ -28,9 +28,6 @@ class HomePage extends StatelessWidget {
                       "assets/images/signature.png",
                       alignment: Alignment.center,
                       scale: 10,
-                      width: 100,
-                      height: 200,
-                      // fit: BoxFit.fitWidth,
                     ),
                   ),
                 ),
@@ -41,27 +38,44 @@ class HomePage extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     InkWell(
+                      onTap: () {},
                       hoverColor: themeData.accentColor,
-                      child: AppBarButton(
-                        onPressed: () {},
+                      child: _buildAppBarButton(
                         text: 'Achivements',
+                        themeData: themeData,
                       ),
                     ),
-                    AppBarButton(
-                      onPressed: () {},
-                      text: 'Skills',
+                    InkWell(
+                      onTap: () {},
+                      hoverColor: themeData.accentColor,
+                      child: _buildAppBarButton(
+                        text: 'Skills',
+                        themeData: themeData,
+                      ),
                     ),
-                    AppBarButton(
-                      onPressed: () {},
-                      text: 'Projects',
+                    InkWell(
+                      onTap: () {},
+                      hoverColor: themeData.accentColor,
+                      child: _buildAppBarButton(
+                        text: 'Projects',
+                        themeData: themeData,
+                      ),
                     ),
-                    AppBarButton(
-                      onPressed: () {},
-                      text: 'Work Experience',
+                    InkWell(
+                      onTap: () {},
+                      hoverColor: themeData.accentColor,
+                      child: _buildAppBarButton(
+                        text: 'Work Experience',
+                        themeData: themeData,
+                      ),
                     ),
-                    AppBarButton(
-                      onPressed: () {},
-                      text: 'Contact Me',
+                    InkWell(
+                      onTap: () {},
+                      hoverColor: themeData.accentColor,
+                      child: _buildAppBarButton(
+                        text: 'Contact Me',
+                        themeData: themeData,
+                      ),
                     ),
                   ],
                 ),
@@ -91,4 +105,20 @@ class HomePage extends StatelessWidget {
       ],
     );
   }
+}
+
+Widget _buildAppBarButton({
+  required String text,
+  required ThemeData themeData,
+}) {
+  return Padding(
+    padding: const EdgeInsets.symmetric(horizontal: 20.0),
+    child: SizedBox(
+      height: 55,
+      child: Text(
+        text,
+        style: themeData.textTheme.headlineMedium,
+      ),
+    ),
+  );
 }
