@@ -1,7 +1,5 @@
 import 'package:adaptive_theme/adaptive_theme.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:portfolio/theme/customtheme.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -16,7 +14,6 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     final themeData = Theme.of(context);
-
     return CustomScrollView(
       slivers: <Widget>[
         SliverAppBar(
@@ -89,34 +86,53 @@ class _HomePageState extends State<HomePage> {
                         themeData: themeData,
                       ),
                     ),
-                    CupertinoSwitch(
-                        value: _isDarkMode,
-                        onChanged: (newVal) {
-                          setState(() {
-                            _isDarkMode = newVal;
-                            if (_isDarkMode) {
-                              AdaptiveTheme.of(context).setLight();
-                            } else {
-                              AdaptiveTheme.of(context).setDark();
-                            }
-                          });
-                        }),
+                    // CupertinoSwitch(
+                    //   value: _isDarkMode,
+                    //   onChanged: (newVal) {
+                    //     setState(() {
+                    //       _isDarkMode = newVal;
+                    //       if (_isDarkMode) {
+                    //         AdaptiveTheme.of(context).setLight();
+                    //       } else {
+                    //         AdaptiveTheme.of(context).setDark();
+                    //       }
+                    //     });
+                    //   },
+                    // ),
+                    IconButton(
+                      onPressed: () {
+                        setState(() {
+                          if (_isDarkMode) {
+                            AdaptiveTheme.of(context).setLight();
+                          } else {
+                            AdaptiveTheme.of(context).setDark();
+                          }
+                          _isDarkMode = !_isDarkMode;
+                        });
+                      },
+                      icon: _isDarkMode
+                          ? const Icon(
+                              Icons.dark_mode,
+                              color: Colors.white,
+                              size: 30,
+                            )
+                          : const Icon(
+                              Icons.dark_mode_outlined,
+                              color: Colors.black,
+                              size: 30,
+                            ),
+                    ),
                   ],
                 ),
               ),
             ],
           ),
           backgroundColor: themeData.primaryColor,
-
-          // expandedHeight: 200.0,
         ),
         SliverFixedExtentList(
           itemExtent: 150.0,
           delegate: SliverChildListDelegate(
             [
-              Container(
-                child: Image.asset("assets/images/signature.png"),
-              ),
               Container(color: Colors.red),
               Container(color: Colors.purple),
               Container(color: Colors.green),
