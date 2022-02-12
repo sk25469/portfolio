@@ -1,8 +1,17 @@
+import 'package:adaptive_theme/adaptive_theme.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:portfolio/components/appBarButton.dart';
+import 'package:portfolio/theme/customtheme.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  bool _isDarkMode = false;
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +30,6 @@ class HomePage extends StatelessWidget {
                 flex: 2,
                 child: Container(
                   color: Colors.white,
-                  width: 100,
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Image.asset(
@@ -31,6 +39,10 @@ class HomePage extends StatelessWidget {
                     ),
                   ),
                 ),
+              ),
+              const Expanded(
+                flex: 4,
+                child: SizedBox(),
               ),
               Expanded(
                 flex: 9,
@@ -77,12 +89,24 @@ class HomePage extends StatelessWidget {
                         themeData: themeData,
                       ),
                     ),
+                    CupertinoSwitch(
+                        value: _isDarkMode,
+                        onChanged: (newVal) {
+                          setState(() {
+                            _isDarkMode = newVal;
+                            if (_isDarkMode) {
+                              AdaptiveTheme.of(context).setLight();
+                            } else {
+                              AdaptiveTheme.of(context).setDark();
+                            }
+                          });
+                        }),
                   ],
                 ),
               ),
             ],
           ),
-          backgroundColor: Colors.black,
+          backgroundColor: themeData.primaryColor,
 
           // expandedHeight: 200.0,
         ),
