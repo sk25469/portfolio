@@ -1,81 +1,73 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/components/appBarButton.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final themeData = Theme.of(context);
+
     return CustomScrollView(
       slivers: <Widget>[
         SliverAppBar(
           centerTitle: true,
           floating: true,
+          toolbarHeight: 80,
           title: Row(
-            mainAxisAlignment: MainAxisAlignment.end,
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              MaterialButton(
-                height: 55,
-                hoverColor: Colors.purple,
-                onPressed: () {},
-                child: const Text(
-                  'Achievements',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 20,
+              Expanded(
+                flex: 2,
+                child: Container(
+                  color: Colors.white,
+                  width: 100,
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Image.asset(
+                      "assets/images/signature.png",
+                      alignment: Alignment.center,
+                      scale: 10,
+                      width: 100,
+                      height: 200,
+                      // fit: BoxFit.fitWidth,
+                    ),
                   ),
                 ),
               ),
-              MaterialButton(
-                height: 55,
-                hoverColor: Colors.purple,
-                onPressed: () {},
-                child: const Text(
-                  'Skills',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 20,
-                  ),
-                ),
-              ),
-              MaterialButton(
-                height: 55,
-                hoverColor: Colors.purple,
-                onPressed: () {},
-                child: const Text(
-                  'Work experience',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 20,
-                  ),
-                ),
-              ),
-              MaterialButton(
-                height: 55,
-                hoverColor: Colors.purple,
-                onPressed: () {},
-                child: const Text(
-                  'Open Source',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 20,
-                  ),
-                ),
-              ),
-              MaterialButton(
-                height: 55,
-                hoverColor: Colors.purple,
-                onPressed: () {},
-                child: const Text(
-                  'Contact Me',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 20,
-                  ),
+              Expanded(
+                flex: 9,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    InkWell(
+                      hoverColor: themeData.accentColor,
+                      child: AppBarButton(
+                        onPressed: () {},
+                        text: 'Achivements',
+                      ),
+                    ),
+                    AppBarButton(
+                      onPressed: () {},
+                      text: 'Skills',
+                    ),
+                    AppBarButton(
+                      onPressed: () {},
+                      text: 'Projects',
+                    ),
+                    AppBarButton(
+                      onPressed: () {},
+                      text: 'Work Experience',
+                    ),
+                    AppBarButton(
+                      onPressed: () {},
+                      text: 'Contact Me',
+                    ),
+                  ],
                 ),
               ),
             ],
           ),
-          leading: const Placeholder(),
           backgroundColor: Colors.black,
 
           // expandedHeight: 200.0,
@@ -84,6 +76,9 @@ class HomePage extends StatelessWidget {
           itemExtent: 150.0,
           delegate: SliverChildListDelegate(
             [
+              Container(
+                child: Image.asset("assets/images/signature.png"),
+              ),
               Container(color: Colors.red),
               Container(color: Colors.purple),
               Container(color: Colors.green),
