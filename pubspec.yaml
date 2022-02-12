@@ -63,24 +63,18 @@ flutter:
     - family: Festive-Regular
       fonts:
         - asset: assets/font/Festive-Regular.ttf
-    - family: ZenKakuGothicAntique-Black
-      fonts:
-        - asset: assets/font/ZenKakuGothicAntique-Black.tff
-    - family: ZenKakuGothicAntique-Bold
-      fonts:
-        - asset: assets/font/ZenKakuGothicAntique-Bold.tff
     - family: ZenKakuGothicAntique-Light
       fonts:
-        - asset: assets/font/ZenKakuGothicAntique-Light.tff
+        - asset: assets/font/ZenKakuGothicAntique-Light.ttf
     - family: ZenKakuGothicAntique-Regular
       fonts:
-        - asset: assets/font/ZenKakuGothicAntique-Regular.tff
+        - asset: assets/font/ZenKakuGothicAntique-Regular.ttf
     - family: ZenKakuGothicAntique-Medium
       fonts:
-        - asset: assets/font/ZenKakuGothicAntique-Medium.tff
+        - asset: assets/font/ZenKakuGothicAntique-Medium.ttf
 
         # - asset: fonts/Schyler-Italic.ttf
-        #   style: italic
+        # style: italic
   #   - family: Trajan Pro
   #     fonts:
   #       - asset: fonts/TrajanPro.ttf

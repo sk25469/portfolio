@@ -146,7 +146,7 @@ Widget _buildAppBarButton({
       height: 55,
       child: Text(
         text,
-        style: themeData.textTheme.headlineMedium,
+        style: themeData.textTheme.headline4,
       ),
     ),
   );

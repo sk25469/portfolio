@@ -12,8 +12,16 @@ final darkTheme = ThemeData(
   scaffoldBackgroundColor: Colors.grey[900],
   cardColor: const Color.fromARGB(255, 75, 75, 75),
   textTheme: const TextTheme(
-    bodyText1: TextStyle(color: Colors.white),
-    bodyText2: TextStyle(color: Colors.white),
+    bodyText1: TextStyle(
+      color: Colors.white,
+      fontFamily: 'ZenKakuGothicAntique-Medium',
+      fontSize: 60,
+    ),
+    bodyText2: TextStyle(
+      color: Colors.white,
+      fontFamily: 'ZenKakuGothicAntique-Light',
+      fontSize: 40,
+    ),
     button: TextStyle(color: Colors.white),
     caption: TextStyle(color: Colors.white),
     headline1: TextStyle(color: Colors.white),
@@ -31,8 +39,16 @@ final lightTheme = ThemeData(
   scaffoldBackgroundColor: Colors.grey[900],
   cardColor: Colors.grey[900],
   textTheme: const TextTheme(
-    bodyText1: TextStyle(color: Colors.black),
-    bodyText2: TextStyle(color: Colors.black),
+    bodyText1: TextStyle(
+      color: Colors.black,
+      fontFamily: 'ZenKakuGothicAntique-Medium',
+      fontSize: 60,
+    ),
+    bodyText2: TextStyle(
+      color: Colors.black,
+      fontFamily: 'ZenKakuGothicAntique-Light',
+      fontSize: 40,
+    ),
     button: TextStyle(color: Colors.black),
     caption: TextStyle(color: Colors.black),
     headline1: TextStyle(color: Colors.black),
