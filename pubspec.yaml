@@ -48,6 +48,7 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/images/
+    - assets/icons/
     # - assets/images/a_dot_ham.jpeg
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
@@ -62,6 +63,22 @@ flutter:
     - family: Festive-Regular
       fonts:
         - asset: assets/font/Festive-Regular.ttf
+    - family: ZenKakuGothicAntique-Black
+      fonts:
+        - asset: assets/font/ZenKakuGothicAntique-Black.tff
+    - family: ZenKakuGothicAntique-Bold
+      fonts:
+        - asset: assets/font/ZenKakuGothicAntique-Bold.tff
+    - family: ZenKakuGothicAntique-Light
+      fonts:
+        - asset: assets/font/ZenKakuGothicAntique-Light.tff
+    - family: ZenKakuGothicAntique-Regular
+      fonts:
+        - asset: assets/font/ZenKakuGothicAntique-Regular.tff
+    - family: ZenKakuGothicAntique-Medium
+      fonts:
+        - asset: assets/font/ZenKakuGothicAntique-Medium.tff
+
         # - asset: fonts/Schyler-Italic.ttf
         #   style: italic
   #   - family: Trajan Pro

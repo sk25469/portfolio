@@ -8,7 +8,7 @@ final darkTheme = ThemeData(
   fontFamily: 'Festive-Regular',
   brightness: Brightness.dark,
   primaryColor: Colors.black,
-  accentColor: const Color.fromARGB(255, 37, 37, 37),
+  accentColor: darkBackgroundColor,
   scaffoldBackgroundColor: Colors.grey[900],
   cardColor: const Color.fromARGB(255, 75, 75, 75),
   textTheme: const TextTheme(
@@ -27,7 +27,7 @@ final lightTheme = ThemeData(
   fontFamily: 'Festive-Regular',
   brightness: Brightness.light,
   primaryColor: const Color.fromARGB(169, 255, 255, 255),
-  accentColor: const Color.fromARGB(255, 226, 226, 226),
+  accentColor: lightBackgroundColor,
   scaffoldBackgroundColor: Colors.grey[900],
   cardColor: Colors.grey[900],
   textTheme: const TextTheme(

@@ -1,5 +1,6 @@
 import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:portfolio/components/bio_component.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -86,19 +87,6 @@ class _HomePageState extends State<HomePage> {
                         themeData: themeData,
                       ),
                     ),
-                    // CupertinoSwitch(
-                    //   value: _isDarkMode,
-                    //   onChanged: (newVal) {
-                    //     setState(() {
-                    //       _isDarkMode = newVal;
-                    //       if (_isDarkMode) {
-                    //         AdaptiveTheme.of(context).setLight();
-                    //       } else {
-                    //         AdaptiveTheme.of(context).setDark();
-                    //       }
-                    //     });
-                    //   },
-                    // ),
                     IconButton(
                       onPressed: () {
                         setState(() {
@@ -130,9 +118,10 @@ class _HomePageState extends State<HomePage> {
           backgroundColor: themeData.primaryColor,
         ),
         SliverFixedExtentList(
-          itemExtent: 150.0,
+          itemExtent: 600.0,
           delegate: SliverChildListDelegate(
             [
+              const BioComponent(),
               Container(color: Colors.red),
               Container(color: Colors.purple),
               Container(color: Colors.green),
