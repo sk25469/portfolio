@@ -52,14 +52,6 @@ class _HomePageState extends State<HomePage> {
                       onTap: () {},
                       hoverColor: _isDarkMode ? Colors.black : Colors.white,
                       child: _buildAppBarButton(
-                        text: 'Achivements',
-                        themeData: themeData,
-                      ),
-                    ),
-                    InkWell(
-                      onTap: () {},
-                      hoverColor: _isDarkMode ? Colors.black : Colors.white,
-                      child: _buildAppBarButton(
                         text: 'Skills',
                         themeData: themeData,
                       ),
@@ -77,6 +69,14 @@ class _HomePageState extends State<HomePage> {
                       hoverColor: _isDarkMode ? Colors.black : Colors.white,
                       child: _buildAppBarButton(
                         text: 'Work Experience',
+                        themeData: themeData,
+                      ),
+                    ),
+                    InkWell(
+                      onTap: () {},
+                      hoverColor: _isDarkMode ? Colors.black : Colors.white,
+                      child: _buildAppBarButton(
+                        text: 'Achivements',
                         themeData: themeData,
                       ),
                     ),
