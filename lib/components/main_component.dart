@@ -50,7 +50,7 @@ class _HomePageState extends State<HomePage> {
                   children: [
                     InkWell(
                       onTap: () {},
-                      hoverColor: themeData.accentColor,
+                      hoverColor: _isDarkMode ? Colors.black : Colors.white,
                       child: _buildAppBarButton(
                         text: 'Achivements',
                         themeData: themeData,
@@ -58,7 +58,7 @@ class _HomePageState extends State<HomePage> {
                     ),
                     InkWell(
                       onTap: () {},
-                      hoverColor: themeData.accentColor,
+                      hoverColor: _isDarkMode ? Colors.black : Colors.white,
                       child: _buildAppBarButton(
                         text: 'Skills',
                         themeData: themeData,
@@ -66,7 +66,7 @@ class _HomePageState extends State<HomePage> {
                     ),
                     InkWell(
                       onTap: () {},
-                      hoverColor: themeData.accentColor,
+                      hoverColor: _isDarkMode ? Colors.black : Colors.white,
                       child: _buildAppBarButton(
                         text: 'Projects',
                         themeData: themeData,
@@ -74,7 +74,7 @@ class _HomePageState extends State<HomePage> {
                     ),
                     InkWell(
                       onTap: () {},
-                      hoverColor: themeData.accentColor,
+                      hoverColor: _isDarkMode ? Colors.black : Colors.white,
                       child: _buildAppBarButton(
                         text: 'Work Experience',
                         themeData: themeData,
@@ -82,7 +82,7 @@ class _HomePageState extends State<HomePage> {
                     ),
                     InkWell(
                       onTap: () {},
-                      hoverColor: themeData.accentColor,
+                      hoverColor: _isDarkMode ? Colors.black : Colors.white,
                       child: _buildAppBarButton(
                         text: 'Contact Me',
                         themeData: themeData,

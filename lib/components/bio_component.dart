@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/constants/customtheme.dart';
 import 'package:portfolio/extensions/hovering_widget.dart';
+import 'package:portfolio/widgets/resume_button.dart';
 
 class BioComponent extends StatelessWidget {
   const BioComponent({Key? key}) : super(key: key);
@@ -158,6 +159,8 @@ Widget _socialMediaContacts() {
             ),
           ),
         ),
+        const SizedBox(width: 150),
+        const ResumeButton(text: 'See my resume'),
       ],
     ),
   );
