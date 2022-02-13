@@ -87,6 +87,7 @@ Widget _socialMediaContacts() {
       children: [
         InkWell(
           onTap: () {},
+          hoverColor: Colors.transparent,
           child: TranslateOnHover(
             child: Image.asset(
               'assets/icons/email.png',
@@ -98,6 +99,7 @@ Widget _socialMediaContacts() {
         const SizedBox(width: 15),
         InkWell(
           onTap: () {},
+          hoverColor: Colors.transparent,
           child: TranslateOnHover(
             child: Image.asset(
               'assets/icons/github.png',
@@ -109,6 +111,7 @@ Widget _socialMediaContacts() {
         const SizedBox(width: 15),
         InkWell(
           onTap: () {},
+          hoverColor: Colors.transparent,
           child: TranslateOnHover(
             child: Image.asset(
               'assets/icons/linkedin.png',
@@ -120,6 +123,7 @@ Widget _socialMediaContacts() {
         const SizedBox(width: 15),
         InkWell(
           onTap: () {},
+          hoverColor: Colors.transparent,
           child: TranslateOnHover(
             child: Image.asset(
               'assets/icons/twitter.png',
@@ -131,6 +135,7 @@ Widget _socialMediaContacts() {
         const SizedBox(width: 15),
         InkWell(
           onTap: () {},
+          hoverColor: Colors.transparent,
           child: TranslateOnHover(
             child: Image.asset(
               'assets/icons/instagram.png',
@@ -142,6 +147,7 @@ Widget _socialMediaContacts() {
         const SizedBox(width: 15),
         InkWell(
           onTap: () {},
+          hoverColor: Colors.transparent,
           child: TranslateOnHover(
             child: Image.asset(
               'assets/icons/facebook.png',
