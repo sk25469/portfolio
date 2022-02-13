@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/constants/customtheme.dart';
 import 'package:portfolio/extensions/hovering_widget.dart';
 
 class BioComponent extends StatelessWidget {
@@ -11,7 +12,8 @@ class BioComponent extends StatelessWidget {
 
     final theme = Theme.of(context);
     return Container(
-      color: theme.accentColor,
+      decoration: ComponentBoxDecoration.getBoxDecoration(_isDark, theme),
+      // color: theme.accentColor,
       padding: const EdgeInsets.only(top: 50),
       child: Stack(
         children: [

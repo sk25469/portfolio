@@ -18,6 +18,7 @@ class _HomePageState extends State<HomePage> {
     return CustomScrollView(
       slivers: <Widget>[
         SliverAppBar(
+          elevation: 10,
           centerTitle: true,
           floating: true,
           toolbarHeight: 80,
@@ -116,7 +117,7 @@ class _HomePageState extends State<HomePage> {
               ),
             ],
           ),
-          backgroundColor: themeData.primaryColor,
+          backgroundColor: themeData.accentColor,
         ),
         SliverFixedExtentList(
           itemExtent: 600.0,

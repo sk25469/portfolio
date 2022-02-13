@@ -4,6 +4,21 @@ const lightBackgroundColor = Color.fromRGBO(219, 203, 181, 1);
 const darkBackgroundColor = Color.fromRGBO(23, 45, 55, 1);
 const lightGrey = Color.fromRGBO(124, 140, 148, 1);
 
+class ComponentBoxDecoration {
+  static BoxDecoration getBoxDecoration(bool isDark, ThemeData themeData) {
+    return BoxDecoration(
+      gradient: LinearGradient(
+        begin: Alignment.centerLeft,
+        end: Alignment.centerRight,
+        colors: <Color>[
+          isDark ? Colors.black : Colors.white,
+          themeData.accentColor,
+        ],
+      ),
+    );
+  }
+}
+
 final darkTheme = ThemeData(
   fontFamily: 'Festive-Regular',
   brightness: Brightness.dark,
