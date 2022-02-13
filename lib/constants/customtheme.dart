@@ -20,7 +20,7 @@ final darkTheme = ThemeData(
     bodyText2: TextStyle(
       color: Colors.white,
       fontFamily: 'ZenKakuGothicAntique-Light',
-      fontSize: 40,
+      fontSize: 35,
     ),
     button: TextStyle(color: Colors.white),
     caption: TextStyle(color: Colors.white),
@@ -47,7 +47,7 @@ final lightTheme = ThemeData(
     bodyText2: TextStyle(
       color: Colors.black,
       fontFamily: 'ZenKakuGothicAntique-Light',
-      fontSize: 40,
+      fontSize: 35,
     ),
     button: TextStyle(color: Colors.black),
     caption: TextStyle(color: Colors.black),

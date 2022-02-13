@@ -88,6 +88,7 @@ class _HomePageState extends State<HomePage> {
                       ),
                     ),
                     IconButton(
+                      padding: const EdgeInsets.only(bottom: 3),
                       onPressed: () {
                         setState(() {
                           if (_isDarkMode) {
@@ -102,12 +103,12 @@ class _HomePageState extends State<HomePage> {
                           ? const Icon(
                               Icons.dark_mode,
                               color: Colors.white,
-                              size: 30,
+                              size: 35,
                             )
                           : const Icon(
                               Icons.dark_mode_outlined,
                               color: Colors.black,
-                              size: 30,
+                              size: 35,
                             ),
                     ),
                   ],
