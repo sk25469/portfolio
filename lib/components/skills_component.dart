@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/constants/custom_theme.dart';
+import 'package:rive/rive.dart';
 
 class SkillComponent extends StatelessWidget {
   const SkillComponent({Key? key}) : super(key: key);
@@ -15,13 +16,9 @@ class SkillComponent extends StatelessWidget {
         theme,
       ),
       child: Stack(
-        children: [
+        children: const [
           Positioned(
-            child: Image.asset(
-              'assets/images/man-developing-website-on-desk.png',
-              width: 650,
-              height: 650,
-            ),
+            child: RiveAnimation.asset('assets/animation/upload-animation.riv'),
             bottom: 0,
             left: 10,
           )
