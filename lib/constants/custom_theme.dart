@@ -47,6 +47,11 @@ final darkTheme = ThemeData(
       fontSize: 25,
       fontFamily: 'ZenKakuGothicAntique-Medium',
     ),
+    subtitle1: TextStyle(
+      color: Colors.white,
+      fontSize: 25,
+      fontFamily: 'ZenKakuGothicAntique-Regular',
+    ),
     headline1: TextStyle(color: Colors.white),
     headline2: TextStyle(color: Colors.white),
     headline3: TextStyle(color: Colors.white),
@@ -81,6 +86,11 @@ final lightTheme = ThemeData(
       color: Colors.black,
       fontSize: 25,
       fontFamily: 'ZenKakuGothicAntique-Medium',
+    ),
+    subtitle1: TextStyle(
+      color: Colors.black,
+      fontSize: 25,
+      fontFamily: 'ZenKakuGothicAntique-Regular',
     ),
     headline1: TextStyle(color: Colors.black),
     headline2: TextStyle(color: Colors.black),

@@ -31,12 +31,10 @@ class _SkillComponentState extends State<SkillComponent> {
   Widget build(BuildContext context) {
     bool _isDark = Theme.of(context).brightness == Brightness.dark;
     final theme = Theme.of(context);
+    final currentTextTheme = Theme.of(context).textTheme;
 
     return Container(
-      decoration: ComponentBoxDecoration.getBoxDecoration(
-        _isDark,
-        theme,
-      ),
+      decoration: ComponentBoxDecoration.getBoxDecoration(_isDark, theme),
       child: Stack(
         children: [
           Positioned(
@@ -45,13 +43,40 @@ class _SkillComponentState extends State<SkillComponent> {
               animations: const ['Appearing'],
               controllers: [_controller],
             ),
-            top: 40,
+            top: 30,
             left: 40,
-            width: 500,
-            height: 500,
+            width: 550,
+            height: 550,
+          ),
+          Positioned(
+            left: 800,
+            top: 10,
+            child: _welcomeText(currentTextTheme),
+          ),
+          Positioned(
+            left: 800,
+            top: 100,
+            child: _detailText1(currentTextTheme),
           ),
         ],
       ),
     );
   }
+}
+
+Widget _welcomeText(TextTheme currentTextTheme) {
+  return SelectableText(
+    'What I do',
+    style: currentTextTheme.bodyText1,
+  );
+}
+
+Widget _detailText1(TextTheme currentTextTheme) {
+  return SizedBox(
+    width: 650,
+    child: SelectableText(
+      'PASSIONATE FULL STACK DEVELOPER WHO WANTS TO EXPLORE EVERY TECH STACK AND LEARN NEW THINGS.',
+      style: currentTextTheme.subtitle1,
+    ),
+  );
 }
