@@ -1,6 +1,7 @@
 import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:portfolio/components/bio_component.dart';
+import 'package:portfolio/components/skills_component.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -124,6 +125,7 @@ class _HomePageState extends State<HomePage> {
           delegate: SliverChildListDelegate(
             [
               const BioComponent(),
+              const SkillComponent(),
               Container(color: Colors.red),
               Container(color: Colors.purple),
               Container(color: Colors.green),

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/constants/customtheme.dart';
+import 'package:portfolio/constants/custom_theme.dart';
 import 'package:portfolio/extensions/hovering_widget.dart';
 import 'package:portfolio/widgets/resume_button.dart';
 
@@ -160,7 +160,7 @@ Widget _socialMediaContacts() {
           ),
         ),
         const SizedBox(width: 150),
-        const ResumeButton(text: 'See my resume'),
+        const ResumeButton(text: 'SEE MY RESUME'),
       ],
     ),
   );

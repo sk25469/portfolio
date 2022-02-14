@@ -1,7 +1,7 @@
 import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:portfolio/components/main_component.dart';
-import 'package:portfolio/constants/customtheme.dart';
+import 'package:portfolio/constants/custom_theme.dart';
 
 void main() {
   runApp(const MyApp());
