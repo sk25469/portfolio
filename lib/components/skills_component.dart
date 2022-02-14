@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/constants/custom_theme.dart';
+import 'package:portfolio/widgets/tech_detail.dart';
 import 'package:rive/rive.dart';
 
 class SkillComponent extends StatefulWidget {
@@ -58,6 +59,12 @@ class _SkillComponentState extends State<SkillComponent> {
             top: 100,
             child: _detailText1(currentTextTheme),
           ),
+          Positioned(
+            child: _techStacks(30, 30),
+            left: 800,
+            top: 190,
+            width: 900,
+          ),
         ],
       ),
     );
@@ -78,5 +85,127 @@ Widget _detailText1(TextTheme currentTextTheme) {
       'PASSIONATE FULL STACK DEVELOPER WHO WANTS TO EXPLORE EVERY TECH STACK AND LEARN NEW THINGS.',
       style: currentTextTheme.subtitle1,
     ),
+  );
+}
+
+Widget _techStacks(double widthBetween, double heightBetween) {
+  return Column(
+    children: [
+      Row(
+        children: [
+          TechTile(
+            techImage: Image.asset(
+              'assets/icons/android.png',
+              width: 70,
+              height: 70,
+            ),
+            techName: 'Android',
+          ),
+          SizedBox(width: widthBetween),
+          TechTile(
+            techImage: Image.asset(
+              'assets/icons/cpp.png',
+              width: 70,
+              height: 70,
+            ),
+            techName: 'C++',
+          ),
+          SizedBox(width: widthBetween),
+          TechTile(
+            techImage: Image.asset(
+              'assets/icons/dart.png',
+              width: 70,
+              height: 70,
+            ),
+            techName: 'Dart',
+          ),
+          SizedBox(width: widthBetween),
+          TechTile(
+            techImage: Image.asset(
+              'assets/icons/database.png',
+              width: 70,
+              height: 70,
+            ),
+            techName: 'Database',
+          ),
+          SizedBox(width: widthBetween),
+          TechTile(
+            techImage: Image.asset(
+              'assets/icons/docker.png',
+              width: 70,
+              height: 70,
+            ),
+            techName: 'Docker',
+          ),
+          SizedBox(width: widthBetween),
+          TechTile(
+            techImage: Image.asset(
+              'assets/icons/firebase.png',
+              width: 70,
+              height: 70,
+            ),
+            techName: 'Firebase',
+          ),
+        ],
+      ),
+      SizedBox(height: heightBetween),
+      Row(
+        children: [
+          TechTile(
+            techImage: Image.asset(
+              'assets/icons/flutter.png',
+              width: 70,
+              height: 70,
+            ),
+            techName: 'Flutter',
+          ),
+          SizedBox(width: widthBetween),
+          TechTile(
+            techImage: Image.asset(
+              'assets/icons/java.png',
+              width: 70,
+              height: 70,
+            ),
+            techName: 'Java',
+          ),
+          SizedBox(width: widthBetween),
+          TechTile(
+            techImage: Image.asset(
+              'assets/icons/linux.png',
+              width: 70,
+              height: 70,
+            ),
+            techName: 'Linux',
+          ),
+          SizedBox(width: widthBetween),
+          TechTile(
+            techImage: Image.asset(
+              'assets/icons/mongodb.png',
+              width: 70,
+              height: 70,
+            ),
+            techName: 'MongoDB',
+          ),
+          SizedBox(width: widthBetween),
+          TechTile(
+            techImage: Image.asset(
+              'assets/icons/python.png',
+              width: 70,
+              height: 70,
+            ),
+            techName: 'Python',
+          ),
+          SizedBox(width: widthBetween),
+          TechTile(
+            techImage: Image.asset(
+              'assets/icons/springBoot.png',
+              width: 70,
+              height: 70,
+            ),
+            techName: 'Spring Boot',
+          ),
+        ],
+      )
+    ],
   );
 }
