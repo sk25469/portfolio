@@ -1,85 +1,64 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/constants/custom_theme.dart';
+import 'package:portfolio/widgets/skill_animation.dart';
 import 'package:portfolio/widgets/tech_detail.dart';
-import 'package:rive/rive.dart';
 
-class SkillComponent extends StatefulWidget {
+const _kSize = 1536;
+
+class SkillComponent extends StatelessWidget {
   const SkillComponent({Key? key}) : super(key: key);
-
-  @override
-  State<SkillComponent> createState() => _SkillComponentState();
-}
-
-class _SkillComponentState extends State<SkillComponent> {
-  late RiveAnimationController _controller;
-
-  /// Is the animation currently playing?
-  bool _isPlaying = false;
-
-  @override
-  void initState() {
-    super.initState();
-    _controller = OneShotAnimation(
-      'Appearing',
-      autoplay: false,
-      onStop: () => setState(() => _isPlaying = false),
-      onStart: () => setState(() => _isPlaying = true),
-    );
-    // _controller.isActive = true;
-  }
 
   @override
   Widget build(BuildContext context) {
     bool _isDark = Theme.of(context).brightness == Brightness.dark;
     final theme = Theme.of(context);
     final currentTextTheme = Theme.of(context).textTheme;
+    final width = MediaQuery.of(context).size.width;
 
     return Container(
       decoration: ComponentBoxDecoration.getBoxDecoration(_isDark, theme),
       child: Stack(
         children: [
           Positioned(
-            child: RiveAnimation.asset(
-              'assets/animation/upload-animation.riv',
-              animations: const ['Appearing'],
-              controllers: [_controller],
-            ),
-            top: 30,
-            left: 40,
-            width: 550,
-            height: 550,
+            child: const SkillAnimation(),
+            top: 30 / _kSize * width,
+            left: 40 / _kSize * width,
+            width: 550 / _kSize * width,
+            height: 550 / _kSize * width,
           ),
           Positioned(
-            left: 800,
-            top: 10,
+            left: 800 / _kSize * width,
+            top: 10 / _kSize * width,
             child: _welcomeText(currentTextTheme),
           ),
           Positioned(
-            left: 800,
-            top: 100,
-            child: _detailText1(currentTextTheme),
+            left: 800 / _kSize * width,
+            top: 100 / _kSize * width,
+            child: _detailText1(currentTextTheme, width),
           ),
           Positioned(
-            child: _techStacks(30, 20),
-            left: 800,
-            top: 190,
-            width: 900,
+            child: _techStacks(30 / _kSize * width, 20 / _kSize * width, width, 70),
+            left: 800 / _kSize * width,
+            top: 190 / _kSize * width,
+            width: 900 / _kSize * width,
           ),
           Positioned(
             child: _detailText2(
               '⚡Develop highly interactive Front end/User interfaces for your web and mobile applications',
               currentTextTheme,
+              width,
             ),
-            left: 800,
-            top: 425,
+            left: 800 / _kSize * width,
+            top: 425 / _kSize * width,
           ),
           Positioned(
             child: _detailText2(
               '⚡Building the backend along with integrating with third party APIs such as Firebase',
               currentTextTheme,
+              width,
             ),
-            left: 800,
-            top: 500,
+            left: 800 / _kSize * width,
+            top: 500 / _kSize * width,
           ),
         ],
       ),
@@ -94,9 +73,9 @@ Widget _welcomeText(TextTheme currentTextTheme) {
   );
 }
 
-Widget _detailText1(TextTheme currentTextTheme) {
+Widget _detailText1(TextTheme currentTextTheme, double width) {
   return SizedBox(
-    width: 650,
+    width: 650 / _kSize * width,
     child: SelectableText(
       'PASSIONATE FULL STACK DEVELOPER WHO WANTS TO EXPLORE EVERY TECH STACK AND LEARN NEW THINGS',
       style: currentTextTheme.subtitle1,
@@ -104,7 +83,8 @@ Widget _detailText1(TextTheme currentTextTheme) {
   );
 }
 
-Widget _techStacks(double widthBetween, double heightBetween) {
+Widget _techStacks(
+    double widthBetween, double heightBetween, double width, double iconSize) {
   return Column(
     children: [
       Row(
@@ -112,8 +92,8 @@ Widget _techStacks(double widthBetween, double heightBetween) {
           TechTile(
             techImage: Image.asset(
               'assets/icons/android.png',
-              width: 70,
-              height: 70,
+              width: iconSize / _kSize * width,
+              height: iconSize / _kSize * width,
             ),
             techName: 'Android',
           ),
@@ -121,8 +101,8 @@ Widget _techStacks(double widthBetween, double heightBetween) {
           TechTile(
             techImage: Image.asset(
               'assets/icons/cpp.png',
-              width: 70,
-              height: 70,
+              width: iconSize / _kSize * width,
+              height: iconSize / _kSize * width,
             ),
             techName: 'C++',
           ),
@@ -130,8 +110,8 @@ Widget _techStacks(double widthBetween, double heightBetween) {
           TechTile(
             techImage: Image.asset(
               'assets/icons/dart.png',
-              width: 70,
-              height: 70,
+              width: iconSize / _kSize * width,
+              height: iconSize / _kSize * width,
               fit: BoxFit.cover,
             ),
             techName: 'Dart',
@@ -140,8 +120,8 @@ Widget _techStacks(double widthBetween, double heightBetween) {
           TechTile(
             techImage: Image.asset(
               'assets/icons/database.png',
-              width: 70,
-              height: 70,
+              width: iconSize / _kSize * width,
+              height: iconSize / _kSize * width,
               fit: BoxFit.cover,
             ),
             techName: 'SQL',
@@ -150,8 +130,8 @@ Widget _techStacks(double widthBetween, double heightBetween) {
           TechTile(
             techImage: Image.asset(
               'assets/icons/docker.png',
-              width: 70,
-              height: 70,
+              width: iconSize / _kSize * width,
+              height: iconSize / _kSize * width,
             ),
             techName: 'Docker',
           ),
@@ -159,8 +139,8 @@ Widget _techStacks(double widthBetween, double heightBetween) {
           TechTile(
             techImage: Image.asset(
               'assets/icons/firebase.png',
-              width: 70,
-              height: 70,
+              width: iconSize / _kSize * width,
+              height: iconSize / _kSize * width,
             ),
             techName: 'Firebase',
           ),
@@ -172,8 +152,8 @@ Widget _techStacks(double widthBetween, double heightBetween) {
           TechTile(
             techImage: Image.asset(
               'assets/icons/flutter.png',
-              width: 70,
-              height: 70,
+              width: iconSize / _kSize * width,
+              height: iconSize / _kSize * width,
             ),
             techName: 'Flutter',
           ),
@@ -181,8 +161,8 @@ Widget _techStacks(double widthBetween, double heightBetween) {
           TechTile(
             techImage: Image.asset(
               'assets/icons/java.png',
-              width: 70,
-              height: 70,
+              width: iconSize / _kSize * width,
+              height: iconSize / _kSize * width,
             ),
             techName: 'Java',
           ),
@@ -190,8 +170,8 @@ Widget _techStacks(double widthBetween, double heightBetween) {
           TechTile(
             techImage: Image.asset(
               'assets/icons/linux.png',
-              width: 70,
-              height: 70,
+              width: iconSize / _kSize * width,
+              height: iconSize / _kSize * width,
             ),
             techName: 'Linux',
           ),
@@ -199,8 +179,8 @@ Widget _techStacks(double widthBetween, double heightBetween) {
           TechTile(
             techImage: Image.asset(
               'assets/icons/mongodb.png',
-              width: 70,
-              height: 70,
+              width: iconSize / _kSize * width,
+              height: iconSize / _kSize * width,
             ),
             techName: 'MongoDB',
           ),
@@ -208,8 +188,8 @@ Widget _techStacks(double widthBetween, double heightBetween) {
           TechTile(
             techImage: Image.asset(
               'assets/icons/python.png',
-              width: 70,
-              height: 70,
+              width: iconSize / _kSize * width,
+              height: iconSize / _kSize * width,
             ),
             techName: 'Python',
           ),
@@ -217,8 +197,8 @@ Widget _techStacks(double widthBetween, double heightBetween) {
           TechTile(
             techImage: Image.asset(
               'assets/icons/springBoot.png',
-              width: 70,
-              height: 70,
+              width: iconSize / _kSize * width,
+              height: iconSize / _kSize * width,
             ),
             techName: 'Spring Boot',
           ),
@@ -228,9 +208,9 @@ Widget _techStacks(double widthBetween, double heightBetween) {
   );
 }
 
-Widget _detailText2(String text, TextTheme textTheme) {
+Widget _detailText2(String text, TextTheme textTheme, double width) {
   return SizedBox(
-    width: 650,
+    width: 650 / _kSize * width,
     child: SelectableText(
       text,
       style: textTheme.subtitle1,
