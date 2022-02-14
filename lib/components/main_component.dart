@@ -126,7 +126,6 @@ class _HomePageState extends State<HomePage> {
             [
               const BioComponent(),
               const SkillComponent(),
-              Container(color: Colors.red),
               Container(color: Colors.purple),
               Container(color: Colors.green),
               Container(color: Colors.orange),

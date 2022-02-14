@@ -60,10 +60,26 @@ class _SkillComponentState extends State<SkillComponent> {
             child: _detailText1(currentTextTheme),
           ),
           Positioned(
-            child: _techStacks(30, 30),
+            child: _techStacks(30, 20),
             left: 800,
             top: 190,
             width: 900,
+          ),
+          Positioned(
+            child: _detailText2(
+              '⚡Develop highly interactive Front end/User interfaces for your web and mobile applications',
+              currentTextTheme,
+            ),
+            left: 800,
+            top: 425,
+          ),
+          Positioned(
+            child: _detailText2(
+              '⚡Building the backend along with integrating with third party APIs such as Firebase',
+              currentTextTheme,
+            ),
+            left: 800,
+            top: 500,
           ),
         ],
       ),
@@ -82,7 +98,7 @@ Widget _detailText1(TextTheme currentTextTheme) {
   return SizedBox(
     width: 650,
     child: SelectableText(
-      'PASSIONATE FULL STACK DEVELOPER WHO WANTS TO EXPLORE EVERY TECH STACK AND LEARN NEW THINGS.',
+      'PASSIONATE FULL STACK DEVELOPER WHO WANTS TO EXPLORE EVERY TECH STACK AND LEARN NEW THINGS',
       style: currentTextTheme.subtitle1,
     ),
   );
@@ -116,6 +132,7 @@ Widget _techStacks(double widthBetween, double heightBetween) {
               'assets/icons/dart.png',
               width: 70,
               height: 70,
+              fit: BoxFit.cover,
             ),
             techName: 'Dart',
           ),
@@ -125,8 +142,9 @@ Widget _techStacks(double widthBetween, double heightBetween) {
               'assets/icons/database.png',
               width: 70,
               height: 70,
+              fit: BoxFit.cover,
             ),
-            techName: 'Database',
+            techName: 'SQL',
           ),
           SizedBox(width: widthBetween),
           TechTile(
@@ -207,5 +225,15 @@ Widget _techStacks(double widthBetween, double heightBetween) {
         ],
       )
     ],
+  );
+}
+
+Widget _detailText2(String text, TextTheme textTheme) {
+  return SizedBox(
+    width: 650,
+    child: SelectableText(
+      text,
+      style: textTheme.subtitle1,
+    ),
   );
 }
