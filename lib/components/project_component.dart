@@ -13,21 +13,28 @@ class ProjectComponent extends StatelessWidget {
     final theme = Theme.of(context);
     final currentTextTheme = Theme.of(context).textTheme;
     final width = MediaQuery.of(context).size.width;
-    return Container(
-      decoration: ComponentBoxDecoration.getBoxDecoration(_isDark, theme),
-      child: Stack(
-        children: [
-          Positioned(
-            left: 30 / _kSize * width,
-            top: 0 / _kSize * width,
-            child: _welcomeText(currentTextTheme),
-          ),
-          Positioned(
-            left: 30 / _kSize * width,
-            top: 100 / _kSize * width,
-            child: const ProjectTile(),
-          ),
-        ],
+    return Material(
+      child: Container(
+        decoration: ComponentBoxDecoration.getBoxDecoration(_isDark, theme),
+        child: Stack(
+          children: [
+            Positioned(
+              left: 30 / _kSize * width,
+              top: 0 / _kSize * width,
+              child: _welcomeText(currentTextTheme),
+            ),
+            Positioned(
+              left: 30 / _kSize * width,
+              top: 100 / _kSize * width,
+              child: const ProjectTile(),
+            ),
+            Positioned(
+              left: 30 / _kSize * width,
+              top: 350 / _kSize * width,
+              child: const ProjectTile(),
+            ),
+          ],
+        ),
       ),
     );
   }
