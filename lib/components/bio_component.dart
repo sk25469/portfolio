@@ -50,7 +50,7 @@ Widget _bioTextBox(TextTheme currentTextTheme, double width) {
   return SizedBox(
     width: 850 / _kSize * width,
     child: SelectableText(
-      'An aspiring Full Stack Software Developer🧑‍💻 having an experience in building Web and Mobile📲 applications with Flutter and Spring Boot.\nWhen I\'m not coding, I\'m usually playing video games 🎮, watching movies 🎞️, listening to music 🎶, or writing something ✍️.',
+      'An aspiring Full Stack Software Developer🧑‍💻 having an experience in building Web and Mobile📲 applications with Flutter and Spring Boot.\nWhen I\'m not coding, I usually play video games 🎮, watch movies 🎞️, listen to music 🎶, or write ✍️ something.',
       style: currentTextTheme.bodyText2,
     ),
   );
