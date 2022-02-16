@@ -30,6 +30,7 @@ class ProjectTile extends StatelessWidget {
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10),
             // color: _isDark ? darkBackgroundColor : lightBackgroundColor,
+
             color: Colors.transparent,
             boxShadow: [
               BoxShadow(
@@ -38,7 +39,7 @@ class ProjectTile extends StatelessWidget {
                     : Colors.white.withOpacity(.05),
                 offset: const Offset(5, 5),
                 blurRadius: 0,
-                spreadRadius: 0,
+                spreadRadius: 10,
               ),
             ],
           ),

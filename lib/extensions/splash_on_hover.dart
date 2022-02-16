@@ -55,7 +55,7 @@ class _SplashOnHover extends State<SplashOnHover> {
                   ),
                 ),
                 duration: const Duration(milliseconds: 500),
-                curve: Curves.fastOutSlowIn,
+                curve: Curves.easeInOutCirc,
               ),
             ),
             Positioned(
