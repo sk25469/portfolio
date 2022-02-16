@@ -109,7 +109,11 @@ final darkTheme = ThemeData(
     headline1: TextStyle(color: Colors.white),
     headline2: TextStyle(color: Colors.white),
     headline3: TextStyle(color: Colors.white),
-    headline4: TextStyle(color: Colors.white),
+    headline4: TextStyle(
+      color: Colors.white,
+      fontSize: 20,
+      fontFamily: 'ZenKakuGothicAntique-Medium',
+    ),
   ),
 );
 
@@ -159,6 +163,10 @@ final lightTheme = ThemeData(
     headline1: TextStyle(color: Colors.black),
     headline2: TextStyle(color: Colors.black),
     headline3: TextStyle(color: Colors.black),
-    headline4: TextStyle(color: Colors.black),
+    headline4: TextStyle(
+      color: Colors.black,
+      fontSize: 20,
+      fontFamily: 'ZenKakuGothicAntique-Medium',
+    ),
   ),
 );
