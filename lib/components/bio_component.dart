@@ -162,7 +162,7 @@ Widget _socialMediaContacts(double width) {
           ),
         ),
         SizedBox(width: 150 / _kSize * width),
-        const ResumeButton(text: 'SEE MY RESUME'),
+        const CustomButton(text: 'SEE MY RESUME'),
       ],
     ),
   );

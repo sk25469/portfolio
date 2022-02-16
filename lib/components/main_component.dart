@@ -21,7 +21,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     final themeData = Theme.of(context);
     final width = MediaQuery.of(context).size.width;
-    // print('size of the screen is ' + width.toString());
+    final textTheme = themeData.textTheme;
     return PreferredSize(
       preferredSize: Size(width, 1000),
       child: CustomScrollView(
@@ -63,6 +63,7 @@ class _HomePageState extends State<HomePage> {
                           text: 'Skills',
                           width: width,
                           isDarkMode: _isDarkMode,
+                          textTheme: textTheme,
                         ),
                       ),
                       InkWell(
@@ -72,6 +73,7 @@ class _HomePageState extends State<HomePage> {
                           text: 'Projects',
                           isDarkMode: _isDarkMode,
                           width: width,
+                          textTheme: textTheme,
                         ),
                       ),
                       InkWell(
@@ -81,6 +83,7 @@ class _HomePageState extends State<HomePage> {
                           text: 'Work Experience',
                           isDarkMode: _isDarkMode,
                           width: width,
+                          textTheme: textTheme,
                         ),
                       ),
                       InkWell(
@@ -90,6 +93,7 @@ class _HomePageState extends State<HomePage> {
                           text: 'Achivements',
                           isDarkMode: _isDarkMode,
                           width: width,
+                          textTheme: textTheme,
                         ),
                       ),
                       InkWell(
@@ -99,6 +103,7 @@ class _HomePageState extends State<HomePage> {
                           text: 'Contact Me',
                           isDarkMode: _isDarkMode,
                           width: width,
+                          textTheme: textTheme,
                         ),
                       ),
                       IconButton(
@@ -155,6 +160,7 @@ Widget _buildAppBarButton({
   required String text,
   required bool isDarkMode,
   required double width,
+  required TextTheme textTheme,
 }) {
   return Padding(
     padding: EdgeInsets.symmetric(horizontal: 20 / _kSize * width),
@@ -162,7 +168,7 @@ Widget _buildAppBarButton({
       height: 55 / _kSize * width,
       child: Text(
         text,
-        style: ComponentTextStyle.getTextStyle(isDarkMode, width).headline4,
+        style: textTheme.headline1,
       ),
     ),
   );

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/constants/custom_theme.dart';
 import 'package:portfolio/model/project_model.dart';
+import 'package:portfolio/utils/custom_utils.dart';
 
 class ProjectTile extends StatelessWidget {
   final Project project;
@@ -14,33 +15,44 @@ class ProjectTile extends StatelessWidget {
     final textTheme = Theme.of(context).textTheme;
     final _isDark = Theme.of(context).brightness == Brightness.dark;
     final width = MediaQuery.of(context).size.width;
+
     return Material(
+      color: Colors.transparent,
       child: InkWell(
-        hoverColor: Colors.transparent,
-        splashColor: Colors.transparent,
         onTap: () {},
-        child: SizedBox(
+        child: Container(
           width: 0.45 * width,
-          height: 230,
-          child: Card(
+          height: 180,
+          padding: const EdgeInsets.all(0),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(10),
             color: _isDark ? darkBackgroundColor : lightBackgroundColor,
-            elevation: 10,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                _projectTitle(project.title, textTheme, _isDark),
-                const SizedBox(height: 10),
-                Container(
-                  width: double.infinity,
-                  padding: const EdgeInsets.symmetric(horizontal: 20),
-                  child: SelectableText(
-                    project.description,
-                    style: textTheme.subtitle1,
-                  ),
+            boxShadow: [
+              BoxShadow(
+                color: !_isDark
+                    ? Colors.black.withOpacity(.05)
+                    : Colors.white.withOpacity(.05),
+                offset: const Offset(5, 5),
+                blurRadius: 0,
+                spreadRadius: 0,
+              ),
+            ],
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              _projectTitle(project.title, textTheme, _isDark),
+              const SizedBox(height: 10),
+              Container(
+                width: double.infinity,
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                child: SelectableText(
+                  project.description,
+                  style: textTheme.headline3,
                 ),
-                _projectDetail(project, textTheme),
-              ],
-            ),
+              ),
+              _projectDetail(project, textTheme),
+            ],
           ),
         ),
       ),
@@ -72,28 +84,27 @@ Widget _projectDetail(Project project, TextTheme textTheme) {
   return Row(
     children: [
       Container(
-        width: 30,
-        height: 30,
+        width: 15,
+        height: 15,
         margin: const EdgeInsets.fromLTRB(20.0, 15, 10, 5),
         decoration: BoxDecoration(
           color: project.languageColor,
           shape: BoxShape.circle,
         ),
       ),
-      // const SizedBox(width: 10),
       Padding(
         padding: const EdgeInsets.only(top: 8.0),
         child: SelectableText(
           project.language,
-          style: textTheme.headline4,
+          style: textTheme.headline3,
         ),
       ),
-      const SizedBox(width: 10),
+      const SizedBox(width: 500),
       Padding(
         padding: const EdgeInsets.only(top: 8.0),
         child: SelectableText(
-          project.size.toString() + ' KB',
-          style: textTheme.headline4,
+          kbToMB(project.size),
+          style: textTheme.headline3,
         ),
       )
     ],

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:portfolio/constants/custom_theme.dart';
 import 'package:portfolio/constants/data.dart';
 import 'package:portfolio/widgets/project_tile.dart';
+import 'package:portfolio/widgets/resume_button.dart';
 
 const _kSize = 1536;
 
@@ -14,6 +15,7 @@ class ProjectComponent extends StatelessWidget {
     final theme = Theme.of(context);
     final currentTextTheme = Theme.of(context).textTheme;
     final width = MediaQuery.of(context).size.width;
+
     return Material(
       child: Container(
         decoration: ComponentBoxDecoration.getBoxDecoration(_isDark, theme),
@@ -31,7 +33,7 @@ class ProjectComponent extends StatelessWidget {
             ),
             Positioned(
               left: 30 / _kSize * width,
-              top: 350 / _kSize * width,
+              top: 300 / _kSize * width,
               child: ProjectTile(project: ProjectData.projectList[1]),
             ),
             Positioned(
@@ -41,8 +43,13 @@ class ProjectComponent extends StatelessWidget {
             ),
             Positioned(
               left: 0.5 * width,
-              top: 350 / _kSize * width,
+              top: 300 / _kSize * width,
               child: ProjectTile(project: ProjectData.projectList[3]),
+            ),
+            Positioned(
+              left: 0.40 * width,
+              top: 520 / _kSize * width,
+              child: const CustomButton(text: 'MORE PROJECTS'),
             ),
           ],
         ),

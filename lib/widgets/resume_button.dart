@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/constants/custom_theme.dart';
 
-class ResumeButton extends StatelessWidget {
+class CustomButton extends StatelessWidget {
   final String text;
-  const ResumeButton({
+  const CustomButton({
     required this.text,
     Key? key,
   }) : super(key: key);
