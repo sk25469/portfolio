@@ -22,42 +22,29 @@ class ComponentBoxDecoration {
 }
 
 class ComponentTextStyle {
-  static TextTheme getTextStyle(bool isDark, double width) {
+  static TextTheme getTextStyle(bool isHovering, bool isDark) {
     return TextTheme(
-      bodyText1: TextStyle(
-        color: isDark ? Colors.white : Colors.black,
-        fontFamily: 'ZenKakuGothicAntique-Medium',
-        fontSize: 60 / _kSize * width,
-      ),
-      bodyText2: TextStyle(
-        color: isDark ? Colors.white : Colors.black,
-        fontFamily: 'ZenKakuGothicAntique-Light',
-        fontSize: 35 / _kSize * width,
-      ),
-      button: TextStyle(
-        color: !isDark ? Colors.black : Colors.white,
-        fontSize: 25 / _kSize * width,
-        fontFamily: 'ZenKakuGothicAntique-Medium',
-      ),
-      caption: TextStyle(
-        color: isDark ? Colors.white : Colors.black,
-        fontSize: 25 / _kSize * width,
-        fontFamily: 'ZenKakuGothicAntique-Medium',
-      ),
-      subtitle1: TextStyle(
-        color: isDark ? Colors.white : Colors.black,
-        fontSize: 20 / _kSize * width,
+      headline3: TextStyle(
+        color: !isHovering && isDark
+            ? Colors.white
+            : (!isHovering && !isDark)
+                ? Colors.black
+                : (isHovering && isDark)
+                    ? Colors.black
+                    : Colors.white,
+        fontSize: 18,
         fontFamily: 'ZenKakuGothicAntique-Regular',
       ),
-      headline6: TextStyle(
-        color: isDark ? Colors.white : Colors.black,
-        fontSize: 15 / _kSize * width,
-        fontFamily: 'ZenKakuGothicAntique-Medium',
-      ),
-      headline4: TextStyle(
-        color: isDark ? Colors.white : Colors.black,
-        fontFamily: 'Festive-Regular',
-        fontSize: 34,
+      headline5: TextStyle(
+        color: !isHovering && isDark
+            ? Colors.white
+            : (!isHovering && !isDark)
+                ? Colors.black
+                : (isHovering && isDark)
+                    ? Colors.black
+                    : Colors.white,
+        fontSize: 30,
+        fontFamily: 'ZenKakuGothicAntique-Light',
       ),
     );
   }

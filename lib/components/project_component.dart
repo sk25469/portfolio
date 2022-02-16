@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/constants/custom_theme.dart';
 import 'package:portfolio/constants/data.dart';
-import 'package:portfolio/widgets/project_tile.dart';
+import 'package:portfolio/extensions/splash_on_hover.dart';
 import 'package:portfolio/widgets/resume_button.dart';
 
 const _kSize = 1536;
@@ -29,22 +29,22 @@ class ProjectComponent extends StatelessWidget {
             Positioned(
               left: 30 / _kSize * width,
               top: 100 / _kSize * width,
-              child: ProjectTile(project: ProjectData.projectList[0]),
+              child: SplashOnHover(project: ProjectData.projectList[0]),
             ),
             Positioned(
               left: 30 / _kSize * width,
               top: 300 / _kSize * width,
-              child: ProjectTile(project: ProjectData.projectList[1]),
+              child: SplashOnHover(project: ProjectData.projectList[1]),
             ),
             Positioned(
               left: 0.5 * width,
               top: 100 / _kSize * width,
-              child: ProjectTile(project: ProjectData.projectList[2]),
+              child: SplashOnHover(project: ProjectData.projectList[2]),
             ),
             Positioned(
               left: 0.5 * width,
               top: 300 / _kSize * width,
-              child: ProjectTile(project: ProjectData.projectList[3]),
+              child: SplashOnHover(project: ProjectData.projectList[3]),
             ),
             Positioned(
               left: 0.40 * width,
