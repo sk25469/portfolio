@@ -26,7 +26,7 @@ class ProjectTile extends StatelessWidget {
         child: Container(
           width: 0.45 * width,
           height: 180,
-          padding: const EdgeInsets.all(0),
+          // padding: const EdgeInsets.all(0),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10),
             // color: _isDark ? darkBackgroundColor : lightBackgroundColor,
@@ -76,7 +76,7 @@ Widget _projectTitle(String text, TextTheme textTheme, bool isDark, bool isHover
           width: 30,
         ),
         const SizedBox(width: 10),
-        SelectableText(
+        Text(
           text,
           style: ComponentTextStyle.getTextStyle(isHovering, isDark).headline5,
         ),
@@ -100,7 +100,7 @@ Widget _projectDetail(
       ),
       Padding(
         padding: const EdgeInsets.only(top: 8.0),
-        child: SelectableText(
+        child: Text(
           project.language,
           style: ComponentTextStyle.getTextStyle(isHovering, isDark).headline3,
         ),
@@ -108,7 +108,7 @@ Widget _projectDetail(
       const SizedBox(width: 500),
       Padding(
         padding: const EdgeInsets.only(top: 8.0),
-        child: SelectableText(
+        child: Text(
           kbToMB(project.size),
           style: ComponentTextStyle.getTextStyle(isHovering, isDark).headline3,
         ),

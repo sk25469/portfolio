@@ -32,22 +32,26 @@ class _SplashOnHover extends State<SplashOnHover> {
     return MouseRegion(
       onEnter: (e) => _mouseEnter(true),
       onExit: (e) => _mouseEnter(false),
-      child: SizedBox(
+      child: Container(
         width: 0.45 * width,
         height: 180,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(10),
+          color: Colors.transparent,
+        ),
         child: Stack(
           children: [
             Positioned(
-              top: -25,
-              right: -25,
+              top: -20,
+              right: -20,
               child: AnimatedContainer(
-                width: _hovering ? 1000 : 50,
-                height: _hovering ? 1000 : 50,
+                width: _hovering ? 1000 : 40,
+                height: _hovering ? 1000 : 40,
                 alignment: Alignment.topRight,
                 decoration: BoxDecoration(
                   color: isDark ? lightBackgroundColor : darkBackgroundColor,
                   borderRadius: const BorderRadius.all(
-                    Radius.circular(50),
+                    Radius.circular(40),
                   ),
                 ),
                 duration: const Duration(milliseconds: 500),

@@ -4,7 +4,7 @@ const lightBackgroundColor = Color.fromRGBO(219, 203, 181, 1);
 const darkBackgroundColor = Color.fromRGBO(23, 45, 55, 1);
 const lightGrey = Color.fromRGBO(124, 140, 148, 1);
 
-const _kSize = 1536;
+// const _kSize = 1536;
 
 class ComponentBoxDecoration {
   static BoxDecoration getBoxDecoration(bool isDark, ThemeData themeData) {
