@@ -52,6 +52,9 @@ class CompanyData {
         const Color.fromRGBO(251, 188, 5, 1),
       ],
       imageAssetPath: 'assets/icons/google.png',
+      designation: 'Software Engineer',
+      startDate: 'Jan 2021',
+      endDate: 'Present',
     ),
     Company(
       name: 'Facebook',
@@ -61,6 +64,9 @@ class CompanyData {
         const Color.fromRGBO(24, 119, 242, 1),
       ],
       imageAssetPath: 'assets/icons/facebook.png',
+      designation: 'Software Developer',
+      startDate: 'Jan 2020',
+      endDate: 'Dec 2020',
     ),
   ];
 

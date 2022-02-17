@@ -74,6 +74,9 @@ flutter:
     - family: ZenKakuGothicAntique-Medium
       fonts:
         - asset: assets/font/ZenKakuGothicAntique-Medium.ttf
+    - family: ZenKakuGothicAntique-Bold
+      fonts:
+        - asset: assets/font/ZenKakuGothicAntique-Bold.ttf
 
         # - asset: fonts/Schyler-Italic.ttf
         # style: italic

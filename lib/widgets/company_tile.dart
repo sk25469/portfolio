@@ -13,7 +13,8 @@ class CompanyTile extends StatelessWidget {
   Widget build(BuildContext context) {
     final _isDark = Theme.of(context).brightness == Brightness.dark;
     final textTheme = Theme.of(context).textTheme;
-    double containerWidth = 300, containerHeight = 450;
+    // final theme = Theme.of(context);
+    double containerWidth = 400, containerHeight = 470;
     int hasMoreColors = company.colors.length;
 
     return Container(
@@ -88,8 +89,29 @@ class CompanyTile extends StatelessWidget {
             ),
           Positioned(
             child: Container(
+              // height: 100,
+              width: 100,
+              padding: const EdgeInsets.symmetric(horizontal: 5),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(20),
+                color: _isDark ? Colors.black : Colors.white,
+              ),
+              child: Container(
+                alignment: Alignment.topCenter,
+                child: Text(
+                  company.name,
+                  style: textTheme.headline4,
+                ),
+              ),
+            ),
+            top: 20,
+            left: containerWidth / 2 - 50,
+          ),
+          Positioned(
+            child: Container(
               width: 70,
               height: 70,
+              alignment: Alignment.topCenter,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(100),
                 color: Colors.white,
@@ -110,9 +132,9 @@ class CompanyTile extends StatelessWidget {
               color: Colors.transparent,
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                child: SelectableText(
-                  company.description,
-                  style: textTheme.headline3,
+                child: _buildCompanyDescription(
+                  company,
+                  textTheme,
                 ),
               ),
             ),
@@ -123,4 +145,37 @@ class CompanyTile extends StatelessWidget {
       ),
     );
   }
+}
+
+Widget _buildCompanyDescription(Company company, TextTheme textTheme) {
+  return Column(
+    children: [
+      SelectableText(
+        company.designation,
+        // headline2
+        style: textTheme.headline2,
+      ),
+      const SizedBox(height: 5),
+      Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          SelectableText(
+            company.startDate,
+            // headline4
+            style: textTheme.subtitle1,
+          ),
+          //headline4
+          SelectableText(
+            ' - ' + company.endDate,
+            style: textTheme.subtitle1,
+          ),
+        ],
+      ),
+      const SizedBox(height: 10),
+      SelectableText(
+        company.description,
+        style: textTheme.headline4,
+      ),
+    ],
+  );
 }

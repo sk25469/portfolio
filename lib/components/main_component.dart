@@ -9,7 +9,11 @@ import 'package:portfolio/constants/custom_theme.dart';
 const _kSize = 1536;
 
 class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
+  final AdaptiveThemeMode mode;
+  const HomePage({
+    Key? key,
+    required this.mode,
+  }) : super(key: key);
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -32,6 +36,7 @@ class _HomePageState extends State<HomePage> {
         }
       });
     });
+    _isDarkMode = widget.mode == AdaptiveThemeMode.dark;
   }
 
   @override
