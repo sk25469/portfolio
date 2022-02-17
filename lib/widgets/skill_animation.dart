@@ -27,6 +27,12 @@ class _SkillAnimationState extends State<SkillAnimation> {
   }
 
   @override
+  void dispose() {
+    super.dispose();
+    _controller.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return SizedBox(
       child: RiveAnimation.asset(

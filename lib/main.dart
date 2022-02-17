@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
       dark: darkTheme,
       initial: AdaptiveThemeMode.light,
       builder: (theme, darkTheme) => MaterialApp(
-        title: 'Flutter Demo',
+        title: 'Sahil Sarwar',
         theme: theme,
         debugShowCheckedModeBanner: false,
         darkTheme: darkTheme,
