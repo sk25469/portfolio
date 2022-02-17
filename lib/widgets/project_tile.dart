@@ -26,11 +26,8 @@ class ProjectTile extends StatelessWidget {
         child: Container(
           width: 0.45 * width,
           height: 180,
-          // padding: const EdgeInsets.all(0),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10),
-            // color: _isDark ? darkBackgroundColor : lightBackgroundColor,
-
             color: Colors.transparent,
             boxShadow: [
               BoxShadow(
@@ -53,7 +50,6 @@ class ProjectTile extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: SelectableText(
                   project.description,
-                  // headline3
                   style: ComponentTextStyle.getTextStyle(isHovering, _isDark).headline3,
                 ),
               ),

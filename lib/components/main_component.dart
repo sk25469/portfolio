@@ -15,142 +15,200 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  final ScrollController _controller = ScrollController();
   bool _isDarkMode = false;
+  bool _showBackToTopButton = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller.addListener(() {
+      setState(() {
+        if (_controller.offset >= 100) {
+          _showBackToTopButton = true; // show the back-to-top button
+        } else {
+          _showBackToTopButton = false; // hide the back-to-top button
+        }
+      });
+    });
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose(); // dispose the controller
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     final themeData = Theme.of(context);
     final width = MediaQuery.of(context).size.width;
     final textTheme = themeData.textTheme;
-    return PreferredSize(
-      preferredSize: Size(width, 1000),
-      child: CustomScrollView(
-        slivers: <Widget>[
-          SliverAppBar(
-            elevation: 10,
-            centerTitle: true,
-            floating: true,
-            toolbarHeight: 80 / _kSize * width,
-            title: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Expanded(
-                  flex: 2 * _kSize * width.toInt(),
-                  child: Container(
-                    color: Colors.white,
-                    child: Padding(
-                      padding: EdgeInsets.all(8.0 / _kSize * width),
-                      child: Image.asset(
-                        "assets/images/signature.png",
-                        alignment: Alignment.center,
+    final _itemExtent = 600 / _kSize * width;
+
+    void _animateToIndex(int index) {
+      _controller.animateTo(
+        index * _itemExtent,
+        duration: const Duration(seconds: 1),
+        curve: Curves.fastOutSlowIn,
+      );
+    }
+
+    return SafeArea(
+      child: Scaffold(
+        // preferredSize: Size(width, 1000),
+        backgroundColor: Colors.transparent,
+        floatingActionButton: _showBackToTopButton
+            ? FloatingActionButton(
+                onPressed: () {
+                  _animateToIndex(0);
+                },
+                child: Icon(
+                  Icons.arrow_upward_outlined,
+                  color: _isDarkMode ? Colors.black : Colors.white,
+                ),
+                backgroundColor: _isDarkMode ? lightBackgroundColor : darkBackgroundColor,
+              )
+            : null,
+        body: CustomScrollView(
+          controller: _controller,
+          slivers: <Widget>[
+            SliverAppBar(
+              elevation: 10,
+              centerTitle: true,
+              floating: true,
+              toolbarHeight: 80 / _kSize * width,
+              title: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Expanded(
+                    flex: 2 * _kSize * width.toInt(),
+                    child: Container(
+                      color: Colors.white,
+                      child: Padding(
+                        padding: EdgeInsets.all(8.0 / _kSize * width),
+                        child: Image.asset(
+                          "assets/images/signature.png",
+                          alignment: Alignment.center,
+                        ),
                       ),
                     ),
                   ),
-                ),
-                Expanded(
-                  flex: 4 * _kSize * width.toInt(),
-                  child: const SizedBox(),
-                ),
-                Expanded(
-                  flex: 8 * _kSize * width.toInt(),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      InkWell(
-                        onTap: () {},
-                        hoverColor: _isDarkMode ? Colors.black : Colors.white,
-                        child: _buildAppBarButton(
-                          text: 'Skills',
-                          width: width,
-                          isDarkMode: _isDarkMode,
-                          textTheme: textTheme,
-                        ),
-                      ),
-                      InkWell(
-                        onTap: () {},
-                        hoverColor: _isDarkMode ? Colors.black : Colors.white,
-                        child: _buildAppBarButton(
-                          text: 'Projects',
-                          isDarkMode: _isDarkMode,
-                          width: width,
-                          textTheme: textTheme,
-                        ),
-                      ),
-                      InkWell(
-                        onTap: () {},
-                        hoverColor: _isDarkMode ? Colors.black : Colors.white,
-                        child: _buildAppBarButton(
-                          text: 'Work Experience',
-                          isDarkMode: _isDarkMode,
-                          width: width,
-                          textTheme: textTheme,
-                        ),
-                      ),
-                      InkWell(
-                        onTap: () {},
-                        hoverColor: _isDarkMode ? Colors.black : Colors.white,
-                        child: _buildAppBarButton(
-                          text: 'Achivements',
-                          isDarkMode: _isDarkMode,
-                          width: width,
-                          textTheme: textTheme,
-                        ),
-                      ),
-                      InkWell(
-                        onTap: () {},
-                        hoverColor: _isDarkMode ? Colors.black : Colors.white,
-                        child: _buildAppBarButton(
-                          text: 'Contact Me',
-                          isDarkMode: _isDarkMode,
-                          width: width,
-                          textTheme: textTheme,
-                        ),
-                      ),
-                      IconButton(
-                        padding: EdgeInsets.only(bottom: 3 / _kSize * width),
-                        onPressed: () {
-                          setState(() {
-                            if (_isDarkMode) {
-                              AdaptiveTheme.of(context).setLight();
-                            } else {
-                              AdaptiveTheme.of(context).setDark();
-                            }
-                            _isDarkMode = !_isDarkMode;
-                          });
-                        },
-                        icon: _isDarkMode
-                            ? Icon(
-                                Icons.dark_mode,
-                                color: Colors.white,
-                                size: 0.02 * width,
-                              )
-                            : Icon(
-                                Icons.dark_mode_outlined,
-                                color: Colors.black,
-                                size: 0.02 * width,
-                              ),
-                      ),
-                    ],
+                  Expanded(
+                    flex: 4 * _kSize * width.toInt(),
+                    child: const SizedBox(),
                   ),
-                ),
-              ],
+                  Expanded(
+                    flex: 8 * _kSize * width.toInt(),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        InkWell(
+                          onTap: () {
+                            _animateToIndex(1);
+                          },
+                          hoverColor: _isDarkMode ? Colors.black : Colors.white,
+                          child: _buildAppBarButton(
+                            text: 'Skills',
+                            width: width,
+                            isDarkMode: _isDarkMode,
+                            textTheme: textTheme,
+                          ),
+                        ),
+                        InkWell(
+                          onTap: () {
+                            _animateToIndex(2);
+                          },
+                          hoverColor: _isDarkMode ? Colors.black : Colors.white,
+                          child: _buildAppBarButton(
+                            text: 'Projects',
+                            isDarkMode: _isDarkMode,
+                            width: width,
+                            textTheme: textTheme,
+                          ),
+                        ),
+                        InkWell(
+                          onTap: () {
+                            _animateToIndex(3);
+                          },
+                          hoverColor: _isDarkMode ? Colors.black : Colors.white,
+                          child: _buildAppBarButton(
+                            text: 'Work Experience',
+                            isDarkMode: _isDarkMode,
+                            width: width,
+                            textTheme: textTheme,
+                          ),
+                        ),
+                        InkWell(
+                          onTap: () {
+                            _animateToIndex(4);
+                          },
+                          hoverColor: _isDarkMode ? Colors.black : Colors.white,
+                          child: _buildAppBarButton(
+                            text: 'Achivements',
+                            isDarkMode: _isDarkMode,
+                            width: width,
+                            textTheme: textTheme,
+                          ),
+                        ),
+                        InkWell(
+                          onTap: () {
+                            _animateToIndex(5);
+                          },
+                          hoverColor: _isDarkMode ? Colors.black : Colors.white,
+                          child: _buildAppBarButton(
+                            text: 'Contact Me',
+                            isDarkMode: _isDarkMode,
+                            width: width,
+                            textTheme: textTheme,
+                          ),
+                        ),
+                        IconButton(
+                          padding: EdgeInsets.only(bottom: 3 / _kSize * width),
+                          onPressed: () {
+                            setState(() {
+                              if (_isDarkMode) {
+                                AdaptiveTheme.of(context).setLight();
+                              } else {
+                                AdaptiveTheme.of(context).setDark();
+                              }
+                              _isDarkMode = !_isDarkMode;
+                            });
+                          },
+                          icon: _isDarkMode
+                              ? Icon(
+                                  Icons.dark_mode,
+                                  color: Colors.white,
+                                  size: 0.02 * width,
+                                )
+                              : Icon(
+                                  Icons.dark_mode_outlined,
+                                  color: Colors.black,
+                                  size: 0.02 * width,
+                                ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+              backgroundColor: themeData.accentColor,
             ),
-            backgroundColor: themeData.accentColor,
-          ),
-          SliverFixedExtentList(
-            itemExtent: 600 / _kSize * width,
-            delegate: SliverChildListDelegate(
-              [
-                const BioComponent(),
-                const SkillComponent(),
-                const ProjectComponent(),
-                Container(color: Colors.orange),
-                Container(color: Colors.yellow),
-                Container(color: Colors.pink),
-              ],
+            SliverFixedExtentList(
+              itemExtent: _itemExtent,
+              delegate: SliverChildListDelegate(
+                [
+                  const BioComponent(),
+                  const SkillComponent(),
+                  const ProjectComponent(),
+                  Container(color: Colors.orange),
+                  Container(color: Colors.yellow),
+                  Container(color: Colors.pink),
+                ],
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
