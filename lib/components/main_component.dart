@@ -1,6 +1,7 @@
 import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:portfolio/components/bio_component.dart';
+import 'package:portfolio/components/experience_component.dart';
 import 'package:portfolio/components/project_component.dart';
 import 'package:portfolio/components/skills_component.dart';
 import 'package:portfolio/constants/custom_theme.dart';
@@ -195,7 +196,7 @@ class _HomePageState extends State<HomePage> {
                   const BioComponent(),
                   const SkillComponent(),
                   const ProjectComponent(),
-                  Container(color: Colors.orange),
+                  const ExperienceComponent(),
                   Container(color: Colors.yellow),
                   Container(color: Colors.pink),
                 ],

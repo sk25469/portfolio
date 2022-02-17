@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/model/company_model.dart';
 import 'package:portfolio/model/project_model.dart';
 
 class ProjectData {
@@ -36,4 +37,32 @@ class ProjectData {
       languageColor: Colors.blue,
     ),
   ];
+}
+
+class CompanyData {
+  static final company = [
+    Company(
+      name: 'Google',
+      description:
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua\n\n⚡Flutter is Google’s UI toolkit for crafting beautiful, high-fidelity\n⚡Natively compiled applications for mobile, web, and desktop from a single codebase.',
+      colors: [
+        const Color.fromRGBO(234, 67, 53, 1),
+        const Color.fromRGBO(66, 133, 244, 1),
+        const Color.fromRGBO(52, 168, 83, 1),
+        const Color.fromRGBO(251, 188, 5, 1),
+      ],
+      imageAssetPath: 'assets/icons/google.png',
+    ),
+    Company(
+      name: 'Facebook',
+      description:
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua\n\n⚡Flutter is Google’s UI toolkit for crafting beautiful, high-fidelity\n⚡Natively compiled applications for mobile, web, and desktop from a single codebase.',
+      colors: [
+        const Color.fromRGBO(24, 119, 242, 1),
+      ],
+      imageAssetPath: 'assets/icons/facebook.png',
+    ),
+  ];
+
+  static get amet => null;
 }

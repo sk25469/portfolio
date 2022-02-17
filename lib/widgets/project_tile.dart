@@ -50,7 +50,7 @@ class ProjectTile extends StatelessWidget {
               Container(
                 width: double.infinity,
                 padding: EdgeInsets.symmetric(horizontal: 20 / _kSize * width),
-                child: SelectableText(
+                child: Text(
                   project.description,
                   style: ComponentTextStyle.getTextStyle(isHovering, _isDark).headline3,
                 ),
