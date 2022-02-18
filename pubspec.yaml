@@ -28,10 +28,11 @@ environment:
 # versions available, run `flutter pub outdated`.
 dependencies:
   adaptive_theme: ^2.3.0
+  animated_text_kit: ^4.2.1
   cupertino_icons: ^1.0.2
-  rive: ^0.7.22
   flutter:
     sdk: flutter
+  rive: ^0.7.22
 
 dev_dependencies:
   flutter_lints: ^1.0.0
@@ -77,7 +78,6 @@ flutter:
     - family: ZenKakuGothicAntique-Bold
       fonts:
         - asset: assets/font/ZenKakuGothicAntique-Bold.ttf
-
         # - asset: fonts/Schyler-Italic.ttf
         # style: italic
   #   - family: Trajan Pro

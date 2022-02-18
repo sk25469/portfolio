@@ -62,7 +62,7 @@ class _HomePageState extends State<HomePage> {
 
     return SafeArea(
       child: Scaffold(
-        backgroundColor: Colors.transparent,
+        backgroundColor: _isDarkMode ? Colors.black : Colors.white,
         floatingActionButton: _showBackToTopButton
             ? FloatingActionButton(
                 onPressed: () {
@@ -75,139 +75,143 @@ class _HomePageState extends State<HomePage> {
                 backgroundColor: _isDarkMode ? lightBackgroundColor : darkBackgroundColor,
               )
             : null,
-        body: CustomScrollView(
-          controller: _controller,
-          slivers: <Widget>[
-            SliverAppBar(
-              elevation: 10,
-              centerTitle: true,
-              floating: true,
-              toolbarHeight: 80 / _kSize * width,
-              title: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  Container(
-                    color: Colors.white,
-                    child: Padding(
-                      padding: EdgeInsets.all(8.0 / _kSize * width),
-                      child: Image.asset(
-                        "assets/images/signature.png",
-                        alignment: Alignment.center,
-                        width: 200 / _kSize * width,
-                        height: 200 / _kSize * width,
+        body: Scrollbar(
+          showTrackOnHover: true,
+          thickness: 10,
+          child: CustomScrollView(
+            controller: _controller,
+            slivers: <Widget>[
+              SliverAppBar(
+                elevation: 10,
+                centerTitle: true,
+                floating: true,
+                toolbarHeight: 80 / _kSize * width,
+                title: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Container(
+                      color: Colors.white,
+                      child: Padding(
+                        padding: EdgeInsets.all(8.0 / _kSize * width),
+                        child: Image.asset(
+                          "assets/images/signature.png",
+                          alignment: Alignment.center,
+                          width: 200 / _kSize * width,
+                          height: 200 / _kSize * width,
+                        ),
                       ),
                     ),
-                  ),
-                  SizedBox(
-                    width: 350 / _kSize * width,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      InkWell(
-                        onTap: () {
-                          _animateToIndex(1);
-                        },
-                        hoverColor: _isDarkMode ? Colors.black : Colors.white,
-                        child: _buildAppBarButton(
-                          text: 'Skills',
-                          width: width,
-                          isDarkMode: _isDarkMode,
-                          textTheme: textTheme,
+                    SizedBox(
+                      width: 350 / _kSize * width,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        InkWell(
+                          onTap: () {
+                            _animateToIndex(1);
+                          },
+                          hoverColor: _isDarkMode ? Colors.black : Colors.white,
+                          child: _buildAppBarButton(
+                            text: 'Skills',
+                            width: width,
+                            isDarkMode: _isDarkMode,
+                            textTheme: textTheme,
+                          ),
                         ),
-                      ),
-                      InkWell(
-                        onTap: () {
-                          _animateToIndex(2);
-                        },
-                        hoverColor: _isDarkMode ? Colors.black : Colors.white,
-                        child: _buildAppBarButton(
-                          text: 'Projects',
-                          isDarkMode: _isDarkMode,
-                          width: width,
-                          textTheme: textTheme,
+                        InkWell(
+                          onTap: () {
+                            _animateToIndex(2);
+                          },
+                          hoverColor: _isDarkMode ? Colors.black : Colors.white,
+                          child: _buildAppBarButton(
+                            text: 'Projects',
+                            isDarkMode: _isDarkMode,
+                            width: width,
+                            textTheme: textTheme,
+                          ),
                         ),
-                      ),
-                      InkWell(
-                        onTap: () {
-                          _animateToIndex(3);
-                        },
-                        hoverColor: _isDarkMode ? Colors.black : Colors.white,
-                        child: _buildAppBarButton(
-                          text: 'Work Experience',
-                          isDarkMode: _isDarkMode,
-                          width: width,
-                          textTheme: textTheme,
+                        InkWell(
+                          onTap: () {
+                            _animateToIndex(3);
+                          },
+                          hoverColor: _isDarkMode ? Colors.black : Colors.white,
+                          child: _buildAppBarButton(
+                            text: 'Work Experience',
+                            isDarkMode: _isDarkMode,
+                            width: width,
+                            textTheme: textTheme,
+                          ),
                         ),
-                      ),
-                      InkWell(
-                        onTap: () {
-                          _animateToIndex(4);
-                        },
-                        hoverColor: _isDarkMode ? Colors.black : Colors.white,
-                        child: _buildAppBarButton(
-                          text: 'Achivements',
-                          isDarkMode: _isDarkMode,
-                          width: width,
-                          textTheme: textTheme,
+                        InkWell(
+                          onTap: () {
+                            _animateToIndex(4);
+                          },
+                          hoverColor: _isDarkMode ? Colors.black : Colors.white,
+                          child: _buildAppBarButton(
+                            text: 'Achivements',
+                            isDarkMode: _isDarkMode,
+                            width: width,
+                            textTheme: textTheme,
+                          ),
                         ),
-                      ),
-                      InkWell(
-                        onTap: () {
-                          _animateToIndex(5);
-                        },
-                        hoverColor: _isDarkMode ? Colors.black : Colors.white,
-                        child: _buildAppBarButton(
-                          text: 'Contact Me',
-                          isDarkMode: _isDarkMode,
-                          width: width,
-                          textTheme: textTheme,
+                        InkWell(
+                          onTap: () {
+                            _animateToIndex(5);
+                          },
+                          hoverColor: _isDarkMode ? Colors.black : Colors.white,
+                          child: _buildAppBarButton(
+                            text: 'Contact Me',
+                            isDarkMode: _isDarkMode,
+                            width: width,
+                            textTheme: textTheme,
+                          ),
                         ),
-                      ),
-                      IconButton(
-                        padding: EdgeInsets.only(bottom: 3 / _kSize * width),
-                        onPressed: () {
-                          setState(() {
-                            if (_isDarkMode) {
-                              AdaptiveTheme.of(context).setLight();
-                            } else {
-                              AdaptiveTheme.of(context).setDark();
-                            }
-                            _isDarkMode = !_isDarkMode;
-                          });
-                        },
-                        icon: _isDarkMode
-                            ? Icon(
-                                Icons.dark_mode,
-                                color: Colors.white,
-                                size: 0.02 * width,
-                              )
-                            : Icon(
-                                Icons.dark_mode_outlined,
-                                color: Colors.black,
-                                size: 0.02 * width,
-                              ),
-                      ),
-                    ],
-                  ),
-                ],
+                        IconButton(
+                          padding: EdgeInsets.only(bottom: 3 / _kSize * width),
+                          onPressed: () {
+                            setState(() {
+                              if (_isDarkMode) {
+                                AdaptiveTheme.of(context).setLight();
+                              } else {
+                                AdaptiveTheme.of(context).setDark();
+                              }
+                              _isDarkMode = !_isDarkMode;
+                            });
+                          },
+                          icon: _isDarkMode
+                              ? Icon(
+                                  Icons.dark_mode,
+                                  color: Colors.white,
+                                  size: 0.02 * width,
+                                )
+                              : Icon(
+                                  Icons.dark_mode_outlined,
+                                  color: Colors.black,
+                                  size: 0.02 * width,
+                                ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+                backgroundColor: themeData.accentColor,
               ),
-              backgroundColor: themeData.accentColor,
-            ),
-            SliverFixedExtentList(
-              itemExtent: _itemExtent,
-              delegate: SliverChildListDelegate(
-                [
-                  const BioComponent(),
-                  const SkillComponent(),
-                  const ProjectComponent(),
-                  const ExperienceComponent(),
-                  Container(color: Colors.yellow),
-                  Container(color: Colors.pink),
-                ],
+              SliverFixedExtentList(
+                itemExtent: _itemExtent,
+                delegate: SliverChildListDelegate(
+                  [
+                    const BioComponent(),
+                    const SkillComponent(),
+                    const ProjectComponent(),
+                    const ExperienceComponent(),
+                    Container(color: Colors.yellow),
+                    Container(color: Colors.pink),
+                  ],
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/constants/custom_theme.dart';
 import 'package:portfolio/model/company_model.dart';
 
 class CompanyTile extends StatelessWidget {
@@ -13,7 +12,6 @@ class CompanyTile extends StatelessWidget {
   Widget build(BuildContext context) {
     final _isDark = Theme.of(context).brightness == Brightness.dark;
     final textTheme = Theme.of(context).textTheme;
-    // final theme = Theme.of(context);
     double containerWidth = 400, containerHeight = 470;
     int hasMoreColors = company.colors.length;
 
@@ -22,14 +20,14 @@ class CompanyTile extends StatelessWidget {
       height: containerHeight,
       margin: const EdgeInsets.symmetric(vertical: 20, horizontal: 30),
       decoration: BoxDecoration(
-        color: _isDark ? darkBackgroundColor : lightBackgroundColor,
+        color: _isDark ? Colors.black : Colors.white,
         borderRadius: BorderRadius.circular(20),
         boxShadow: [
           BoxShadow(
             color:
                 !_isDark ? Colors.black.withOpacity(0.1) : Colors.white.withOpacity(0.1),
             blurRadius: 10,
-            offset: const Offset(7, 7),
+            offset: const Offset(-10, 10),
           ),
         ],
       ),
@@ -91,7 +89,10 @@ class CompanyTile extends StatelessWidget {
             child: Container(
               // height: 100,
               width: 100,
-              padding: const EdgeInsets.symmetric(horizontal: 5),
+              padding: const EdgeInsets.symmetric(
+                horizontal: 5,
+                vertical: 3,
+              ),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20),
                 color: _isDark ? Colors.black : Colors.white,
@@ -133,8 +134,8 @@ class CompanyTile extends StatelessWidget {
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 8.0),
                 child: _buildCompanyDescription(
-                  company,
-                  textTheme,
+                  company: company,
+                  textTheme: textTheme,
                 ),
               ),
             ),
@@ -147,35 +148,45 @@ class CompanyTile extends StatelessWidget {
   }
 }
 
-Widget _buildCompanyDescription(Company company, TextTheme textTheme) {
-  return Column(
-    children: [
-      SelectableText(
-        company.designation,
-        // headline2
-        style: textTheme.headline2,
-      ),
-      const SizedBox(height: 5),
-      Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          SelectableText(
-            company.startDate,
-            // headline4
-            style: textTheme.subtitle1,
-          ),
-          //headline4
-          SelectableText(
-            ' - ' + company.endDate,
-            style: textTheme.subtitle1,
-          ),
-        ],
-      ),
-      const SizedBox(height: 10),
-      SelectableText(
-        company.description,
-        style: textTheme.headline4,
-      ),
-    ],
-  );
+// ignore: camel_case_types
+class _buildCompanyDescription extends StatelessWidget {
+  final Company company;
+  final TextTheme textTheme;
+  const _buildCompanyDescription({
+    Key? key,
+    required this.company,
+    required this.textTheme,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        SelectableText(
+          company.designation,
+          // headline2
+          style: textTheme.headline2,
+        ),
+        const SizedBox(height: 5),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            SelectableText(
+              company.startDate,
+              style: textTheme.subtitle1,
+            ),
+            SelectableText(
+              ' - ' + company.endDate,
+              style: textTheme.subtitle1,
+            ),
+          ],
+        ),
+        const SizedBox(height: 10),
+        SelectableText(
+          company.description,
+          style: textTheme.headline4,
+        ),
+      ],
+    );
+  }
 }

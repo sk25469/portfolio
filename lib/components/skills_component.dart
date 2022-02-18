@@ -37,7 +37,12 @@ class SkillComponent extends StatelessWidget {
             child: _detailText1(currentTextTheme, width),
           ),
           Positioned(
-            child: _techStacks(30 / _kSize * width, 20 / _kSize * width, width, 70),
+            child: _techStacks(
+              widthBetween: 30 / _kSize * width,
+              heightBetween: 20 / _kSize * width,
+              width: width,
+              iconSize: 70,
+            ),
             left: 800 / _kSize * width,
             top: 190 / _kSize * width,
             width: 900 / _kSize * width,
@@ -83,129 +88,140 @@ Widget _detailText1(TextTheme currentTextTheme, double width) {
   );
 }
 
-Widget _techStacks(
-    double widthBetween, double heightBetween, double width, double iconSize) {
-  return Column(
-    children: [
-      Row(
-        children: [
-          TechTile(
-            techImage: Image.asset(
-              'assets/icons/android.png',
-              width: iconSize / _kSize * width,
-              height: iconSize / _kSize * width,
+class _techStacks extends StatelessWidget {
+  final double widthBetween, heightBetween, width, iconSize;
+  const _techStacks({
+    Key? key,
+    required this.widthBetween,
+    required this.heightBetween,
+    required this.width,
+    required this.iconSize,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Row(
+          children: [
+            TechTile(
+              techImage: Image.asset(
+                'assets/icons/android.png',
+                width: iconSize / _kSize * width,
+                height: iconSize / _kSize * width,
+              ),
+              techName: 'Android',
             ),
-            techName: 'Android',
-          ),
-          SizedBox(width: widthBetween),
-          TechTile(
-            techImage: Image.asset(
-              'assets/icons/cpp.png',
-              width: iconSize / _kSize * width,
-              height: iconSize / _kSize * width,
+            SizedBox(width: widthBetween),
+            TechTile(
+              techImage: Image.asset(
+                'assets/icons/cpp.png',
+                width: iconSize / _kSize * width,
+                height: iconSize / _kSize * width,
+              ),
+              techName: 'C++',
             ),
-            techName: 'C++',
-          ),
-          SizedBox(width: widthBetween),
-          TechTile(
-            techImage: Image.asset(
-              'assets/icons/dart.png',
-              width: iconSize / _kSize * width,
-              height: iconSize / _kSize * width,
-              fit: BoxFit.cover,
+            SizedBox(width: widthBetween),
+            TechTile(
+              techImage: Image.asset(
+                'assets/icons/dart.png',
+                width: iconSize / _kSize * width,
+                height: iconSize / _kSize * width,
+                fit: BoxFit.cover,
+              ),
+              techName: 'Dart',
             ),
-            techName: 'Dart',
-          ),
-          SizedBox(width: widthBetween),
-          TechTile(
-            techImage: Image.asset(
-              'assets/icons/database.png',
-              width: iconSize / _kSize * width,
-              height: iconSize / _kSize * width,
-              fit: BoxFit.cover,
+            SizedBox(width: widthBetween),
+            TechTile(
+              techImage: Image.asset(
+                'assets/icons/database.png',
+                width: iconSize / _kSize * width,
+                height: iconSize / _kSize * width,
+                fit: BoxFit.cover,
+              ),
+              techName: 'SQL',
             ),
-            techName: 'SQL',
-          ),
-          SizedBox(width: widthBetween),
-          TechTile(
-            techImage: Image.asset(
-              'assets/icons/docker.png',
-              width: iconSize / _kSize * width,
-              height: iconSize / _kSize * width,
+            SizedBox(width: widthBetween),
+            TechTile(
+              techImage: Image.asset(
+                'assets/icons/docker.png',
+                width: iconSize / _kSize * width,
+                height: iconSize / _kSize * width,
+              ),
+              techName: 'Docker',
             ),
-            techName: 'Docker',
-          ),
-          SizedBox(width: widthBetween),
-          TechTile(
-            techImage: Image.asset(
-              'assets/icons/firebase.png',
-              width: iconSize / _kSize * width,
-              height: iconSize / _kSize * width,
+            SizedBox(width: widthBetween),
+            TechTile(
+              techImage: Image.asset(
+                'assets/icons/firebase.png',
+                width: iconSize / _kSize * width,
+                height: iconSize / _kSize * width,
+              ),
+              techName: 'Firebase',
             ),
-            techName: 'Firebase',
-          ),
-        ],
-      ),
-      SizedBox(height: heightBetween),
-      Row(
-        children: [
-          TechTile(
-            techImage: Image.asset(
-              'assets/icons/flutter.png',
-              width: iconSize / _kSize * width,
-              height: iconSize / _kSize * width,
+          ],
+        ),
+        SizedBox(height: heightBetween),
+        Row(
+          children: [
+            TechTile(
+              techImage: Image.asset(
+                'assets/icons/flutter.png',
+                width: iconSize / _kSize * width,
+                height: iconSize / _kSize * width,
+              ),
+              techName: 'Flutter',
             ),
-            techName: 'Flutter',
-          ),
-          SizedBox(width: widthBetween),
-          TechTile(
-            techImage: Image.asset(
-              'assets/icons/java.png',
-              width: iconSize / _kSize * width,
-              height: iconSize / _kSize * width,
+            SizedBox(width: widthBetween),
+            TechTile(
+              techImage: Image.asset(
+                'assets/icons/java.png',
+                width: iconSize / _kSize * width,
+                height: iconSize / _kSize * width,
+              ),
+              techName: 'Java',
             ),
-            techName: 'Java',
-          ),
-          SizedBox(width: widthBetween),
-          TechTile(
-            techImage: Image.asset(
-              'assets/icons/linux.png',
-              width: iconSize / _kSize * width,
-              height: iconSize / _kSize * width,
+            SizedBox(width: widthBetween),
+            TechTile(
+              techImage: Image.asset(
+                'assets/icons/linux.png',
+                width: iconSize / _kSize * width,
+                height: iconSize / _kSize * width,
+              ),
+              techName: 'Linux',
             ),
-            techName: 'Linux',
-          ),
-          SizedBox(width: widthBetween),
-          TechTile(
-            techImage: Image.asset(
-              'assets/icons/mongodb.png',
-              width: iconSize / _kSize * width,
-              height: iconSize / _kSize * width,
+            SizedBox(width: widthBetween),
+            TechTile(
+              techImage: Image.asset(
+                'assets/icons/mongodb.png',
+                width: iconSize / _kSize * width,
+                height: iconSize / _kSize * width,
+              ),
+              techName: 'MongoDB',
             ),
-            techName: 'MongoDB',
-          ),
-          SizedBox(width: widthBetween),
-          TechTile(
-            techImage: Image.asset(
-              'assets/icons/python.png',
-              width: iconSize / _kSize * width,
-              height: iconSize / _kSize * width,
+            SizedBox(width: widthBetween),
+            TechTile(
+              techImage: Image.asset(
+                'assets/icons/python.png',
+                width: iconSize / _kSize * width,
+                height: iconSize / _kSize * width,
+              ),
+              techName: 'Python',
             ),
-            techName: 'Python',
-          ),
-          SizedBox(width: widthBetween),
-          TechTile(
-            techImage: Image.asset(
-              'assets/icons/springBoot.png',
-              width: iconSize / _kSize * width,
-              height: iconSize / _kSize * width,
+            SizedBox(width: widthBetween),
+            TechTile(
+              techImage: Image.asset(
+                'assets/icons/springBoot.png',
+                width: iconSize / _kSize * width,
+                height: iconSize / _kSize * width,
+              ),
+              techName: 'Spring Boot',
             ),
-            techName: 'Spring Boot',
-          ),
-        ],
-      )
-    ],
-  );
+          ],
+        )
+      ],
+    );
+  }
 }
 
 Widget _detailText2(String text, TextTheme textTheme, double width) {

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:portfolio/constants/custom_theme.dart';
 import 'package:portfolio/constants/data.dart';
 import 'package:portfolio/extensions/splash_on_hover.dart';
-import 'package:portfolio/widgets/resume_button.dart';
+import 'package:portfolio/widgets/custom_button.dart';
 
 const _kSize = 1536;
 
