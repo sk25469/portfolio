@@ -28,6 +28,7 @@ class CompanyTile extends StatelessWidget {
                 !_isDark ? Colors.black.withOpacity(0.1) : Colors.white.withOpacity(0.1),
             blurRadius: 10,
             offset: const Offset(-10, 10),
+            spreadRadius: 5,
           ),
         ],
       ),

@@ -1,4 +1,5 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
+import 'package:emojis/emojis.dart';
 import 'package:flutter/material.dart';
 import 'package:portfolio/constants/custom_theme.dart';
 import 'package:portfolio/extensions/hovering_widget.dart';
@@ -47,6 +48,7 @@ class BioComponent extends StatelessWidget {
   }
 }
 
+// ignore: camel_case_types
 class _profileImage extends StatelessWidget {
   final bool isDark;
   final double width;
@@ -87,7 +89,7 @@ class _bioTextBox extends StatelessWidget {
           displayFullTextOnTap: true,
           animatedTexts: [
             TypewriterAnimatedText(
-                'An aspiring Full Stack Software Developer🧑‍💻 having an experience in building Web and Mobile📲 applications with Flutter and Spring Boot.\nWhen I\'m not coding, I usually play video games 🎮, watch movies 🎞️, listen to music 🎶, or write ✍️ something.'),
+                'An aspiring Full Stack Software Developer ${Emojis.technologist} having an experience in building Web and Mobile${Emojis.mobilePhone} applications with Flutter and Spring Boot.\nWhen I\'m not coding, I usually play video games ${Emojis.videoGame}, watch movies ${Emojis.filmFrames}, listen to music ${Emojis.musicalNotes}, or write ${Emojis.writingHand} something.'),
           ],
         ),
       ),

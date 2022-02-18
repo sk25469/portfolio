@@ -2,6 +2,7 @@ import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:portfolio/components/bio_component.dart';
 import 'package:portfolio/components/experience_component.dart';
+import 'package:portfolio/components/know_me_component.dart';
 import 'package:portfolio/components/project_component.dart';
 import 'package:portfolio/components/skills_component.dart';
 import 'package:portfolio/constants/custom_theme.dart';
@@ -121,7 +122,7 @@ class _HomePageState extends State<HomePage> {
                         ),
                         InkWell(
                           onTap: () {
-                            _animateToIndex(2);
+                            _animateToIndex(3);
                           },
                           hoverColor: _isDarkMode ? Colors.black : Colors.white,
                           child: _buildAppBarButton(
@@ -133,7 +134,7 @@ class _HomePageState extends State<HomePage> {
                         ),
                         InkWell(
                           onTap: () {
-                            _animateToIndex(3);
+                            _animateToIndex(4);
                           },
                           hoverColor: _isDarkMode ? Colors.black : Colors.white,
                           child: _buildAppBarButton(
@@ -145,7 +146,7 @@ class _HomePageState extends State<HomePage> {
                         ),
                         InkWell(
                           onTap: () {
-                            _animateToIndex(4);
+                            _animateToIndex(5);
                           },
                           hoverColor: _isDarkMode ? Colors.black : Colors.white,
                           child: _buildAppBarButton(
@@ -157,7 +158,7 @@ class _HomePageState extends State<HomePage> {
                         ),
                         InkWell(
                           onTap: () {
-                            _animateToIndex(5);
+                            _animateToIndex(6);
                           },
                           hoverColor: _isDarkMode ? Colors.black : Colors.white,
                           child: _buildAppBarButton(
@@ -203,6 +204,7 @@ class _HomePageState extends State<HomePage> {
                   [
                     const BioComponent(),
                     const SkillComponent(),
+                    const KnowMeComponent(),
                     const ProjectComponent(),
                     const ExperienceComponent(),
                     Container(color: Colors.yellow),
