@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/model/achievement_model.dart';
 import 'package:portfolio/model/company_model.dart';
 import 'package:portfolio/model/project_model.dart';
 
@@ -69,6 +70,19 @@ class CompanyData {
       endDate: 'Dec 2020',
     ),
   ];
+}
 
-  static get amet => null;
+class AchievementsData {
+  static final achievements = [
+    Achievement(
+      name: 'Google Kickstart 2021',
+      description: 'Ranked 1912 in Google Kickstart 2021 Round - H',
+      assetName: 'assets/images/kickstart.png',
+    ),
+    Achievement(
+      name: 'Google CodeJam 2021',
+      description: 'Qualified for the 2nd round of Google CodeJam by scoring 30 points',
+      assetName: 'assets/images/codejam.png',
+    ),
+  ];
 }

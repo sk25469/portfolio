@@ -1,5 +1,6 @@
 import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:portfolio/components/achievement_component.dart';
 import 'package:portfolio/components/bio_component.dart';
 import 'package:portfolio/components/experience_component.dart';
 import 'package:portfolio/components/know_me_component.dart';
@@ -218,7 +219,7 @@ class _HomePageState extends State<HomePage> {
                     const KnowMeComponent(),
                     const ProjectComponent(),
                     const ExperienceComponent(),
-                    Container(color: Colors.yellow),
+                    const AchievementComponent(),
                     Container(color: Colors.pink),
                   ],
                 ),
@@ -252,11 +253,10 @@ class _buildAppBarButton extends StatelessWidget {
       padding: EdgeInsets.only(
         left: 10 / _kSize * width,
         right: 10 / _kSize * width,
-        top: 10 / _kSize * width,
+        top: 5 / _kSize * width,
         bottom: 5 / _kSize * width,
       ),
       child: SizedBox(
-        // height: 60 / _kSize * width,
         child: Text(
           text,
           style: textTheme.headline1,

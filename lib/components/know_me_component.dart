@@ -39,13 +39,13 @@ class KnowMeComponent extends StatelessWidget {
             right: 10 / _kSize * width,
             top: 20 / _kSize * width,
             child: const HoveringAnimation(),
-            width: 450 / _kSize * width,
-            height: 450 / _kSize * width,
+            width: 500 / _kSize * width,
+            height: 500 / _kSize * width,
           ),
           Positioned(
             child: _bioText(textTheme: currentTextTheme, text: bioText),
             left: 30 / _kSize * width,
-            top: 100 / _kSize * width,
+            top: 90 / _kSize * width,
           ),
         ],
       ),
@@ -55,7 +55,7 @@ class KnowMeComponent extends StatelessWidget {
 
 Widget _welcomeText(TextTheme currentTextTheme) {
   return SelectableText(
-    'Who am I?',
+    'Who I am',
     style: currentTextTheme.bodyText1,
   );
 }
@@ -73,7 +73,7 @@ class _bioText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: 1000,
+      width: 900,
       child: SelectableText(
         text,
         style: textTheme.subtitle2,

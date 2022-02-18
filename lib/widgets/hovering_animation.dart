@@ -34,12 +34,10 @@ class _HoveringAnimationState extends State<HoveringAnimation> {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: RiveAnimation.asset(
-        'assets/animation/hovering-animation.riv',
-        animations: const ['Animation1', 'Animation2'],
-        controllers: [_controller],
-      ),
+    return RiveAnimation.asset(
+      'assets/animation/hovering-animation.riv',
+      animations: const ['Animation1', 'Animation2'],
+      controllers: [_controller],
     );
   }
 }
