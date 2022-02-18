@@ -79,6 +79,7 @@ class _HomePageState extends State<HomePage> {
         body: Scrollbar(
           showTrackOnHover: true,
           thickness: 10,
+          controller: _controller,
           child: CustomScrollView(
             controller: _controller,
             slivers: <Widget>[
@@ -220,20 +221,32 @@ class _HomePageState extends State<HomePage> {
   }
 }
 
-Widget _buildAppBarButton({
-  required String text,
-  required bool isDarkMode,
-  required double width,
-  required TextTheme textTheme,
-}) {
-  return Padding(
-    padding: EdgeInsets.symmetric(horizontal: 20 / _kSize * width),
-    child: SizedBox(
-      height: 55 / _kSize * width,
-      child: Text(
-        text,
-        style: textTheme.headline1,
+// ignore: camel_case_types
+class _buildAppBarButton extends StatelessWidget {
+  final String text;
+  final bool isDarkMode;
+  final double width;
+  final TextTheme textTheme;
+
+  const _buildAppBarButton({
+    Key? key,
+    required this.text,
+    required this.isDarkMode,
+    required this.width,
+    required this.textTheme,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: 20 / _kSize * width),
+      child: SizedBox(
+        height: 55 / _kSize * width,
+        child: Text(
+          text,
+          style: textTheme.headline1,
+        ),
       ),
-    ),
-  );
+    );
+  }
 }

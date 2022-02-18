@@ -36,7 +36,7 @@ class _SplashOnHover extends State<SplashOnHover> {
         width: 0.45 * width,
         height: 180,
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(10),
+          borderRadius: BorderRadius.circular(20),
           color: Colors.transparent,
         ),
         child: Stack(
@@ -45,13 +45,13 @@ class _SplashOnHover extends State<SplashOnHover> {
               top: -20,
               right: -20,
               child: AnimatedContainer(
-                width: _hovering ? 1000 : 40,
-                height: _hovering ? 1000 : 40,
+                width: _hovering ? 2000 : 40,
+                height: _hovering ? 2000 : 40,
                 alignment: Alignment.topRight,
                 decoration: BoxDecoration(
                   color: isDark ? lightBackgroundColor : darkBackgroundColor,
                   borderRadius: const BorderRadius.all(
-                    Radius.circular(40),
+                    Radius.circular(20),
                   ),
                 ),
                 duration: const Duration(milliseconds: 500),
