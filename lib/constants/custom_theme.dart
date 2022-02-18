@@ -100,7 +100,7 @@ final darkTheme = ThemeData(
     ),
     headline1: TextStyle(
       color: Colors.white,
-      fontFamily: 'Festive-Regular',
+      fontFamily: 'Monoton-Regular',
       fontSize: 34,
     ),
     headline2: TextStyle(
@@ -171,7 +171,7 @@ final lightTheme = ThemeData(
     ),
     headline1: TextStyle(
       color: Colors.black,
-      fontFamily: 'Festive-Regular',
+      fontFamily: 'Monoton-Regular',
       fontSize: 34,
     ),
     headline2: TextStyle(

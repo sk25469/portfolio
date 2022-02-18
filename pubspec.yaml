@@ -79,6 +79,12 @@ flutter:
     - family: ZenKakuGothicAntique-Bold
       fonts:
         - asset: assets/font/ZenKakuGothicAntique-Bold.ttf
+    - family: Memorial-Lane
+      fonts:
+        - asset: assets/font/Memorial-Lane.ttf
+    - family: Monotone-Regular
+      fonts:
+        - asset: assets/font/Monoton-Regular.ttf
         # - asset: fonts/Schyler-Italic.ttf
         # style: italic
   #   - family: Trajan Pro

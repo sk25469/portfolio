@@ -103,9 +103,7 @@ class _HomePageState extends State<HomePage> {
                         ),
                       ),
                     ),
-                    SizedBox(
-                      width: 350 / _kSize * width,
-                    ),
+                    const Spacer(),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
@@ -113,7 +111,9 @@ class _HomePageState extends State<HomePage> {
                           onTap: () {
                             _animateToIndex(1);
                           },
-                          hoverColor: _isDarkMode ? Colors.black : Colors.white,
+                          hoverColor: _isDarkMode
+                              ? Colors.black.withOpacity(0.6)
+                              : Colors.white.withOpacity(0.6),
                           child: _buildAppBarButton(
                             text: 'Skills',
                             width: width,
@@ -125,7 +125,9 @@ class _HomePageState extends State<HomePage> {
                           onTap: () {
                             _animateToIndex(3);
                           },
-                          hoverColor: _isDarkMode ? Colors.black : Colors.white,
+                          hoverColor: _isDarkMode
+                              ? Colors.black.withOpacity(0.6)
+                              : Colors.white.withOpacity(0.6),
                           child: _buildAppBarButton(
                             text: 'Projects',
                             isDarkMode: _isDarkMode,
@@ -137,7 +139,9 @@ class _HomePageState extends State<HomePage> {
                           onTap: () {
                             _animateToIndex(4);
                           },
-                          hoverColor: _isDarkMode ? Colors.black : Colors.white,
+                          hoverColor: _isDarkMode
+                              ? Colors.black.withOpacity(0.6)
+                              : Colors.white.withOpacity(0.6),
                           child: _buildAppBarButton(
                             text: 'Work Experience',
                             isDarkMode: _isDarkMode,
@@ -149,9 +153,11 @@ class _HomePageState extends State<HomePage> {
                           onTap: () {
                             _animateToIndex(5);
                           },
-                          hoverColor: _isDarkMode ? Colors.black : Colors.white,
+                          hoverColor: _isDarkMode
+                              ? Colors.black.withOpacity(0.6)
+                              : Colors.white.withOpacity(0.6),
                           child: _buildAppBarButton(
-                            text: 'Achivements',
+                            text: 'Achievements',
                             isDarkMode: _isDarkMode,
                             width: width,
                             textTheme: textTheme,
@@ -161,7 +167,9 @@ class _HomePageState extends State<HomePage> {
                           onTap: () {
                             _animateToIndex(6);
                           },
-                          hoverColor: _isDarkMode ? Colors.black : Colors.white,
+                          hoverColor: _isDarkMode
+                              ? Colors.black.withOpacity(0.6)
+                              : Colors.white.withOpacity(0.6),
                           child: _buildAppBarButton(
                             text: 'Contact Me',
                             isDarkMode: _isDarkMode,
@@ -170,7 +178,9 @@ class _HomePageState extends State<HomePage> {
                           ),
                         ),
                         IconButton(
-                          padding: EdgeInsets.only(bottom: 3 / _kSize * width),
+                          padding: EdgeInsets.only(
+                            left: 3 / _kSize * width,
+                          ),
                           onPressed: () {
                             setState(() {
                               if (_isDarkMode) {
@@ -239,12 +249,18 @@ class _buildAppBarButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 20 / _kSize * width),
+      padding: EdgeInsets.only(
+        left: 10 / _kSize * width,
+        right: 10 / _kSize * width,
+        top: 10 / _kSize * width,
+        bottom: 5 / _kSize * width,
+      ),
       child: SizedBox(
-        height: 55 / _kSize * width,
+        // height: 60 / _kSize * width,
         child: Text(
           text,
           style: textTheme.headline1,
+          textAlign: TextAlign.center,
         ),
       ),
     );

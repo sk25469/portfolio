@@ -12,13 +12,12 @@ class CompanyTile extends StatelessWidget {
   Widget build(BuildContext context) {
     final _isDark = Theme.of(context).brightness == Brightness.dark;
     final textTheme = Theme.of(context).textTheme;
-    double containerWidth = 400, containerHeight = 470;
+    double containerWidth = 380, containerHeight = 480;
     int hasMoreColors = company.colors.length;
 
     return Container(
       width: containerWidth,
       height: containerHeight,
-      margin: const EdgeInsets.symmetric(vertical: 20, horizontal: 30),
       decoration: BoxDecoration(
         color: _isDark ? Colors.black : Colors.white,
         borderRadius: BorderRadius.circular(20),
