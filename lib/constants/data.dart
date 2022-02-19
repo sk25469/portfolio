@@ -84,5 +84,17 @@ class AchievementsData {
       description: 'Qualified for the 2nd round of Google CodeJam by scoring 30 points',
       assetName: 'assets/images/codejam.png',
     ),
+    Achievement(
+      name: 'Intro to Quantum Computing',
+      description:
+          'I was one of the 7000 students around the globe to be a part of this Introduction to Quantum Computing course offered by IBM and The Coding School',
+      assetName: 'assets/images/coding_school.png',
+    ),
+    Achievement(
+      name: 'Intro to Graph Algorithms - Coursera',
+      description:
+          'Took a course on Data structures and Graph Algorithms from Coursera.com.',
+      assetName: 'assets/images/coursera.png',
+    ),
   ];
 }

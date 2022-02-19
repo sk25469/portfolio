@@ -15,6 +15,9 @@ class AchievementTile extends StatelessWidget {
     final textTheme = Theme.of(context).textTheme;
     double containerWidth = 300, containerHeight = 450;
 
+    bool _isYearNeeded = achievement.assetName.contains('codejam') ||
+        achievement.assetName.contains('kickstart');
+
     return Container(
       width: containerWidth,
       height: containerHeight,
@@ -37,27 +40,37 @@ class AchievementTile extends StatelessWidget {
               width: containerWidth,
               height: containerHeight / 2,
               alignment: Alignment.topCenter,
-              child: Image.asset(
-                achievement.assetName,
-                width: containerWidth,
-                height: containerHeight / 2,
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              decoration: const BoxDecoration(
+                color: Colors.transparent,
+                borderRadius: BorderRadius.all(Radius.circular(20)),
+              ),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(containerWidth / 2),
+                child: Image.asset(
+                  achievement.assetName,
+                  width: containerWidth,
+                  height: containerHeight / 2,
+                  fit: BoxFit.contain,
+                ),
               ),
             ),
             top: containerHeight / 32,
             left: containerWidth / 64 - 5,
           ),
-          Positioned(
-            child: const Text(
-              '2021',
-              style: TextStyle(
-                color: Colors.black,
-                fontFamily: 'ZenKakuGothicAntique-Medium',
-                fontSize: 60,
+          if (_isYearNeeded)
+            Positioned(
+              child: const Text(
+                '2021',
+                style: TextStyle(
+                  color: Colors.black,
+                  fontFamily: 'ZenKakuGothicAntique-Medium',
+                  fontSize: 60,
+                ),
               ),
+              top: containerHeight / 8 + 18,
+              left: containerWidth / 2 - 50,
             ),
-            top: containerHeight / 8 + 13,
-            left: containerWidth / 2 - 50,
-          ),
           Positioned(
             child: Container(
               width: containerWidth,
@@ -71,16 +84,16 @@ class AchievementTile extends StatelessWidget {
                 ),
               ),
             ),
-            top: 0.6 * containerHeight,
+            top: 0.535 * containerHeight,
             left: 10,
           ),
           Positioned(
-            child: CertificateButton(
+            child: _CertificateButton(
               textTheme: textTheme,
               isDark: _isDark,
             ),
             bottom: 0.05 * containerHeight,
-            left: containerWidth / 2 - 90,
+            left: containerWidth / 2 - 100,
           )
         ],
       ),
@@ -107,10 +120,10 @@ class _buildAchievementDescription extends StatelessWidget {
   }
 }
 
-class CertificateButton extends StatelessWidget {
+class _CertificateButton extends StatelessWidget {
   final TextTheme textTheme;
   final bool isDark;
-  const CertificateButton({
+  const _CertificateButton({
     Key? key,
     required this.textTheme,
     required this.isDark,
@@ -118,23 +131,23 @@ class CertificateButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      onTap: () {},
-      child: Container(
-        width: 200,
-        alignment: Alignment.topCenter,
-        padding: const EdgeInsets.symmetric(vertical: 5),
-        decoration: BoxDecoration(
-          color: isDark ? Colors.black : Colors.white,
-          borderRadius: BorderRadius.circular(20),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black.withOpacity(0.3),
-              blurRadius: 5,
-              offset: const Offset(5, 5),
-            ),
-          ],
-        ),
+    return Container(
+      width: 200,
+      alignment: Alignment.topCenter,
+      padding: const EdgeInsets.only(top: 0, bottom: 3),
+      decoration: BoxDecoration(
+        color: isDark ? Colors.black : Colors.white,
+        borderRadius: BorderRadius.circular(20),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.3),
+            blurRadius: 5,
+            offset: const Offset(5, 5),
+          ),
+        ],
+      ),
+      child: InkWell(
+        onTap: () {},
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -146,7 +159,7 @@ class CertificateButton extends StatelessWidget {
             Icon(
               Icons.open_in_new_rounded,
               color: isDark ? Colors.white : Colors.black,
-              size: 20,
+              size: 18,
             ),
           ],
         ),
