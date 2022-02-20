@@ -46,7 +46,7 @@ class AchievementTile extends StatelessWidget {
                 borderRadius: BorderRadius.all(Radius.circular(20)),
               ),
               child: ClipRRect(
-                borderRadius: BorderRadius.circular(containerWidth / 2),
+                borderRadius: BorderRadius.circular(containerWidth / 2 + 20),
                 child: Image.asset(
                   achievement.assetName,
                   width: containerWidth,
@@ -140,9 +140,10 @@ class _CertificateButton extends StatelessWidget {
         borderRadius: BorderRadius.circular(20),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.3),
+            color:
+                !isDark ? Colors.black.withOpacity(0.3) : Colors.white.withOpacity(0.3),
             blurRadius: 5,
-            offset: const Offset(5, 5),
+            offset: const Offset(3, 3),
           ),
         ],
       ),

@@ -33,6 +33,7 @@ dependencies:
   emojis: ^0.9.9
   flutter:
     sdk: flutter
+  flutter_hooks: ^0.18.2+1
   rive: ^0.7.22
 
 dev_dependencies:

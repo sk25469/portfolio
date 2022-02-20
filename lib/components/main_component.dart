@@ -2,6 +2,7 @@ import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:portfolio/components/achievement_component.dart';
 import 'package:portfolio/components/bio_component.dart';
+import 'package:portfolio/components/contact_me_component.dart';
 import 'package:portfolio/components/experience_component.dart';
 import 'package:portfolio/components/know_me_component.dart';
 import 'package:portfolio/components/project_component.dart';
@@ -220,7 +221,7 @@ class _HomePageState extends State<HomePage> {
                     const ProjectComponent(),
                     const ExperienceComponent(),
                     const AchievementComponent(),
-                    Container(color: Colors.pink),
+                    const ContactMeComponent(),
                   ],
                 ),
               ),
