@@ -19,15 +19,15 @@ class CompanyTile extends StatelessWidget {
       width: containerWidth,
       height: containerHeight,
       decoration: BoxDecoration(
-        color: _isDark ? Colors.black : Colors.white,
+        color: _isDark ? Colors.black.withOpacity(0.8) : Colors.white.withOpacity(0.9),
         borderRadius: BorderRadius.circular(20),
         boxShadow: [
           BoxShadow(
             color:
                 !_isDark ? Colors.black.withOpacity(0.1) : Colors.white.withOpacity(0.1),
-            blurRadius: 10,
-            offset: const Offset(-10, 10),
-            spreadRadius: 5,
+            blurRadius: 7,
+            // offset: const Offset(-10, 10),
+            spreadRadius: 7,
           ),
         ],
       ),

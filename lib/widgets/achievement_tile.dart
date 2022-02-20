@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/constants/custom_theme.dart';
 import 'package:portfolio/model/achievement_model.dart';
+import 'package:portfolio/widgets/gradient_button.dart';
 
 class AchievementTile extends StatelessWidget {
   final Achievement achievement;
@@ -22,14 +22,15 @@ class AchievementTile extends StatelessWidget {
       width: containerWidth,
       height: containerHeight,
       decoration: BoxDecoration(
-        color: _isDark ? darkBackgroundColor : lightBackgroundColor,
+        color: _isDark ? Colors.black.withOpacity(0.8) : Colors.white.withOpacity(0.9),
         borderRadius: BorderRadius.circular(20),
         boxShadow: [
           BoxShadow(
             color:
-                _isDark ? Colors.white.withOpacity(0.3) : Colors.black.withOpacity(0.3),
-            blurRadius: 5,
-            offset: const Offset(5, 5),
+                _isDark ? Colors.white.withOpacity(0.1) : Colors.black.withOpacity(0.1),
+            blurRadius: 7,
+            // offset: const Offset(-5, 5),
+            spreadRadius: 7,
           ),
         ],
       ),
@@ -88,12 +89,13 @@ class AchievementTile extends StatelessWidget {
             left: 10,
           ),
           Positioned(
-            child: _CertificateButton(
-              textTheme: textTheme,
-              isDark: _isDark,
+            child: GradientButton(
+              text: 'View Certificate',
+              onPressed: () {},
+              isCertificate: true,
             ),
             bottom: 0.05 * containerHeight,
-            left: containerWidth / 2 - 100,
+            left: containerWidth / 2 - 65,
           )
         ],
       ),
@@ -116,55 +118,6 @@ class _buildAchievementDescription extends StatelessWidget {
     return SelectableText(
       achievement.description,
       style: textTheme.headline4,
-    );
-  }
-}
-
-class _CertificateButton extends StatelessWidget {
-  final TextTheme textTheme;
-  final bool isDark;
-  const _CertificateButton({
-    Key? key,
-    required this.textTheme,
-    required this.isDark,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: 200,
-      alignment: Alignment.topCenter,
-      padding: const EdgeInsets.only(top: 0, bottom: 3),
-      decoration: BoxDecoration(
-        color: isDark ? Colors.black : Colors.white,
-        borderRadius: BorderRadius.circular(20),
-        boxShadow: [
-          BoxShadow(
-            color:
-                !isDark ? Colors.black.withOpacity(0.3) : Colors.white.withOpacity(0.3),
-            blurRadius: 5,
-            offset: const Offset(3, 3),
-          ),
-        ],
-      ),
-      child: InkWell(
-        onTap: () {},
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              'View Certificate',
-              style: textTheme.subtitle1,
-            ),
-            const SizedBox(width: 8),
-            Icon(
-              Icons.open_in_new_rounded,
-              color: isDark ? Colors.white : Colors.black,
-              size: 18,
-            ),
-          ],
-        ),
-      ),
     );
   }
 }

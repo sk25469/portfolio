@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 const lightBackgroundColor = Color.fromRGBO(219, 203, 181, 1);
 const darkBackgroundColor = Color.fromRGBO(23, 45, 55, 1);
 const lightGrey = Color.fromRGBO(124, 140, 148, 1);
+const lightPurple = Color.fromRGBO(85, 25, 139, 1);
+const darkPurple = Color.fromRGBO(72, 48, 99, 1);
 
 // const _kSize = 1536;
 
@@ -30,7 +32,7 @@ class ComponentTextStyle {
             : (!isHovering && !isDark)
                 ? Colors.black
                 : (isHovering && isDark)
-                    ? Colors.black
+                    ? Colors.white
                     : Colors.white,
         fontSize: 18,
         fontFamily: 'ZenKakuGothicAntique-Regular',
@@ -41,7 +43,7 @@ class ComponentTextStyle {
             : (!isHovering && !isDark)
                 ? Colors.black
                 : (isHovering && isDark)
-                    ? Colors.black
+                    ? Colors.white
                     : Colors.white,
         fontSize: 30,
         fontFamily: 'ZenKakuGothicAntique-Light',

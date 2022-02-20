@@ -14,12 +14,13 @@ class ContactMeComponent extends StatelessWidget {
     return Container(
       decoration: ComponentBoxDecoration.getBoxDecoration(_isDark, theme),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           _welcomeText(textTheme),
           Padding(
             padding: const EdgeInsets.only(
               left: 30.0,
-              // top: 8,
+              top: 8,
             ),
             child: Row(
               children: [
@@ -37,8 +38,11 @@ class ContactMeComponent extends StatelessWidget {
 }
 
 Widget _welcomeText(TextTheme currentTextTheme) {
-  return SelectableText(
-    'Contact Me',
-    style: currentTextTheme.bodyText1,
+  return Padding(
+    padding: const EdgeInsets.symmetric(horizontal: 30.0),
+    child: SelectableText(
+      'Contact Me',
+      style: currentTextTheme.bodyText1,
+    ),
   );
 }

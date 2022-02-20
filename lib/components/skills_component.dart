@@ -88,6 +88,7 @@ Widget _detailText1(TextTheme currentTextTheme, double width) {
   );
 }
 
+// ignore: camel_case_types
 class _techStacks extends StatelessWidget {
   final double widthBetween, heightBetween, width, iconSize;
   const _techStacks({

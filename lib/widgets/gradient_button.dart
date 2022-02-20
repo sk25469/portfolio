@@ -4,29 +4,26 @@ import 'package:portfolio/constants/custom_theme.dart';
 class GradientButton extends StatelessWidget {
   final String text;
   final Function() onPressed;
+  final bool isCertificate;
 
   const GradientButton({
     required this.text,
     required this.onPressed,
     Key? key,
+    required this.isCertificate,
   }) : super(key: key);
 
   final double borderRadius = 10;
 
   @override
   Widget build(BuildContext context) {
-    final textTheme = Theme.of(context).textTheme;
-    final _isDark = Theme.of(context).brightness == Brightness.dark;
-
     return DecoratedBox(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(borderRadius),
-        gradient: LinearGradient(
+        gradient: const LinearGradient(
           colors: [
-            _isDark ? Colors.grey : Colors.black,
-            _isDark
-                ? lightBackgroundColor.withOpacity(0.9)
-                : darkBackgroundColor.withOpacity(0.9),
+            darkPurple,
+            lightPurple,
           ],
         ),
       ),
@@ -35,11 +32,11 @@ class GradientButton extends StatelessWidget {
           elevation: MaterialStateProperty.all(0),
           alignment: Alignment.center,
           padding: MaterialStateProperty.all(
-            const EdgeInsets.only(
-              right: 75,
-              left: 75,
-              top: 15,
-              bottom: 15,
+            EdgeInsets.only(
+              right: !isCertificate ? 60 : 10,
+              left: !isCertificate ? 60 : 10,
+              top: !isCertificate ? 15 : 8,
+              bottom: !isCertificate ? 15 : 10,
             ),
           ),
           backgroundColor: MaterialStateProperty.all(Colors.transparent),
@@ -53,8 +50,8 @@ class GradientButton extends StatelessWidget {
         child: Text(
           text,
           style: TextStyle(
-            color: _isDark ? Colors.black : Colors.white,
-            fontSize: 20,
+            color: Colors.white,
+            fontSize: !isCertificate ? 20 : 15,
             fontFamily: 'ZenKakuGothicAntique-Regular',
           ),
         ),

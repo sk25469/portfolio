@@ -27,12 +27,11 @@ class _SplashOnHover extends State<SplashOnHover> {
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
-    final isDark = Theme.of(context).brightness == Brightness.dark;
 
     return MouseRegion(
       onEnter: (e) => _mouseEnter(true),
       onExit: (e) => _mouseEnter(false),
-      child: Container(
+      child: SizedBox(
         width: 0.45 * width,
         height: 180,
         child: Stack(
@@ -44,9 +43,9 @@ class _SplashOnHover extends State<SplashOnHover> {
                 width: _hovering ? 2000 : 40,
                 height: _hovering ? 2000 : 40,
                 alignment: Alignment.topRight,
-                decoration: BoxDecoration(
-                  color: isDark ? lightBackgroundColor : darkBackgroundColor,
-                  borderRadius: const BorderRadius.all(
+                decoration: const BoxDecoration(
+                  color: lightPurple,
+                  borderRadius: BorderRadius.all(
                     Radius.circular(40),
                   ),
                 ),

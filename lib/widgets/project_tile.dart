@@ -30,16 +30,11 @@ class ProjectTile extends StatelessWidget {
           width: 0.45 * width,
           height: 180 / _kSize * width,
           decoration: BoxDecoration(
-            // borderRadius: BorderRadius.circular(20),
-            // color: Colors.transparent,
             boxShadow: [
               BoxShadow(
                 color: !_isDark
                     ? Colors.black.withOpacity(.09)
                     : Colors.white.withOpacity(.09),
-                offset: const Offset(10, 10),
-                blurRadius: 10,
-                spreadRadius: 10,
               ),
             ],
           ),
@@ -115,6 +110,7 @@ class _projectTitle extends StatelessWidget {
   }
 }
 
+// ignore: camel_case_types
 class _projectDetail extends StatelessWidget {
   final Project project;
   final TextTheme textTheme;

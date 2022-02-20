@@ -11,7 +11,7 @@ class ExperienceComponent extends StatelessWidget {
     bool _isDark = Theme.of(context).brightness == Brightness.dark;
     final theme = Theme.of(context);
     final textTheme = theme.textTheme;
-    final width = MediaQuery.of(context).size.width;
+    // final width = MediaQuery.of(context).size.width;
 
     return Container(
       decoration: ComponentBoxDecoration.getBoxDecoration(_isDark, theme),
@@ -25,7 +25,7 @@ class ExperienceComponent extends StatelessWidget {
             child: Row(
               children: [
                 CompanyTile(company: CompanyData.company[0]),
-                const SizedBox(width: 20),
+                const SizedBox(width: 30),
                 CompanyTile(company: CompanyData.company[1]),
               ],
             ),

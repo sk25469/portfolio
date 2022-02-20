@@ -71,11 +71,11 @@ class _HomePageState extends State<HomePage> {
                 onPressed: () {
                   _animateToIndex(0);
                 },
-                child: Icon(
+                child: const Icon(
                   Icons.arrow_upward_outlined,
-                  color: _isDarkMode ? Colors.black : Colors.white,
+                  color: Colors.white,
                 ),
-                backgroundColor: _isDarkMode ? lightBackgroundColor : darkBackgroundColor,
+                backgroundColor: lightPurple,
               )
             : null,
         body: Scrollbar(

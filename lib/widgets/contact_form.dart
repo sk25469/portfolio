@@ -11,7 +11,6 @@ class ContactForm extends HookWidget {
     final emailController = useTextEditingController();
     final messageController = useTextEditingController();
     final formKey = useMemoized(() => GlobalKey<FormState>());
-    final textTheme = Theme.of(context).textTheme;
     final isSuccess = useState(false);
     final isError = useState(false);
     final errorMessage = useState('');
@@ -39,18 +38,18 @@ class ContactForm extends HookWidget {
       child: Column(
         children: [
           CustomInput(
-            inputController: emailController,
-            label: 'Email',
+            inputController: nameController,
+            label: 'Name',
             isDark: isDark,
-            hint: 'Your email please?',
+            hint: 'Let\'s not be strangers, shall we?',
             maxLines: 1,
           ),
           const SizedBox(height: 10),
           CustomInput(
-            inputController: nameController,
-            label: 'Name',
+            inputController: emailController,
+            label: 'Email',
             isDark: isDark,
-            hint: 'Let\'s not be a stranger, shall we?',
+            hint: 'Your email please?',
             maxLines: 1,
           ),
           const SizedBox(height: 10),
@@ -65,6 +64,7 @@ class ContactForm extends HookWidget {
           GradientButton(
             text: 'SEND',
             onPressed: submit,
+            isCertificate: false,
           ),
         ],
       ),

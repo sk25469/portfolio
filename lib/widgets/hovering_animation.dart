@@ -12,17 +12,12 @@ class _HoveringAnimationState extends State<HoveringAnimation> {
   /// Controller for playback
   late RiveAnimationController _controller;
 
-  /// Is the animation currently playing?
-  bool _isPlaying = false;
-
   @override
   void initState() {
     super.initState();
     _controller = OneShotAnimation(
       'Animation2',
       autoplay: false,
-      onStop: () => setState(() => _isPlaying = false),
-      onStart: () => setState(() => _isPlaying = true),
     );
   }
 

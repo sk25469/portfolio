@@ -11,19 +11,13 @@ class SkillAnimation extends StatefulWidget {
 class _SkillAnimationState extends State<SkillAnimation> {
   late RiveAnimationController _controller;
 
-  /// Is the animation currently playing?
-  bool _isPlaying = false;
-
   @override
   void initState() {
     super.initState();
     _controller = OneShotAnimation(
       'Appearing',
       autoplay: false,
-      onStop: () => setState(() => _isPlaying = false),
-      onStart: () => setState(() => _isPlaying = true),
     );
-    // _controller.isActive = true;
   }
 
   @override
