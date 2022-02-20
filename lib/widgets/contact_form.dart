@@ -35,13 +35,14 @@ class ContactForm extends HookWidget {
     bool isDark = Theme.of(context).brightness == Brightness.dark;
 
     return Form(
+      key: formKey,
       child: Column(
         children: [
           CustomInput(
             inputController: emailController,
             label: 'Email',
             isDark: isDark,
-            hint: 'Enter your email',
+            hint: 'Your email please?',
             maxLines: 1,
           ),
           const SizedBox(height: 10),
@@ -49,7 +50,7 @@ class ContactForm extends HookWidget {
             inputController: nameController,
             label: 'Name',
             isDark: isDark,
-            hint: 'Enter your name',
+            hint: 'Let\'s not be a stranger, shall we?',
             maxLines: 1,
           ),
           const SizedBox(height: 10),
@@ -57,10 +58,10 @@ class ContactForm extends HookWidget {
             inputController: messageController,
             label: 'Message',
             isDark: isDark,
-            hint: 'Enter your message',
+            hint: 'What\'s on your mind?',
             maxLines: 9,
           ),
-          const SizedBox(height: 20),
+          const SizedBox(height: 15),
           GradientButton(
             text: 'SEND',
             onPressed: submit,
@@ -104,9 +105,7 @@ class CustomInput extends StatelessWidget {
             color: _isDark ? Colors.white.withOpacity(.9) : Colors.black.withOpacity(.9),
           ),
         ),
-        const SizedBox(
-          height: 8,
-        ),
+        const SizedBox(height: 5),
         Container(
           decoration: BoxDecoration(
             boxShadow: [
@@ -118,7 +117,19 @@ class CustomInput extends StatelessWidget {
               ),
             ],
           ),
-          child: TextField(
+          child: TextFormField(
+            validator: (value) {
+              // if (label == "Name" && value!.isEmpty) {
+              //   return "Tell me your name, please!";
+              // }
+              // if (label == "Email" && (value!.isEmpty || !value.contains('@'))) {
+              //   return "Come on! That's not a valid email";
+              // }
+              // // if (label == "Message" && value!.isEmpty) {
+              // //   return "Don't want to say anything?";
+              // // }
+              // return null;
+            },
             maxLines: maxLines,
             controller: inputController,
             onChanged: (value) {
@@ -137,6 +148,10 @@ class CustomInput extends StatelessWidget {
                 color: _isDark
                     ? Colors.black.withOpacity(.75)
                     : Colors.white.withOpacity(.75),
+              ),
+              errorStyle: const TextStyle(
+                color: Colors.red,
+                fontSize: 10,
               ),
               contentPadding: const EdgeInsets.symmetric(
                 vertical: 20.0,
