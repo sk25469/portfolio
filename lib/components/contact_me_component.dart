@@ -13,19 +13,18 @@ class ContactMeComponent extends StatelessWidget {
     final width = MediaQuery.of(context).size.width;
     return Container(
       decoration: ComponentBoxDecoration.getBoxDecoration(_isDark, theme),
-      padding: const EdgeInsets.all(0),
       child: Column(
         children: [
           _welcomeText(textTheme),
           Padding(
             padding: const EdgeInsets.only(
               left: 30.0,
-              top: 8,
+              // top: 8,
             ),
             child: Row(
               children: [
                 SizedBox(
-                  width: 0.6 * width,
+                  width: 0.5 * width,
                   child: const ContactForm(),
                 )
               ],

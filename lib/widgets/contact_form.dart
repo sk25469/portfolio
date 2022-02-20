@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:portfolio/constants/custom_theme.dart';
+import 'package:portfolio/widgets/gradient_button.dart';
 
 class ContactForm extends HookWidget {
   const ContactForm({Key? key}) : super(key: key);
@@ -57,11 +58,12 @@ class ContactForm extends HookWidget {
             label: 'Message',
             isDark: isDark,
             hint: 'Enter your message',
-            maxLines: 7,
+            maxLines: 9,
           ),
-          RaisedButton(
-            onPressed: () {},
-            child: const Text('Submit'),
+          const SizedBox(height: 20),
+          GradientButton(
+            text: 'SEND',
+            onPressed: submit,
           ),
         ],
       ),
@@ -87,7 +89,7 @@ class CustomInput extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final primaryColor = isDark ? lightBackgroundColor : darkBackgroundColor;
-    const secondaryColor = Color(0xff6D28D9);
+    const secondaryColor = Color.fromARGB(255, 98, 0, 255);
     const errorColor = Color(0xffEF4444);
     final _isDark = Theme.of(context).brightness == Brightness.dark;
 
