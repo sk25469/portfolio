@@ -40,13 +40,19 @@ class _SplashOnHover extends State<SplashOnHover> {
               top: -20,
               right: -20,
               child: AnimatedContainer(
-                width: _hovering ? 2000 : 40,
-                height: _hovering ? 2000 : 40,
+                width: _hovering ? 1500 : 40,
+                height: _hovering ? 1500 : 40,
                 alignment: Alignment.topRight,
-                decoration: const BoxDecoration(
+                decoration: BoxDecoration(
                   color: lightPurple,
-                  borderRadius: BorderRadius.all(
+                  borderRadius: const BorderRadius.all(
                     Radius.circular(40),
+                  ),
+                  gradient: LinearGradient(
+                    colors: [
+                      darkPurple,
+                      lightPurple.withOpacity(0.7),
+                    ],
                   ),
                 ),
                 duration: const Duration(milliseconds: 400),
