@@ -2,12 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:portfolio/constants/custom_theme.dart';
 import 'package:portfolio/widgets/gradient_button.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class ContactForm extends HookWidget {
   const ContactForm({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    final nameController = useTextEditingController();
+    final subjectController = useTextEditingController();
     final emailController = useTextEditingController();
     final messageController = useTextEditingController();
     final formKey = useMemoized(() => GlobalKey<FormState>());
@@ -17,17 +18,30 @@ class ContactForm extends HookWidget {
     final isSubmitting = useState(false);
 
     final submit = useCallback(() async {
-      if (formKey.currentState!.validate()) {
-        isSubmitting.value = true;
-        try {
-          await Future.delayed(const Duration(seconds: 2));
-          isSuccess.value = true;
-          isSubmitting.value = false;
-        } catch (e) {
-          isError.value = true;
-          errorMessage.value = e.toString();
-          isSubmitting.value = false;
-        }
+      String? encodeQueryParameters(Map<String, String> params) {
+        return params.entries
+            .map((e) => '${Uri.encodeComponent(e.key)}=${Uri.encodeComponent(e.value)}')
+            .join('&');
+      }
+
+      final Uri emailLaunchUri = Uri(
+        scheme: 'mailto',
+        path: 'sk25469@gmail.com',
+        query: encodeQueryParameters(
+          <String, String>{
+            'subject': subjectController.text,
+            'body': messageController.text,
+          },
+        ),
+      );
+      isSubmitting.value = true;
+      try {
+        await launch(emailLaunchUri.toString());
+        isSubmitting.value = false;
+      } catch (e) {
+        isError.value = true;
+        errorMessage.value = e.toString();
+        isSubmitting.value = false;
       }
     }, [formKey]);
 
@@ -38,7 +52,7 @@ class ContactForm extends HookWidget {
       child: Column(
         children: [
           CustomInput(
-            inputController: nameController,
+            inputController: subjectController,
             label: 'Name',
             isDark: isDark,
             hint: 'Let\'s not be strangers, shall we?',
@@ -47,9 +61,9 @@ class ContactForm extends HookWidget {
           const SizedBox(height: 10),
           CustomInput(
             inputController: emailController,
-            label: 'Email',
+            label: 'Subject',
             isDark: isDark,
-            hint: 'Your email please?',
+            hint: 'What do you want to talk about?',
             maxLines: 1,
           ),
           const SizedBox(height: 10),
@@ -118,18 +132,18 @@ class CustomInput extends StatelessWidget {
             ],
           ),
           child: TextFormField(
-            validator: (value) {
-              // if (label == "Name" && value!.isEmpty) {
-              //   return "Tell me your name, please!";
-              // }
-              // if (label == "Email" && (value!.isEmpty || !value.contains('@'))) {
-              //   return "Come on! That's not a valid email";
-              // }
-              // // if (label == "Message" && value!.isEmpty) {
-              // //   return "Don't want to say anything?";
-              // // }
-              // return null;
-            },
+            // validator: (value) {
+            //   // if (label == "Name" && value!.isEmpty) {
+            //   //   return "Tell me your name, please!";
+            //   // }
+            //   // if (label == "Email" && (value!.isEmpty || !value.contains('@'))) {
+            //   //   return "Come on! That's not a valid email";
+            //   // }
+            //   // // if (label == "Message" && value!.isEmpty) {
+            //   // //   return "Don't want to say anything?";
+            //   // // }
+            //   // return null;
+            // },
             maxLines: maxLines,
             controller: inputController,
             onChanged: (value) {

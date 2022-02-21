@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:portfolio/constants/custom_theme.dart';
 import 'package:portfolio/model/project_model.dart';
 import 'package:portfolio/utils/custom_utils.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 // ignore: must_be_immutable
 const _kSize = 1536;
@@ -22,10 +23,16 @@ class ProjectTile extends StatelessWidget {
     final _isDark = Theme.of(context).brightness == Brightness.dark;
     final width = MediaQuery.of(context).size.width;
 
+    void _launchURL(String _url) async {
+      if (!await launch(_url)) throw 'Could not launch $_url';
+    }
+
     return Material(
       color: Colors.transparent,
       child: InkWell(
-        onTap: () {},
+        onTap: () {
+          _launchURL(project.projectUrl);
+        },
         child: Container(
           width: 0.45 * width,
           height: 180 / _kSize * width,

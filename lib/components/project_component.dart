@@ -3,6 +3,7 @@ import 'package:portfolio/constants/custom_theme.dart';
 import 'package:portfolio/constants/data.dart';
 import 'package:portfolio/extensions/splash_on_hover.dart';
 import 'package:portfolio/widgets/custom_button.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 const _kSize = 1536;
 
@@ -49,7 +50,10 @@ class ProjectComponent extends StatelessWidget {
             Positioned(
               left: 0.40 * width,
               top: 520 / _kSize * width,
-              child: const CustomButton(text: 'MORE PROJECTS'),
+              child: const CustomButton(
+                text: 'MORE PROJECTS',
+                isResume: false,
+              ),
             ),
           ],
         ),

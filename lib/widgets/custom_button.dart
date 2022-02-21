@@ -1,19 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/constants/custom_theme.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class CustomButton extends StatelessWidget {
   final String text;
+  final bool isResume;
   const CustomButton({
     required this.text,
     Key? key,
+    required this.isResume,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     const double borderRadius = 15;
-    // bool _isDark = Theme.of(context).brightness == Brightness.dark;
 
     final theme = Theme.of(context);
+
+    void _launchURL(String _url) async {
+      if (!await launch(_url)) throw 'Could not launch $_url';
+    }
 
     return DecoratedBox(
       decoration: BoxDecoration(
@@ -45,11 +51,19 @@ class CustomButton extends StatelessWidget {
             ),
           ),
         ),
-        onPressed: () {},
+        onPressed: () {
+          if (isResume) {
+            const url =
+                'https://drive.google.com/file/d/1-A53YpEvsTg2gLTDv2IWkptkxLvjH4MV/view?usp=sharing';
+            _launchURL(url);
+          } else {
+            const url = 'https://github.com/sk25469?tab=repositories';
+            _launchURL(url);
+          }
+        },
         child: Text(
           text,
           style: theme.textTheme.button?.copyWith(
-            // color: _isDark ? Colors.black : Colors.white,
             color: Colors.white,
           ),
         ),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/model/achievement_model.dart';
 import 'package:portfolio/widgets/gradient_button.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class AchievementTile extends StatelessWidget {
   final Achievement achievement;
@@ -17,6 +18,10 @@ class AchievementTile extends StatelessWidget {
 
     bool _isYearNeeded = achievement.assetName.contains('codejam') ||
         achievement.assetName.contains('kickstart');
+
+    void _launchURL(String _url) async {
+      if (!await launch(_url)) throw 'Could not launch $_url';
+    }
 
     return Container(
       width: containerWidth,
@@ -94,7 +99,9 @@ class AchievementTile extends StatelessWidget {
           Positioned(
             child: GradientButton(
               text: 'View Certificate',
-              onPressed: () {},
+              onPressed: () {
+                _launchURL(achievement.certificateUrl);
+              },
               isCertificate: true,
             ),
             bottom: 0.05 * containerHeight,

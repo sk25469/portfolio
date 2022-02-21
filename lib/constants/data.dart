@@ -12,6 +12,7 @@ class ProjectData {
       size: 63,
       language: 'Java',
       languageColor: Colors.orange,
+      projectUrl: 'https://github.com/sk25469/library_tracking_sys',
     ),
     Project(
       title: 'shop-app',
@@ -20,6 +21,7 @@ class ProjectData {
       size: 1483,
       language: 'Dart',
       languageColor: Colors.blue,
+      projectUrl: 'https://github.com/sk25469/shop-app',
     ),
     Project(
       title: 'social-media-demo',
@@ -28,6 +30,7 @@ class ProjectData {
       size: 273,
       language: 'Dart',
       languageColor: Colors.blue,
+      projectUrl: 'https://github.com/sk25469/social-media-demo',
     ),
     Project(
       title: 'codeforces-visualizer',
@@ -36,6 +39,7 @@ class ProjectData {
       size: 199423,
       language: 'Dart',
       languageColor: Colors.blue,
+      projectUrl: 'https://github.com/sk25469/codeforces_visualizer',
     ),
   ];
 }
@@ -78,23 +82,31 @@ class AchievementsData {
       name: 'Google Kickstart 2021',
       description: 'Ranked 1912 in Google Kickstart 2021 Round - H',
       assetName: 'assets/images/kickstart.png',
+      certificateUrl:
+          'https://drive.google.com/file/d/10plH5Au0I0J99M6Vlgpf8XYZWleHikoi/view?usp=sharing',
     ),
     Achievement(
       name: 'Google CodeJam 2021',
       description: 'Qualified for the 2nd round of Google CodeJam by scoring 30 points',
       assetName: 'assets/images/codejam.png',
+      certificateUrl:
+          'https://drive.google.com/file/d/10rFFJo7j0QXRQpmkf-IJGKacygZ-AacV/view?usp=sharing',
     ),
     Achievement(
       name: 'Intro to Quantum Computing',
       description:
           'I was one of the 7000 students around the globe to be a part of this Introduction to Quantum Computing course offered by IBM and The Coding School',
       assetName: 'assets/images/coding_school.png',
+      certificateUrl:
+          'https://drive.google.com/file/d/1-rxj1yw9xrASxqYkqAaFAhd-qKsToJC-/view?usp=sharing',
     ),
     Achievement(
       name: 'Intro to Graph Algorithms - Coursera',
       description:
           'Took a course on Data structures and Graph Algorithms from Coursera.com.',
       assetName: 'assets/images/coursera.png',
+      certificateUrl:
+          'https://www.coursera.org/account/accomplishments/certificate/L3FNVYVYCW38',
     ),
   ];
 }
