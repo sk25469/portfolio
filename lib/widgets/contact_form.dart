@@ -12,7 +12,7 @@ class ContactForm extends HookWidget {
     final emailController = useTextEditingController();
     final messageController = useTextEditingController();
     final formKey = useMemoized(() => GlobalKey<FormState>());
-    final isSuccess = useState(false);
+    // final isSuccess = useState(false);
     final isError = useState(false);
     final errorMessage = useState('');
     final isSubmitting = useState(false);
