@@ -2,6 +2,25 @@
 
 A Software Developer porfolio website made using Flutter for Web. The design is inspired from different portfolio websites. It uses Rive for the animations.
 
+## ⚡Samples
+
+![Portfolio Sample](/assets/demo/portfolio.gif "Portfolio")
+
+![Portfolio Sample](/assets/demo/portfolio-1.jpg "Portfolio")
+
+![Portfolio Sample](/assets/demo/portfolio-2.jpg "Portfolio")
+
+![Portfolio Sample](/assets/demo/portfolio-3.jpg "Portfolio")
+
+![Portfolio Sample](/assets/demo/portfolio-4.jpg "Portfolio")
+
+![Portfolio Sample](/assets/demo/portfolio-5.jpg "Portfolio")
+
+![Portfolio Sample](/assets/demo/portfolio-6.jpg "Portfolio")
+
+![Portfolio Sample](/assets/demo/portfolio-7.jpg "Portfolio")
+
+
 ## 💻 Getting Started
 
 ```bash
