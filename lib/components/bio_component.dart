@@ -2,8 +2,7 @@ import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:emojis/emojis.dart';
 import 'package:flutter/material.dart';
 import 'package:portfolio/constants/custom_theme.dart';
-import 'package:portfolio/extensions/hovering_widget.dart';
-import 'package:portfolio/widgets/custom_button.dart';
+import 'package:portfolio/widgets/social_media.dart';
 
 const _kSize = 1536;
 
@@ -38,7 +37,12 @@ class BioComponent extends StatelessWidget {
             bottom: 0,
           ),
           Positioned(
-            child: _socialMediaContacts(width: width),
+            child: SocialMediaContacts(
+              width: width,
+              hasResume: true,
+              iconPadding: 15,
+              iconSize: 60,
+            ),
             bottom: 25 / _kSize * width,
             left: 30 / _kSize * width,
           )
@@ -129,97 +133,6 @@ class _welcomeText extends StatelessWidget {
           ),
         ),
       ],
-    );
-  }
-}
-
-// ignore: camel_case_types
-class _socialMediaContacts extends StatelessWidget {
-  final double width;
-  const _socialMediaContacts({Key? key, required this.width}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Material(
-      color: Colors.transparent,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-          InkWell(
-            onTap: () {},
-            hoverColor: Colors.transparent,
-            child: TranslateOnHover(
-              child: Image.asset(
-                'assets/icons/email.png',
-                width: 60 / _kSize * width,
-                height: 60 / _kSize * width,
-              ),
-            ),
-          ),
-          SizedBox(width: 15 / _kSize * width),
-          InkWell(
-            onTap: () {},
-            hoverColor: Colors.transparent,
-            child: TranslateOnHover(
-              child: Image.asset(
-                'assets/icons/github.png',
-                width: 60 / _kSize * width,
-                height: 60 / _kSize * width,
-              ),
-            ),
-          ),
-          SizedBox(width: 15 / _kSize * width),
-          InkWell(
-            onTap: () {},
-            hoverColor: Colors.transparent,
-            child: TranslateOnHover(
-              child: Image.asset(
-                'assets/icons/linkedin.png',
-                width: 60 / _kSize * width,
-                height: 60 / _kSize * width,
-              ),
-            ),
-          ),
-          SizedBox(width: 15 / _kSize * width),
-          InkWell(
-            onTap: () {},
-            hoverColor: Colors.transparent,
-            child: TranslateOnHover(
-              child: Image.asset(
-                'assets/icons/twitter.png',
-                width: 60 / _kSize * width,
-                height: 60 / _kSize * width,
-              ),
-            ),
-          ),
-          SizedBox(width: 15 / _kSize * width),
-          InkWell(
-            onTap: () {},
-            hoverColor: Colors.transparent,
-            child: TranslateOnHover(
-              child: Image.asset(
-                'assets/icons/instagram.png',
-                width: 60 / _kSize * width,
-                height: 60 / _kSize * width,
-              ),
-            ),
-          ),
-          SizedBox(width: 15 / _kSize * width),
-          InkWell(
-            onTap: () {},
-            hoverColor: Colors.transparent,
-            child: TranslateOnHover(
-              child: Image.asset(
-                'assets/icons/facebook.png',
-                width: 60 / _kSize * width,
-                height: 60 / _kSize * width,
-              ),
-            ),
-          ),
-          SizedBox(width: 150 / _kSize * width),
-          const CustomButton(text: 'SEE MY RESUME'),
-        ],
-      ),
     );
   }
 }

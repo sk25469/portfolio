@@ -78,7 +78,10 @@ class AchievementTile extends StatelessWidget {
               height: containerHeight / 2,
               color: Colors.transparent,
               child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 8.0,
+                  vertical: 5,
+                ),
                 child: _buildAchievementDescription(
                   achievement: achievement,
                   textTheme: textTheme,

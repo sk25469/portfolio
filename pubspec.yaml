@@ -29,6 +29,7 @@ environment:
 dependencies:
   adaptive_theme: ^2.3.0
   animated_text_kit: ^4.2.1
+  blurrycontainer: ^0.1.0
   cupertino_icons: ^1.0.2
   emojis: ^0.9.9
   flutter:
@@ -86,6 +87,12 @@ flutter:
     - family: Monotone-Regular
       fonts:
         - asset: assets/font/Monoton-Regular.ttf
+    - family: Redressed-Regular
+      fonts:
+        - asset: assets/font/Redressed-Regular.ttf
+    - family: Horizon
+      fonts:
+        - asset: assets/font/Horizon.otf
         # - asset: fonts/Schyler-Italic.ttf
         # style: italic
   #   - family: Trajan Pro

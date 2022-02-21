@@ -5,6 +5,7 @@ const darkBackgroundColor = Color.fromRGBO(23, 45, 55, 1);
 const lightGrey = Color.fromRGBO(124, 140, 148, 1);
 const lightPurple = Color.fromRGBO(85, 25, 139, 1);
 const darkPurple = Color.fromRGBO(72, 48, 99, 1);
+const darkOrange = Color.fromARGB(255, 255, 115, 1);
 
 // const _kSize = 1536;
 
@@ -102,8 +103,8 @@ final darkTheme = ThemeData(
     ),
     headline1: TextStyle(
       color: Colors.white,
-      fontFamily: 'Monoton-Regular',
-      fontSize: 34,
+      fontFamily: 'Redressed-Regular',
+      fontSize: 40,
     ),
     headline2: TextStyle(
       color: Colors.white,
@@ -173,8 +174,8 @@ final lightTheme = ThemeData(
     ),
     headline1: TextStyle(
       color: Colors.black,
-      fontFamily: 'Monoton-Regular',
-      fontSize: 34,
+      fontFamily: 'Redressed-Regular',
+      fontSize: 40,
     ),
     headline2: TextStyle(
       color: Colors.black,

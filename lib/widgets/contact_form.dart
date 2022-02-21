@@ -58,7 +58,7 @@ class ContactForm extends HookWidget {
             label: 'Message',
             isDark: isDark,
             hint: 'What\'s on your mind?',
-            maxLines: 9,
+            maxLines: 6,
           ),
           const SizedBox(height: 15),
           GradientButton(

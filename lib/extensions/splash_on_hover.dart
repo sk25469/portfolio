@@ -44,7 +44,6 @@ class _SplashOnHover extends State<SplashOnHover> {
                 height: _hovering ? 1500 : 40,
                 alignment: Alignment.topRight,
                 decoration: BoxDecoration(
-                  color: lightPurple,
                   borderRadius: const BorderRadius.all(
                     Radius.circular(40),
                   ),

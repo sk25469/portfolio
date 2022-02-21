@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/constants/custom_theme.dart';
 import 'package:portfolio/widgets/contact_form.dart';
+import 'package:portfolio/widgets/contact_me_card.dart';
 
 class ContactMeComponent extends StatelessWidget {
   const ContactMeComponent({Key? key}) : super(key: key);
@@ -17,20 +18,43 @@ class ContactMeComponent extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           _welcomeText(textTheme),
-          Padding(
-            padding: const EdgeInsets.only(
-              left: 30.0,
-              top: 8,
+          Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Container(
+                padding: const EdgeInsets.only(
+                  left: 30,
+                  top: 8,
+                ),
+                width: 0.5 * width,
+                child: const ContactForm(),
+              ),
+              const SizedBox(width: 40),
+              const Padding(
+                padding: EdgeInsets.only(top: 25.0),
+                child: ContactMeCard(),
+              ),
+            ],
+          ),
+          const SizedBox(height: 50),
+          Container(
+            width: double.infinity,
+            height: 33,
+            decoration: const BoxDecoration(
+              color: Colors.blue,
             ),
-            child: Row(
-              children: [
-                SizedBox(
-                  width: 0.5 * width,
-                  child: const ContactForm(),
-                )
-              ],
+            child: const Center(
+              child: Text(
+                'Made with ❤️ by Sahil',
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
             ),
-          )
+          ),
         ],
       ),
     );

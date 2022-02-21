@@ -252,8 +252,8 @@ class _buildAppBarButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.only(
-        left: 10 / _kSize * width,
-        right: 10 / _kSize * width,
+        left: 15 / _kSize * width,
+        right: 15 / _kSize * width,
         top: 5 / _kSize * width,
         bottom: 5 / _kSize * width,
       ),
