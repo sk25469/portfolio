@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:portfolio/constants/custom_theme.dart';
 import 'package:portfolio/widgets/social_media.dart';
 
-class ContactMeCard extends StatelessWidget {
+class ContactMeCard extends HookWidget {
   const ContactMeCard({Key? key}) : super(key: key);
 
   @override
@@ -11,48 +12,59 @@ class ContactMeCard extends StatelessWidget {
     const double _height = 400;
     bool _isDark = Theme.of(context).brightness == Brightness.dark;
 
-    return Container(
-      width: 0.45 * width,
-      height: _height,
-      decoration: BoxDecoration(
-        image: const DecorationImage(
-          image: AssetImage('assets/images/abstract_bg.jpg'),
-          fit: BoxFit.cover,
-        ),
-        borderRadius: BorderRadius.circular(20),
-        boxShadow: [
-          BoxShadow(
-            color:
-                _isDark ? Colors.white.withOpacity(0.1) : Colors.black.withOpacity(0.1),
-            blurRadius: 10,
-            spreadRadius: 10,
+    final isHovering = useState(false);
+
+    final _mouseEnter = useCallback((bool hover) {
+      isHovering.value = hover;
+    }, [isHovering]);
+
+    return MouseRegion(
+      onEnter: (_) => _mouseEnter(true),
+      onExit: (_) => _mouseEnter(false),
+      child: Container(
+        width: 0.45 * width,
+        height: _height,
+        decoration: BoxDecoration(
+          image: const DecorationImage(
+            image: AssetImage('assets/images/abstract_bg.jpg'),
+            fit: BoxFit.cover,
           ),
-        ],
-      ),
-      child: Padding(
-        padding: const EdgeInsets.only(
-          top: 15.0,
-          left: 25,
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const SelectableText(
-              'Reach Out To Me',
-              style: TextStyle(
-                fontSize: 40,
-                fontWeight: FontWeight.bold,
-                color: Colors.black,
-                fontFamily: 'Monoton-Regular',
-              ),
-            ),
-            const SizedBox(height: 8),
-            SizedBox(
-              width: 0.45 * width,
-              height: 0.8 * _height,
-              child: const ReachMe(),
+          borderRadius: BorderRadius.circular(20),
+          boxShadow: [
+            BoxShadow(
+              color:
+                  _isDark ? Colors.white.withOpacity(0.1) : Colors.black.withOpacity(0.1),
+              blurRadius: 8,
+              spreadRadius: 8,
+              offset: isHovering.value ? const Offset(10, 10) : const Offset(0, 0),
             ),
           ],
+        ),
+        child: Padding(
+          padding: const EdgeInsets.only(
+            top: 15.0,
+            left: 25,
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const SelectableText(
+                'Reach Out To Me',
+                style: TextStyle(
+                  fontSize: 40,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black,
+                  fontFamily: 'Monoton-Regular',
+                ),
+              ),
+              const SizedBox(height: 8),
+              SizedBox(
+                width: 0.45 * width,
+                height: 0.8 * _height,
+                child: const ReachMe(),
+              ),
+            ],
+          ),
         ),
       ),
     );
