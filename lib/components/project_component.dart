@@ -4,7 +4,8 @@ import 'package:portfolio/constants/data.dart';
 import 'package:portfolio/extensions/splash_on_hover.dart';
 import 'package:portfolio/widgets/custom_button.dart';
 
-const _kSize = 1536;
+const _kWidth = 1536;
+const _kHeight = 745;
 
 class ProjectComponent extends StatelessWidget {
   const ProjectComponent({Key? key}) : super(key: key);
@@ -15,6 +16,7 @@ class ProjectComponent extends StatelessWidget {
     final theme = Theme.of(context);
     final currentTextTheme = Theme.of(context).textTheme;
     double width = MediaQuery.of(context).size.width;
+    double height = MediaQuery.of(context).size.height;
 
     return Material(
       child: Container(
@@ -22,33 +24,32 @@ class ProjectComponent extends StatelessWidget {
         child: Stack(
           children: [
             Positioned(
-              left: 30 / _kSize * width,
-              top: 0 / _kSize * width,
+              left: 30 / _kWidth * width,
               child: _welcomeText(currentTextTheme),
             ),
             Positioned(
-              left: 30 / _kSize * width,
-              top: 100 / _kSize * width,
+              left: 30 / _kWidth * width,
+              top: 100 / _kHeight * height,
               child: SplashOnHover(project: ProjectData.projectList[0]),
             ),
             Positioned(
-              left: 30 / _kSize * width,
-              top: 300 / _kSize * width,
+              left: 30 / _kWidth * width,
+              top: 300 / _kHeight * height,
               child: SplashOnHover(project: ProjectData.projectList[1]),
             ),
             Positioned(
               left: 0.5 * width,
-              top: 100 / _kSize * width,
+              top: 100 / _kHeight * height,
               child: SplashOnHover(project: ProjectData.projectList[2]),
             ),
             Positioned(
               left: 0.5 * width,
-              top: 300 / _kSize * width,
+              top: 300 / _kHeight * height,
               child: SplashOnHover(project: ProjectData.projectList[3]),
             ),
             Positioned(
               left: 0.40 * width,
-              top: 520 / _kSize * width,
+              top: 520 / _kHeight * height,
               child: const CustomButton(
                 text: 'MORE PROJECTS',
                 isResume: false,

@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:portfolio/constants/custom_theme.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+const _kWidth = 1536;
+const _kHeight = 745;
+
 class CustomButton extends StatelessWidget {
   final String text;
   final bool isResume;
@@ -16,6 +19,9 @@ class CustomButton extends StatelessWidget {
     const double borderRadius = 15;
 
     final theme = Theme.of(context);
+
+    double width = MediaQuery.of(context).size.width;
+    double height = MediaQuery.of(context).size.height;
 
     void _launchURL(String _url) async {
       if (!await launch(_url)) throw 'Could not launch $_url';
@@ -37,11 +43,11 @@ class CustomButton extends StatelessWidget {
           elevation: MaterialStateProperty.all(0),
           alignment: Alignment.center,
           padding: MaterialStateProperty.all(
-            const EdgeInsets.only(
-              right: 30,
-              left: 30,
-              top: 15,
-              bottom: 19,
+            EdgeInsets.only(
+              right: 30 / _kWidth * width,
+              left: 30 / _kWidth * width,
+              top: 15 / _kHeight * height,
+              bottom: 19 / _kHeight * height,
             ),
           ),
           backgroundColor: MaterialStateProperty.all(Colors.transparent),

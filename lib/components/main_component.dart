@@ -9,7 +9,8 @@ import 'package:portfolio/components/project_component.dart';
 import 'package:portfolio/components/skills_component.dart';
 import 'package:portfolio/constants/custom_theme.dart';
 
-const _kSize = 1536;
+const _kWidth = 1536;
+const _kHeight = 745;
 
 class HomePage extends StatefulWidget {
   final AdaptiveThemeMode mode;
@@ -54,7 +55,7 @@ class _HomePageState extends State<HomePage> {
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
     final textTheme = themeData.textTheme;
-    double _itemExtent = 600 / _kSize * width;
+    double _itemExtent = 600 / _kHeight * height;
 
     void _animateToIndex(int index) {
       _controller.animateTo(
@@ -63,6 +64,9 @@ class _HomePageState extends State<HomePage> {
         curve: Curves.fastOutSlowIn,
       );
     }
+
+    print('height is $height');
+    print('width is $width');
 
     return PreferredSize(
       preferredSize: Size(width, height),
@@ -91,19 +95,22 @@ class _HomePageState extends State<HomePage> {
                 elevation: 10,
                 centerTitle: true,
                 floating: true,
-                toolbarHeight: 80 / _kSize * width,
+                toolbarHeight: 80 / _kHeight * height,
                 title: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     Container(
                       color: Colors.white,
                       child: Padding(
-                        padding: EdgeInsets.all(8.0 / _kSize * width),
+                        padding: EdgeInsets.symmetric(
+                          horizontal: 8.0 / _kWidth * width,
+                          vertical: 8.0 / _kHeight * height,
+                        ),
                         child: Image.asset(
                           "assets/images/signature.png",
                           alignment: Alignment.center,
-                          width: 200 / _kSize * width,
-                          height: 200 / _kSize * width,
+                          width: 200,
+                          height: 200,
                         ),
                       ),
                     ),
@@ -120,10 +127,8 @@ class _HomePageState extends State<HomePage> {
                               : Colors.white.withOpacity(0.6),
                           child: _buildAppBarButton(
                             text: 'Skills',
-                            width: width,
                             isDarkMode: _isDarkMode,
                             textTheme: textTheme,
-                            height: height,
                           ),
                         ),
                         InkWell(
@@ -136,9 +141,7 @@ class _HomePageState extends State<HomePage> {
                           child: _buildAppBarButton(
                             text: 'Projects',
                             isDarkMode: _isDarkMode,
-                            width: width,
                             textTheme: textTheme,
-                            height: height,
                           ),
                         ),
                         InkWell(
@@ -151,9 +154,7 @@ class _HomePageState extends State<HomePage> {
                           child: _buildAppBarButton(
                             text: 'Work Experience',
                             isDarkMode: _isDarkMode,
-                            width: width,
                             textTheme: textTheme,
-                            height: height,
                           ),
                         ),
                         InkWell(
@@ -166,9 +167,7 @@ class _HomePageState extends State<HomePage> {
                           child: _buildAppBarButton(
                             text: 'Achievements',
                             isDarkMode: _isDarkMode,
-                            width: width,
                             textTheme: textTheme,
-                            height: height,
                           ),
                         ),
                         InkWell(
@@ -181,14 +180,12 @@ class _HomePageState extends State<HomePage> {
                           child: _buildAppBarButton(
                             text: 'Contact Me',
                             isDarkMode: _isDarkMode,
-                            width: width,
                             textTheme: textTheme,
-                            height: height,
                           ),
                         ),
                         IconButton(
                           padding: EdgeInsets.only(
-                            left: 3 / _kSize * width,
+                            left: 3 / _kWidth * width,
                           ),
                           onPressed: () {
                             setState(() {
@@ -201,15 +198,15 @@ class _HomePageState extends State<HomePage> {
                             });
                           },
                           icon: _isDarkMode
-                              ? Icon(
+                              ? const Icon(
                                   Icons.dark_mode,
                                   color: Colors.white,
-                                  size: 0.02 * width,
+                                  size: 30,
                                 )
-                              : Icon(
+                              : const Icon(
                                   Icons.dark_mode_outlined,
                                   color: Colors.black,
-                                  size: 0.02 * width,
+                                  size: 30,
                                 ),
                         ),
                       ],
@@ -244,27 +241,25 @@ class _HomePageState extends State<HomePage> {
 class _buildAppBarButton extends StatelessWidget {
   final String text;
   final bool isDarkMode;
-  final double width;
   final TextTheme textTheme;
-  final double height;
 
   const _buildAppBarButton({
     Key? key,
     required this.text,
     required this.isDarkMode,
-    required this.width,
     required this.textTheme,
-    required this.height,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    double width = MediaQuery.of(context).size.width;
+    double height = MediaQuery.of(context).size.height;
     return Padding(
       padding: EdgeInsets.only(
-        left: 15 / _kSize * width,
-        right: 15 / _kSize * width,
-        top: 5 / _kSize * height,
-        bottom: 5 / _kSize * height,
+        left: 15 / _kWidth * width,
+        right: 15 / _kWidth * width,
+        top: 5 / _kHeight * height,
+        bottom: 5 / _kHeight * height,
       ),
       child: SizedBox(
         child: Text(

@@ -3,16 +3,15 @@ import 'package:portfolio/extensions/hovering_widget.dart';
 import 'package:portfolio/widgets/custom_button.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-const _kSize = 1536;
+const _kWidth = 1536;
+const _kHeight = 745;
 
 class SocialMediaContacts extends StatelessWidget {
-  final double width;
   final bool hasResume;
   final double iconSize;
   final double iconPadding;
   const SocialMediaContacts({
     Key? key,
-    required this.width,
     required this.hasResume,
     required this.iconSize,
     required this.iconPadding,
@@ -40,6 +39,9 @@ class SocialMediaContacts extends StatelessWidget {
       if (!await launch(_url)) throw 'Could not launch $_url';
     }
 
+    double width = MediaQuery.of(context).size.width;
+    double height = MediaQuery.of(context).size.height;
+
     return Material(
       color: Colors.transparent,
       child: Row(
@@ -53,12 +55,12 @@ class SocialMediaContacts extends StatelessWidget {
             child: TranslateOnHover(
               child: Image.asset(
                 'assets/icons/email.png',
-                width: iconSize / _kSize * width,
-                height: iconSize / _kSize * width,
+                width: iconSize,
+                height: iconSize,
               ),
             ),
           ),
-          SizedBox(width: iconPadding / _kSize * width),
+          SizedBox(width: iconPadding / _kWidth * width),
           InkWell(
             onTap: () {
               const url = 'https://github.com/sk25469';
@@ -68,12 +70,12 @@ class SocialMediaContacts extends StatelessWidget {
             child: TranslateOnHover(
               child: Image.asset(
                 'assets/icons/github.png',
-                width: iconSize / _kSize * width,
-                height: iconSize / _kSize * width,
+                width: iconSize,
+                height: iconSize,
               ),
             ),
           ),
-          SizedBox(width: iconPadding / _kSize * width),
+          SizedBox(width: iconPadding / _kWidth * width),
           InkWell(
             onTap: () {
               const url = 'https://www.linkedin.com/in/sahilsarwar1/';
@@ -83,12 +85,12 @@ class SocialMediaContacts extends StatelessWidget {
             child: TranslateOnHover(
               child: Image.asset(
                 'assets/icons/linkedin.png',
-                width: iconSize / _kSize * width,
-                height: iconSize / _kSize * width,
+                width: iconSize,
+                height: iconSize,
               ),
             ),
           ),
-          SizedBox(width: iconPadding / _kSize * width),
+          SizedBox(width: iconPadding / _kWidth * width),
           InkWell(
             onTap: () {
               const url = 'https://twitter.com/SahilSarwar15';
@@ -98,12 +100,12 @@ class SocialMediaContacts extends StatelessWidget {
             child: TranslateOnHover(
               child: Image.asset(
                 'assets/icons/twitter.png',
-                width: iconSize / _kSize * width,
-                height: iconSize / _kSize * width,
+                width: iconSize,
+                height: iconSize,
               ),
             ),
           ),
-          SizedBox(width: iconPadding / _kSize * width),
+          SizedBox(width: iconPadding / _kWidth * width),
           InkWell(
             onTap: () {
               const url = 'https://www.instagram.com/the_originalsahil';
@@ -113,12 +115,12 @@ class SocialMediaContacts extends StatelessWidget {
             child: TranslateOnHover(
               child: Image.asset(
                 'assets/icons/instagram.png',
-                width: iconSize / _kSize * width,
-                height: iconSize / _kSize * width,
+                width: iconSize,
+                height: iconSize,
               ),
             ),
           ),
-          SizedBox(width: iconPadding / _kSize * width),
+          SizedBox(width: iconPadding / _kWidth * width),
           InkWell(
             onTap: () {
               const url = 'https://www.facebook.com/TheOriginalSahil';
@@ -128,12 +130,12 @@ class SocialMediaContacts extends StatelessWidget {
             child: TranslateOnHover(
               child: Image.asset(
                 'assets/icons/facebook.png',
-                width: iconSize / _kSize * width,
-                height: iconSize / _kSize * width,
+                width: iconSize,
+                height: iconSize,
               ),
             ),
           ),
-          if (hasResume) SizedBox(width: 150 / _kSize * width),
+          if (hasResume) SizedBox(width: 150 / _kWidth * width),
           if (hasResume)
             const CustomButton(
               text: 'SEE MY RESUME',

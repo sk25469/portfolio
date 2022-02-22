@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:portfolio/constants/custom_theme.dart';
 import 'package:portfolio/widgets/hovering_animation.dart';
 
-const _kSize = 1536;
+const _kWidth = 1536;
+const _kHeight = 745;
 
 class KnowMeComponent extends StatelessWidget {
   const KnowMeComponent({Key? key}) : super(key: key);
@@ -14,6 +15,7 @@ class KnowMeComponent extends StatelessWidget {
     final theme = Theme.of(context);
     final currentTextTheme = Theme.of(context).textTheme;
     double width = MediaQuery.of(context).size.width;
+    double height = MediaQuery.of(context).size.height;
 
     const String bioText =
         'I am a third year undergraduate from National Institute of Technology Silchar' +
@@ -31,21 +33,23 @@ class KnowMeComponent extends StatelessWidget {
       child: Stack(
         children: [
           Positioned(
-            left: 30 / _kSize * width,
-            top: 0 / _kSize * width,
+            left: 30 / _kWidth * width,
             child: _welcomeText(currentTextTheme),
           ),
           Positioned(
-            right: 10 / _kSize * width,
-            top: 20 / _kSize * width,
+            right: 10 / _kWidth * width,
+            top: 20 / _kHeight * height,
             child: const HoveringAnimation(),
-            width: 500 / _kSize * width,
-            height: 500 / _kSize * width,
+            width: 500 / _kWidth * width,
+            height: 500 / _kHeight * height,
           ),
           Positioned(
-            child: _bioText(textTheme: currentTextTheme, text: bioText),
-            left: 30 / _kSize * width,
-            top: 90 / _kSize * width,
+            child: _bioText(
+              textTheme: currentTextTheme,
+              text: bioText,
+            ),
+            left: 30 / _kWidth * width,
+            top: 90 / _kHeight * height,
           ),
         ],
       ),
@@ -72,8 +76,9 @@ class _bioText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double width = MediaQuery.of(context).size.width;
     return SizedBox(
-      width: 900,
+      width: 900 / _kWidth * width,
       child: SelectableText(
         text,
         style: textTheme.subtitle2,

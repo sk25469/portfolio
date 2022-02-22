@@ -3,7 +3,8 @@ import 'package:portfolio/constants/custom_theme.dart';
 import 'package:portfolio/widgets/skill_animation.dart';
 import 'package:portfolio/widgets/tech_detail.dart';
 
-const _kSize = 1536;
+const _kWidth = 1536;
+const _kHeight = 745;
 
 class SkillComponent extends StatelessWidget {
   const SkillComponent({Key? key}) : super(key: key);
@@ -14,6 +15,7 @@ class SkillComponent extends StatelessWidget {
     final theme = Theme.of(context);
     final currentTextTheme = Theme.of(context).textTheme;
     double width = MediaQuery.of(context).size.width;
+    double height = MediaQuery.of(context).size.height;
 
     return Container(
       decoration: ComponentBoxDecoration.getBoxDecoration(_isDark, theme),
@@ -21,31 +23,30 @@ class SkillComponent extends StatelessWidget {
         children: [
           Positioned(
             child: const SkillAnimation(),
-            top: 30 / _kSize * width,
-            left: 40 / _kSize * width,
-            width: 550 / _kSize * width,
-            height: 550 / _kSize * width,
+            top: 30 / _kHeight * height,
+            left: 40 / _kWidth * width,
+            width: 550 / _kWidth * width,
+            height: 550 / _kHeight * height,
           ),
           Positioned(
-            left: 800 / _kSize * width,
-            top: 10 / _kSize * width,
+            left: 800 / _kWidth * width,
+            top: 10 / _kHeight * height,
             child: _welcomeText(currentTextTheme),
           ),
           Positioned(
-            left: 800 / _kSize * width,
-            top: 100 / _kSize * width,
+            left: 800 / _kWidth * width,
+            top: 100 / _kHeight * height,
             child: _detailText1(currentTextTheme, width),
           ),
           Positioned(
             child: _techStacks(
-              widthBetween: 30 / _kSize * width,
-              heightBetween: 20 / _kSize * width,
-              width: width,
+              widthBetween: 30 / _kWidth * width,
+              heightBetween: 20 / _kHeight * height,
               iconSize: 70,
             ),
-            left: 800 / _kSize * width,
-            top: 190 / _kSize * width,
-            width: 900 / _kSize * width,
+            left: 800 / _kWidth * width,
+            top: 190 / _kHeight * height,
+            width: 900 / _kWidth * width,
           ),
           Positioned(
             child: _detailText2(
@@ -53,8 +54,8 @@ class SkillComponent extends StatelessWidget {
               currentTextTheme,
               width,
             ),
-            left: 800 / _kSize * width,
-            top: 425 / _kSize * width,
+            left: 800 / _kWidth * width,
+            top: 425 / _kHeight * height,
           ),
           Positioned(
             child: _detailText2(
@@ -62,8 +63,8 @@ class SkillComponent extends StatelessWidget {
               currentTextTheme,
               width,
             ),
-            left: 800 / _kSize * width,
-            top: 500 / _kSize * width,
+            left: 800 / _kWidth * width,
+            top: 500 / _kHeight * height,
           ),
         ],
       ),
@@ -80,7 +81,7 @@ Widget _welcomeText(TextTheme currentTextTheme) {
 
 Widget _detailText1(TextTheme currentTextTheme, double width) {
   return SizedBox(
-    width: 650 / _kSize * width,
+    width: 650 / _kWidth * width,
     child: SelectableText(
       'PASSIONATE FULL STACK DEVELOPER WHO WANTS TO EXPLORE EVERY TECH STACK AND LEARN NEW THINGS',
       style: currentTextTheme.subtitle1,
@@ -90,17 +91,18 @@ Widget _detailText1(TextTheme currentTextTheme, double width) {
 
 // ignore: camel_case_types
 class _techStacks extends StatelessWidget {
-  final double widthBetween, heightBetween, width, iconSize;
+  final double widthBetween, heightBetween, iconSize;
   const _techStacks({
     Key? key,
     required this.widthBetween,
     required this.heightBetween,
-    required this.width,
     required this.iconSize,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    double width = MediaQuery.of(context).size.width;
+    double height = MediaQuery.of(context).size.height;
     return Column(
       children: [
         Row(
@@ -108,8 +110,8 @@ class _techStacks extends StatelessWidget {
             TechTile(
               techImage: Image.asset(
                 'assets/icons/android.png',
-                width: iconSize / _kSize * width,
-                height: iconSize / _kSize * width,
+                width: iconSize,
+                height: iconSize,
               ),
               techName: 'Android',
             ),
@@ -117,8 +119,8 @@ class _techStacks extends StatelessWidget {
             TechTile(
               techImage: Image.asset(
                 'assets/icons/cpp.png',
-                width: iconSize / _kSize * width,
-                height: iconSize / _kSize * width,
+                width: iconSize,
+                height: iconSize,
               ),
               techName: 'C++',
             ),
@@ -126,8 +128,8 @@ class _techStacks extends StatelessWidget {
             TechTile(
               techImage: Image.asset(
                 'assets/icons/dart.png',
-                width: iconSize / _kSize * width,
-                height: iconSize / _kSize * width,
+                width: iconSize,
+                height: iconSize,
                 fit: BoxFit.cover,
               ),
               techName: 'Dart',
@@ -136,8 +138,8 @@ class _techStacks extends StatelessWidget {
             TechTile(
               techImage: Image.asset(
                 'assets/icons/database.png',
-                width: iconSize / _kSize * width,
-                height: iconSize / _kSize * width,
+                width: iconSize,
+                height: iconSize,
                 fit: BoxFit.cover,
               ),
               techName: 'SQL',
@@ -146,8 +148,8 @@ class _techStacks extends StatelessWidget {
             TechTile(
               techImage: Image.asset(
                 'assets/icons/docker.png',
-                width: iconSize / _kSize * width,
-                height: iconSize / _kSize * width,
+                width: iconSize,
+                height: iconSize,
               ),
               techName: 'Docker',
             ),
@@ -155,8 +157,8 @@ class _techStacks extends StatelessWidget {
             TechTile(
               techImage: Image.asset(
                 'assets/icons/firebase.png',
-                width: iconSize / _kSize * width,
-                height: iconSize / _kSize * width,
+                width: iconSize,
+                height: iconSize,
               ),
               techName: 'Firebase',
             ),
@@ -168,8 +170,8 @@ class _techStacks extends StatelessWidget {
             TechTile(
               techImage: Image.asset(
                 'assets/icons/flutter.png',
-                width: iconSize / _kSize * width,
-                height: iconSize / _kSize * width,
+                width: iconSize,
+                height: iconSize,
               ),
               techName: 'Flutter',
             ),
@@ -177,8 +179,8 @@ class _techStacks extends StatelessWidget {
             TechTile(
               techImage: Image.asset(
                 'assets/icons/java.png',
-                width: iconSize / _kSize * width,
-                height: iconSize / _kSize * width,
+                width: iconSize,
+                height: iconSize,
               ),
               techName: 'Java',
             ),
@@ -186,8 +188,8 @@ class _techStacks extends StatelessWidget {
             TechTile(
               techImage: Image.asset(
                 'assets/icons/linux.png',
-                width: iconSize / _kSize * width,
-                height: iconSize / _kSize * width,
+                width: iconSize,
+                height: iconSize,
               ),
               techName: 'Linux',
             ),
@@ -195,8 +197,8 @@ class _techStacks extends StatelessWidget {
             TechTile(
               techImage: Image.asset(
                 'assets/icons/mongodb.png',
-                width: iconSize / _kSize * width,
-                height: iconSize / _kSize * width,
+                width: iconSize,
+                height: iconSize,
               ),
               techName: 'MongoDB',
             ),
@@ -204,8 +206,8 @@ class _techStacks extends StatelessWidget {
             TechTile(
               techImage: Image.asset(
                 'assets/icons/python.png',
-                width: iconSize / _kSize * width,
-                height: iconSize / _kSize * width,
+                width: iconSize,
+                height: iconSize,
               ),
               techName: 'Python',
             ),
@@ -213,8 +215,8 @@ class _techStacks extends StatelessWidget {
             TechTile(
               techImage: Image.asset(
                 'assets/icons/springBoot.png',
-                width: iconSize / _kSize * width,
-                height: iconSize / _kSize * width,
+                width: iconSize,
+                height: iconSize,
               ),
               techName: 'Spring Boot',
             ),
@@ -227,7 +229,7 @@ class _techStacks extends StatelessWidget {
 
 Widget _detailText2(String text, TextTheme textTheme, double width) {
   return SizedBox(
-    width: 650 / _kSize * width,
+    width: 650 / _kWidth * width,
     child: SelectableText(
       text,
       style: textTheme.subtitle1,

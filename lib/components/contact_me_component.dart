@@ -3,7 +3,8 @@ import 'package:portfolio/constants/custom_theme.dart';
 import 'package:portfolio/widgets/contact_form.dart';
 import 'package:portfolio/widgets/contact_me_card.dart';
 
-const _kSize = 1536;
+const _kWidth = 1536;
+const _kHeight = 745;
 
 class ContactMeComponent extends StatelessWidget {
   const ContactMeComponent({Key? key}) : super(key: key);
@@ -14,6 +15,7 @@ class ContactMeComponent extends StatelessWidget {
     final theme = Theme.of(context);
     final textTheme = theme.textTheme;
     double width = MediaQuery.of(context).size.width;
+    double height = MediaQuery.of(context).size.height;
     return Container(
       decoration: ComponentBoxDecoration.getBoxDecoration(_isDark, theme),
       child: Column(
@@ -26,23 +28,23 @@ class ContactMeComponent extends StatelessWidget {
             children: [
               Container(
                 padding: EdgeInsets.only(
-                  left: 30 / _kSize * width,
-                  top: 8 / _kSize * width,
+                  left: 30 / _kHeight * height,
+                  top: 8 / _kWidth * width,
                 ),
                 width: 0.5 * width,
                 child: const ContactForm(),
               ),
-              SizedBox(width: 40 / _kSize * width),
+              SizedBox(width: 40 / _kWidth * width),
               Padding(
-                padding: EdgeInsets.only(top: 25.0 / _kSize * width),
+                padding: EdgeInsets.only(top: 25.0 / _kHeight * height),
                 child: const ContactMeCard(),
               ),
             ],
           ),
-          SizedBox(height: 50 / _kSize * width),
+          SizedBox(height: 50 / _kHeight * height),
           Container(
             width: double.infinity,
-            height: 33 / _kSize * width,
+            height: 33 / _kHeight * height,
             decoration: const BoxDecoration(
               color: Colors.blue,
             ),
@@ -65,7 +67,7 @@ class ContactMeComponent extends StatelessWidget {
 
 Widget _welcomeText(TextTheme currentTextTheme, double width) {
   return Padding(
-    padding: EdgeInsets.symmetric(horizontal: 30.0 / _kSize * width),
+    padding: EdgeInsets.symmetric(horizontal: 30.0 / _kWidth * width),
     child: SelectableText(
       'Contact Me',
       style: currentTextTheme.bodyText1,

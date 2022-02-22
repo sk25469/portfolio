@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/constants/custom_theme.dart';
 
+// const _kWidth = 1536;
+// const _kHeight = 745;
+
 class GradientButton extends StatelessWidget {
   final String text;
   final Function() onPressed;
