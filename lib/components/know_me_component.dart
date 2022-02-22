@@ -13,7 +13,7 @@ class KnowMeComponent extends StatelessWidget {
     bool _isDark = Theme.of(context).brightness == Brightness.dark;
     final theme = Theme.of(context);
     final currentTextTheme = Theme.of(context).textTheme;
-    final width = MediaQuery.of(context).size.width;
+    double width = MediaQuery.of(context).size.width;
 
     const String bioText =
         'I am a third year undergraduate from National Institute of Technology Silchar' +

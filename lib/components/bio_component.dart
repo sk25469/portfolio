@@ -15,7 +15,7 @@ class BioComponent extends StatelessWidget {
     bool _isDark = Theme.of(context).brightness == Brightness.dark;
 
     final theme = Theme.of(context);
-    final width = MediaQuery.of(context).size.width;
+    double width = MediaQuery.of(context).size.width;
     return Container(
       decoration: ComponentBoxDecoration.getBoxDecoration(_isDark, theme),
       padding: EdgeInsets.only(top: 50 / _kSize * width),

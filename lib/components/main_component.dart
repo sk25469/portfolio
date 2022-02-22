@@ -51,9 +51,10 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     final themeData = Theme.of(context);
-    final width = MediaQuery.of(context).size.width;
+    double width = MediaQuery.of(context).size.width;
+    double height = MediaQuery.of(context).size.height;
     final textTheme = themeData.textTheme;
-    final _itemExtent = 600 / _kSize * width;
+    double _itemExtent = 600 / _kSize * width;
 
     void _animateToIndex(int index) {
       _controller.animateTo(
@@ -63,7 +64,8 @@ class _HomePageState extends State<HomePage> {
       );
     }
 
-    return SafeArea(
+    return PreferredSize(
+      preferredSize: Size(width, height),
       child: Scaffold(
         backgroundColor: _isDarkMode ? Colors.black : Colors.white,
         floatingActionButton: _showBackToTopButton
@@ -121,6 +123,7 @@ class _HomePageState extends State<HomePage> {
                             width: width,
                             isDarkMode: _isDarkMode,
                             textTheme: textTheme,
+                            height: height,
                           ),
                         ),
                         InkWell(
@@ -135,6 +138,7 @@ class _HomePageState extends State<HomePage> {
                             isDarkMode: _isDarkMode,
                             width: width,
                             textTheme: textTheme,
+                            height: height,
                           ),
                         ),
                         InkWell(
@@ -149,6 +153,7 @@ class _HomePageState extends State<HomePage> {
                             isDarkMode: _isDarkMode,
                             width: width,
                             textTheme: textTheme,
+                            height: height,
                           ),
                         ),
                         InkWell(
@@ -163,6 +168,7 @@ class _HomePageState extends State<HomePage> {
                             isDarkMode: _isDarkMode,
                             width: width,
                             textTheme: textTheme,
+                            height: height,
                           ),
                         ),
                         InkWell(
@@ -177,6 +183,7 @@ class _HomePageState extends State<HomePage> {
                             isDarkMode: _isDarkMode,
                             width: width,
                             textTheme: textTheme,
+                            height: height,
                           ),
                         ),
                         IconButton(
@@ -239,6 +246,7 @@ class _buildAppBarButton extends StatelessWidget {
   final bool isDarkMode;
   final double width;
   final TextTheme textTheme;
+  final double height;
 
   const _buildAppBarButton({
     Key? key,
@@ -246,6 +254,7 @@ class _buildAppBarButton extends StatelessWidget {
     required this.isDarkMode,
     required this.width,
     required this.textTheme,
+    required this.height,
   }) : super(key: key);
 
   @override
@@ -254,8 +263,8 @@ class _buildAppBarButton extends StatelessWidget {
       padding: EdgeInsets.only(
         left: 15 / _kSize * width,
         right: 15 / _kSize * width,
-        top: 5 / _kSize * width,
-        bottom: 5 / _kSize * width,
+        top: 5 / _kSize * height,
+        bottom: 5 / _kSize * height,
       ),
       child: SizedBox(
         child: Text(

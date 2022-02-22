@@ -3,6 +3,8 @@ import 'package:portfolio/constants/custom_theme.dart';
 import 'package:portfolio/constants/data.dart';
 import 'package:portfolio/widgets/company_tile.dart';
 
+const _kSize = 1536;
+
 class ExperienceComponent extends StatelessWidget {
   const ExperienceComponent({Key? key}) : super(key: key);
 
@@ -11,7 +13,7 @@ class ExperienceComponent extends StatelessWidget {
     bool _isDark = Theme.of(context).brightness == Brightness.dark;
     final theme = Theme.of(context);
     final textTheme = theme.textTheme;
-    // final width = MediaQuery.of(context).size.width;
+    double width = MediaQuery.of(context).size.width;
 
     return Container(
       decoration: ComponentBoxDecoration.getBoxDecoration(_isDark, theme),
@@ -19,13 +21,13 @@ class ExperienceComponent extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          _welcomeText(textTheme),
+          _welcomeText(textTheme, width),
           Padding(
-            padding: const EdgeInsets.only(left: 30, top: 10),
+            padding: EdgeInsets.only(left: 30 / _kSize * width, top: 10 / _kSize * width),
             child: Row(
               children: [
                 CompanyTile(company: CompanyData.company[0]),
-                const SizedBox(width: 30),
+                SizedBox(width: 30 / _kSize * width),
                 CompanyTile(company: CompanyData.company[1]),
               ],
             ),
@@ -36,10 +38,10 @@ class ExperienceComponent extends StatelessWidget {
   }
 }
 
-Widget _welcomeText(TextTheme currentTextTheme) {
+Widget _welcomeText(TextTheme currentTextTheme, double width) {
   return Padding(
-    padding: const EdgeInsets.symmetric(
-      horizontal: 30.0,
+    padding: EdgeInsets.symmetric(
+      horizontal: 30.0 / _kSize * width,
       vertical: 0,
     ),
     child: SelectableText(

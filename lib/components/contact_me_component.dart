@@ -3,6 +3,8 @@ import 'package:portfolio/constants/custom_theme.dart';
 import 'package:portfolio/widgets/contact_form.dart';
 import 'package:portfolio/widgets/contact_me_card.dart';
 
+const _kSize = 1536;
+
 class ContactMeComponent extends StatelessWidget {
   const ContactMeComponent({Key? key}) : super(key: key);
 
@@ -11,36 +13,36 @@ class ContactMeComponent extends StatelessWidget {
     bool _isDark = Theme.of(context).brightness == Brightness.dark;
     final theme = Theme.of(context);
     final textTheme = theme.textTheme;
-    final width = MediaQuery.of(context).size.width;
+    double width = MediaQuery.of(context).size.width;
     return Container(
       decoration: ComponentBoxDecoration.getBoxDecoration(_isDark, theme),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          _welcomeText(textTheme),
+          _welcomeText(textTheme, width),
           Row(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Container(
-                padding: const EdgeInsets.only(
-                  left: 30,
-                  top: 8,
+                padding: EdgeInsets.only(
+                  left: 30 / _kSize * width,
+                  top: 8 / _kSize * width,
                 ),
                 width: 0.5 * width,
                 child: const ContactForm(),
               ),
-              const SizedBox(width: 40),
-              const Padding(
-                padding: EdgeInsets.only(top: 25.0),
-                child: ContactMeCard(),
+              SizedBox(width: 40 / _kSize * width),
+              Padding(
+                padding: EdgeInsets.only(top: 25.0 / _kSize * width),
+                child: const ContactMeCard(),
               ),
             ],
           ),
-          const SizedBox(height: 50),
+          SizedBox(height: 50 / _kSize * width),
           Container(
             width: double.infinity,
-            height: 33,
+            height: 33 / _kSize * width,
             decoration: const BoxDecoration(
               color: Colors.blue,
             ),
@@ -61,9 +63,9 @@ class ContactMeComponent extends StatelessWidget {
   }
 }
 
-Widget _welcomeText(TextTheme currentTextTheme) {
+Widget _welcomeText(TextTheme currentTextTheme, double width) {
   return Padding(
-    padding: const EdgeInsets.symmetric(horizontal: 30.0),
+    padding: EdgeInsets.symmetric(horizontal: 30.0 / _kSize * width),
     child: SelectableText(
       'Contact Me',
       style: currentTextTheme.bodyText1,

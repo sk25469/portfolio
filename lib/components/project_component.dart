@@ -3,7 +3,6 @@ import 'package:portfolio/constants/custom_theme.dart';
 import 'package:portfolio/constants/data.dart';
 import 'package:portfolio/extensions/splash_on_hover.dart';
 import 'package:portfolio/widgets/custom_button.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 const _kSize = 1536;
 
@@ -15,7 +14,7 @@ class ProjectComponent extends StatelessWidget {
     bool _isDark = Theme.of(context).brightness == Brightness.dark;
     final theme = Theme.of(context);
     final currentTextTheme = Theme.of(context).textTheme;
-    final width = MediaQuery.of(context).size.width;
+    double width = MediaQuery.of(context).size.width;
 
     return Material(
       child: Container(
