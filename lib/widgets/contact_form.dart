@@ -4,6 +4,9 @@ import 'package:portfolio/constants/custom_theme.dart';
 import 'package:portfolio/widgets/gradient_button.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+const _kWidth = 1536;
+const _kHeight = 745;
+
 class ContactForm extends HookWidget {
   const ContactForm({Key? key}) : super(key: key);
   @override
@@ -46,6 +49,8 @@ class ContactForm extends HookWidget {
     }, [formKey]);
 
     bool isDark = Theme.of(context).brightness == Brightness.dark;
+    double width = MediaQuery.of(context).size.width;
+    double height = MediaQuery.of(context).size.height;
 
     return Form(
       key: formKey,
@@ -58,7 +63,7 @@ class ContactForm extends HookWidget {
             hint: 'Let\'s not be strangers, shall we?',
             maxLines: 1,
           ),
-          const SizedBox(height: 10),
+          SizedBox(height: 10 / _kHeight * height),
           CustomInput(
             inputController: emailController,
             label: 'Subject',
@@ -66,7 +71,7 @@ class ContactForm extends HookWidget {
             hint: 'What do you want to talk about?',
             maxLines: 1,
           ),
-          const SizedBox(height: 10),
+          SizedBox(height: 10 / _kHeight * height),
           CustomInput(
             inputController: messageController,
             label: 'Message',
@@ -74,7 +79,7 @@ class ContactForm extends HookWidget {
             hint: 'What\'s on your mind?',
             maxLines: 6,
           ),
-          const SizedBox(height: 15),
+          SizedBox(height: 15 / _kHeight * height),
           GradientButton(
             text: 'SEND',
             onPressed: submit,
@@ -108,6 +113,9 @@ class CustomInput extends StatelessWidget {
     const errorColor = Color(0xffEF4444);
     final _isDark = Theme.of(context).brightness == Brightness.dark;
 
+    double width = MediaQuery.of(context).size.width;
+    double height = MediaQuery.of(context).size.height;
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -132,23 +140,11 @@ class CustomInput extends StatelessWidget {
             ],
           ),
           child: TextFormField(
-            // validator: (value) {
-            //   // if (label == "Name" && value!.isEmpty) {
-            //   //   return "Tell me your name, please!";
-            //   // }
-            //   // if (label == "Email" && (value!.isEmpty || !value.contains('@'))) {
-            //   //   return "Come on! That's not a valid email";
-            //   // }
-            //   // // if (label == "Message" && value!.isEmpty) {
-            //   // //   return "Don't want to say anything?";
-            //   // // }
-            //   // return null;
-            // },
             maxLines: maxLines,
             controller: inputController,
-            onChanged: (value) {
-              //Do something
-            },
+            // onChanged: (value) {
+            //   //Do something
+            // },
             style: TextStyle(
               fontSize: 14,
               color: _isDark ? Colors.black : Colors.white,
@@ -167,9 +163,9 @@ class CustomInput extends StatelessWidget {
                 color: Colors.red,
                 fontSize: 10,
               ),
-              contentPadding: const EdgeInsets.symmetric(
-                vertical: 20.0,
-                horizontal: 20.0,
+              contentPadding: EdgeInsets.symmetric(
+                vertical: 20.0 / _kHeight * height,
+                horizontal: 20.0 / _kWidth * width,
               ),
               border: OutlineInputBorder(
                 borderSide: BorderSide(

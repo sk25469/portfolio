@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+const _kWidth = 1536;
+const _kHeight = 745;
+
 class TechTile extends StatelessWidget {
   final Image techImage;
   final String techName;
@@ -11,12 +14,14 @@ class TechTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // double width = MediaQuery.of(context).size.width;
+    double height = MediaQuery.of(context).size.height;
     final textTheme = Theme.of(context).textTheme;
     return SizedBox(
       child: Column(
         children: [
           techImage,
-          const SizedBox(height: 8),
+          SizedBox(height: 8 / _kHeight * height),
           Text(
             techName,
             style: textTheme.headline6,

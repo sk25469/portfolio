@@ -4,6 +4,9 @@ import 'package:portfolio/model/project_model.dart';
 
 import '../widgets/project_tile.dart';
 
+const _kWidth = 1536;
+const _kHeight = 745;
+
 class SplashOnHover extends StatefulWidget {
   final Project project;
   const SplashOnHover({
@@ -26,19 +29,20 @@ class _SplashOnHover extends State<SplashOnHover> {
 
   @override
   Widget build(BuildContext context) {
-    final width = MediaQuery.of(context).size.width;
+    double width = MediaQuery.of(context).size.width;
+    double height = MediaQuery.of(context).size.height;
 
     return MouseRegion(
       onEnter: (e) => _mouseEnter(true),
       onExit: (e) => _mouseEnter(false),
       child: SizedBox(
         width: 0.45 * width,
-        height: 180,
+        height: 180 / _kHeight * height,
         child: Stack(
           children: [
             Positioned(
-              top: -20,
-              right: -20,
+              top: -20 / _kHeight * height,
+              right: -20 / _kWidth * width,
               child: AnimatedContainer(
                 width: _hovering ? 1500 : 40,
                 height: _hovering ? 1500 : 40,

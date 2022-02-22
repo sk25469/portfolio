@@ -4,6 +4,9 @@ import 'package:portfolio/model/achievement_model.dart';
 import 'package:portfolio/widgets/gradient_button.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+const _kWidth = 1536;
+const _kHeight = 745;
+
 class AchievementTile extends HookWidget {
   final Achievement achievement;
   const AchievementTile({
@@ -15,6 +18,9 @@ class AchievementTile extends HookWidget {
   Widget build(BuildContext context) {
     final _isDark = Theme.of(context).brightness == Brightness.dark;
     final textTheme = Theme.of(context).textTheme;
+    double width = MediaQuery.of(context).size.width;
+    double height = MediaQuery.of(context).size.height;
+
     double containerWidth = 300, containerHeight = 450;
 
     bool _isYearNeeded = achievement.assetName.contains('codejam') ||
@@ -43,9 +49,8 @@ class AchievementTile extends HookWidget {
             BoxShadow(
               color:
                   _isDark ? Colors.white.withOpacity(0.1) : Colors.black.withOpacity(0.1),
-              blurRadius: 7,
-              offset: isHovering.value ? const Offset(10, 10) : const Offset(0, 0),
-              spreadRadius: 7,
+              blurRadius: !isHovering.value ? 5 : 8,
+              spreadRadius: !isHovering.value ? 5 : 8,
             ),
           ],
         ),
@@ -72,7 +77,7 @@ class AchievementTile extends HookWidget {
                 ),
               ),
               top: containerHeight / 32,
-              left: containerWidth / 64 - 5,
+              left: containerWidth / 64 - 5 / _kWidth * width,
             ),
             if (_isYearNeeded)
               Positioned(
@@ -84,8 +89,8 @@ class AchievementTile extends HookWidget {
                     fontSize: 60,
                   ),
                 ),
-                top: containerHeight / 8 + 18,
-                left: containerWidth / 2 - 50,
+                top: containerHeight / 8 + 18 / _kHeight * height,
+                left: containerWidth / 2 - 50 / _kWidth * width,
               ),
             Positioned(
               child: Container(
@@ -93,9 +98,9 @@ class AchievementTile extends HookWidget {
                 height: containerHeight / 2,
                 color: Colors.transparent,
                 child: Padding(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 8.0,
-                    vertical: 5,
+                  padding: EdgeInsets.symmetric(
+                    horizontal: 8.0 / _kWidth * width,
+                    vertical: 5 / _kHeight * height,
                   ),
                   child: _buildAchievementDescription(
                     achievement: achievement,
@@ -104,7 +109,7 @@ class AchievementTile extends HookWidget {
                 ),
               ),
               top: 0.535 * containerHeight,
-              left: 10,
+              left: 10 / _kWidth * width,
             ),
             Positioned(
               child: GradientButton(
@@ -115,7 +120,7 @@ class AchievementTile extends HookWidget {
                 isCertificate: true,
               ),
               bottom: 0.05 * containerHeight,
-              left: containerWidth / 2 - 65,
+              left: containerWidth / 2 - 65 / _kWidth * width,
             )
           ],
         ),

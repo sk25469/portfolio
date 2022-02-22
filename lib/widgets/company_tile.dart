@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/model/company_model.dart';
 
+const _kWidth = 1536;
+const _kHeight = 745;
+
 class CompanyTile extends StatelessWidget {
   final Company company;
   const CompanyTile({
@@ -12,6 +15,8 @@ class CompanyTile extends StatelessWidget {
   Widget build(BuildContext context) {
     final _isDark = Theme.of(context).brightness == Brightness.dark;
     final textTheme = Theme.of(context).textTheme;
+    double width = MediaQuery.of(context).size.width;
+    double height = MediaQuery.of(context).size.height;
     double containerWidth = 380, containerHeight = 480;
     int hasMoreColors = company.colors.length;
 
@@ -89,9 +94,9 @@ class CompanyTile extends StatelessWidget {
             child: Container(
               // height: 100,
               width: 100,
-              padding: const EdgeInsets.symmetric(
-                horizontal: 5,
-                vertical: 3,
+              padding: EdgeInsets.symmetric(
+                horizontal: 5 / _kWidth * width,
+                vertical: 3 / _kHeight * height,
               ),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20),
@@ -105,8 +110,8 @@ class CompanyTile extends StatelessWidget {
                 ),
               ),
             ),
-            top: 20,
-            left: containerWidth / 2 - 50,
+            top: 20 / _kHeight * height,
+            left: containerWidth / 2 - 50 / _kWidth * width,
           ),
           Positioned(
             child: Container(
@@ -123,24 +128,24 @@ class CompanyTile extends StatelessWidget {
                 height: 70,
               ),
             ),
-            top: 70,
-            left: containerWidth / 2 - 35,
+            top: 70 / _kHeight * height,
+            left: containerWidth / 2 - 35 / _kWidth * width,
           ),
           Positioned(
             child: Container(
               width: containerWidth,
-              height: 3 / 4 * containerHeight - 50,
+              height: 3 / 4 * containerHeight - 50 / _kHeight * height,
               color: Colors.transparent,
               child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                padding: EdgeInsets.symmetric(horizontal: 8.0 / _kWidth * width),
                 child: _buildCompanyDescription(
                   company: company,
                   textTheme: textTheme,
                 ),
               ),
             ),
-            top: containerHeight / 4 + 30,
-            left: 10,
+            top: containerHeight / 4 + 30 / _kHeight * height,
+            left: 10 / _kWidth * width,
           )
         ],
       ),
@@ -160,6 +165,8 @@ class _buildCompanyDescription extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double width = MediaQuery.of(context).size.width;
+    double height = MediaQuery.of(context).size.height;
     return Column(
       children: [
         SelectableText(
@@ -167,7 +174,7 @@ class _buildCompanyDescription extends StatelessWidget {
           // headline2
           style: textTheme.headline2,
         ),
-        const SizedBox(height: 5),
+        SizedBox(height: 5 / _kHeight * height),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -181,7 +188,7 @@ class _buildCompanyDescription extends StatelessWidget {
             ),
           ],
         ),
-        const SizedBox(height: 10),
+        SizedBox(height: 10 / _kHeight * height),
         SelectableText(
           company.description,
           style: textTheme.headline4,

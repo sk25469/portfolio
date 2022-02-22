@@ -3,13 +3,17 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:portfolio/constants/custom_theme.dart';
 import 'package:portfolio/widgets/social_media.dart';
 
+const _kWidth = 1536;
+const _kHeight = 745;
+
 class ContactMeCard extends HookWidget {
   const ContactMeCard({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final width = MediaQuery.of(context).size.width;
-    const double _height = 400;
+    double width = MediaQuery.of(context).size.width;
+    double height = MediaQuery.of(context).size.height;
+    double _height = 400 / _kHeight * height;
     bool _isDark = Theme.of(context).brightness == Brightness.dark;
 
     final isHovering = useState(false);
@@ -34,16 +38,15 @@ class ContactMeCard extends HookWidget {
             BoxShadow(
               color:
                   _isDark ? Colors.white.withOpacity(0.1) : Colors.black.withOpacity(0.1),
-              blurRadius: 8,
-              spreadRadius: 8,
-              offset: isHovering.value ? const Offset(10, 10) : const Offset(0, 0),
+              blurRadius: !isHovering.value ? 5 : 10,
+              spreadRadius: !isHovering.value ? 5 : 10,
             ),
           ],
         ),
         child: Padding(
-          padding: const EdgeInsets.only(
-            top: 15.0,
-            left: 25,
+          padding: EdgeInsets.only(
+            top: 15.0 / _kHeight * height,
+            left: 25 / _kWidth * width,
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -78,15 +81,16 @@ class ReachMe extends StatelessWidget {
   Widget build(BuildContext context) {
     // final textTheme = Theme.of(context).textTheme;
     // final _isDark = Theme.of(context).brightness == Brightness.dark;
-    final width = MediaQuery.of(context).size.width;
+    double width = MediaQuery.of(context).size.width;
+    double height = MediaQuery.of(context).size.height;
     return Stack(
       children: [
-        const Positioned(
+        Positioned(
           left: 0,
           top: 0,
           child: SizedBox(
-            width: 450,
-            child: SelectableText(
+            width: 450 / _kWidth * width,
+            child: const SelectableText(
               'Want to discuss a project? Or just say hi?\nMy inbox is open for all!',
               style: TextStyle(
                 fontFamily: 'ZenKakuGothicAntique-Light',
@@ -98,8 +102,7 @@ class ReachMe extends StatelessWidget {
           ),
         ),
         Positioned(
-          right: 15,
-          top: 0,
+          right: 15 / _kWidth * width,
           child: CircleAvatar(
             backgroundColor: lightPurple,
             radius: 100,
@@ -159,15 +162,13 @@ class ReachMe extends StatelessWidget {
         //   width: 400,
         // ),
         Positioned(
-          child: SocialMediaContacts(
-            width: width,
+          child: const SocialMediaContacts(
             hasResume: false,
             iconSize: 50,
             iconPadding: 0,
           ),
-          top: 250,
-          left: 0,
-          width: 400,
+          top: 250 / _kHeight * height,
+          width: 400 / _kWidth * width,
         ),
       ],
     );
