@@ -144,22 +144,22 @@ class _HomePageState extends State<HomePage> {
                             textTheme: textTheme,
                           ),
                         ),
+                        // InkWell(
+                        //   onTap: () {
+                        //     _animateToIndex(4);
+                        //   },
+                        //   hoverColor: _isDarkMode
+                        //       ? Colors.black.withOpacity(0.6)
+                        //       : Colors.white.withOpacity(0.6),
+                        //   child: _buildAppBarButton(
+                        //     text: 'Work Experience',
+                        //     isDarkMode: _isDarkMode,
+                        //     textTheme: textTheme,
+                        //   ),
+                        // ),
                         InkWell(
                           onTap: () {
                             _animateToIndex(4);
-                          },
-                          hoverColor: _isDarkMode
-                              ? Colors.black.withOpacity(0.6)
-                              : Colors.white.withOpacity(0.6),
-                          child: _buildAppBarButton(
-                            text: 'Work Experience',
-                            isDarkMode: _isDarkMode,
-                            textTheme: textTheme,
-                          ),
-                        ),
-                        InkWell(
-                          onTap: () {
-                            _animateToIndex(5);
                           },
                           hoverColor: _isDarkMode
                               ? Colors.black.withOpacity(0.6)
@@ -172,7 +172,7 @@ class _HomePageState extends State<HomePage> {
                         ),
                         InkWell(
                           onTap: () {
-                            _animateToIndex(6);
+                            _animateToIndex(5);
                           },
                           hoverColor: _isDarkMode
                               ? Colors.black.withOpacity(0.6)
@@ -223,7 +223,7 @@ class _HomePageState extends State<HomePage> {
                     const SkillComponent(),
                     const KnowMeComponent(),
                     const ProjectComponent(),
-                    const ExperienceComponent(),
+                    // const ExperienceComponent(),
                     const AchievementComponent(),
                     const ContactMeComponent(),
                   ],

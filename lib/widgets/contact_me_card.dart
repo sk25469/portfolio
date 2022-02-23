@@ -13,7 +13,7 @@ class ContactMeCard extends HookWidget {
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
-    double _height = 400 / _kHeight * height;
+    double _height = 400;
     bool _isDark = Theme.of(context).brightness == Brightness.dark;
 
     final isHovering = useState(false);
@@ -60,7 +60,7 @@ class ContactMeCard extends HookWidget {
                   fontFamily: 'Monoton-Regular',
                 ),
               ),
-              const SizedBox(height: 8),
+              SizedBox(height: 8 / _kHeight * height),
               SizedBox(
                 width: 0.45 * width,
                 height: 0.8 * _height,
