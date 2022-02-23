@@ -21,54 +21,35 @@ class ProjectComponent extends StatelessWidget {
     return Material(
       child: Container(
         decoration: ComponentBoxDecoration.getBoxDecoration(_isDark, theme),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
+        child: Stack(
           children: [
-            Container(
-              padding: EdgeInsets.only(left: 30 / _kWidth * width),
+            Positioned(
+              left: 30 / _kWidth * width,
               child: _welcomeText(currentTextTheme),
             ),
-            Container(
-              padding: EdgeInsets.only(top: 20 / _kHeight * height),
-              width: double.infinity,
-              child: Row(
-                children: [
-                  Container(
-                    padding: EdgeInsets.only(
-                      left: 40 / _kWidth * width,
-                    ),
-                    child: SplashOnHover(project: ProjectData.projectList[0]),
-                  ),
-                  SizedBox(width: 30 / _kWidth * width),
-                  SizedBox(
-                    child: SplashOnHover(project: ProjectData.projectList[1]),
-                  ),
-                ],
-              ),
+            Positioned(
+              left: 30 / _kWidth * width,
+              top: 100 / _kHeight * height,
+              child: SplashOnHover(project: ProjectData.projectList[0]),
             ),
-            SizedBox(height: 25 / _kHeight * height),
-            SizedBox(
-              child: Row(
-                children: [
-                  Container(
-                    padding: EdgeInsets.only(
-                      left: 40 / _kWidth * width,
-                    ),
-                    child: SplashOnHover(project: ProjectData.projectList[2]),
-                  ),
-                  SizedBox(width: 30 / _kWidth * width),
-                  SizedBox(
-                    child: SplashOnHover(project: ProjectData.projectList[3]),
-                  ),
-                ],
-              ),
+            Positioned(
+              left: 30 / _kWidth * width,
+              top: 300 / _kHeight * height,
+              child: SplashOnHover(project: ProjectData.projectList[1]),
             ),
-            SizedBox(height: 30 / _kHeight * height),
-            Container(
-              padding: EdgeInsets.only(
-                left: 0.4 * width,
-              ),
+            Positioned(
+              left: 0.5 * width,
+              top: 100 / _kHeight * height,
+              child: SplashOnHover(project: ProjectData.projectList[2]),
+            ),
+            Positioned(
+              left: 0.5 * width,
+              top: 300 / _kHeight * height,
+              child: SplashOnHover(project: ProjectData.projectList[3]),
+            ),
+            Positioned(
+              left: 0.40 * width,
+              top: 520 / _kHeight * height,
               child: const CustomButton(
                 text: 'MORE PROJECTS',
                 isResume: false,
