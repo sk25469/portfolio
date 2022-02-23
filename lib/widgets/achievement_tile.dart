@@ -21,7 +21,7 @@ class AchievementTile extends HookWidget {
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
 
-    double containerWidth = 300, containerHeight = 450;
+    double containerWidth = 300, containerHeight = 440;
 
     bool _isYearNeeded = achievement.assetName.contains('codejam') ||
         achievement.assetName.contains('kickstart');

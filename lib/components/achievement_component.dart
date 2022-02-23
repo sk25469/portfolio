@@ -22,24 +22,22 @@ class AchievementComponent extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           _welcomeText(textTheme, width),
-          FittedBox(
-            child: Padding(
-              padding: EdgeInsets.only(
-                left: 30 / _kWidth * width,
-                top: 15 / _kHeight * height,
-              ),
-              child: Row(
-                children: [
-                  AchievementTile(achievement: AchievementsData.achievements[0]),
-                  SizedBox(width: 30 / _kWidth * width),
-                  AchievementTile(achievement: AchievementsData.achievements[1]),
-                  SizedBox(width: 30 / _kWidth * width),
-                  AchievementTile(achievement: AchievementsData.achievements[2]),
-                  SizedBox(width: 30 / _kWidth * width),
-                  AchievementTile(achievement: AchievementsData.achievements[3]),
-                  SizedBox(width: 30 / _kWidth * width),
-                ],
-              ),
+          Padding(
+            padding: EdgeInsets.only(
+              left: 30 / _kWidth * width,
+              top: 15 / _kHeight * height,
+            ),
+            child: Row(
+              children: [
+                AchievementTile(achievement: AchievementsData.achievements[0]),
+                SizedBox(width: 30 / _kWidth * width),
+                AchievementTile(achievement: AchievementsData.achievements[1]),
+                SizedBox(width: 30 / _kWidth * width),
+                AchievementTile(achievement: AchievementsData.achievements[2]),
+                SizedBox(width: 30 / _kWidth * width),
+                AchievementTile(achievement: AchievementsData.achievements[3]),
+                SizedBox(width: 30 / _kWidth * width),
+              ],
             ),
           ),
         ],
