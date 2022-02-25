@@ -43,11 +43,11 @@ class CustomButton extends StatelessWidget {
           elevation: MaterialStateProperty.all(0),
           alignment: Alignment.center,
           padding: MaterialStateProperty.all(
-            EdgeInsets.only(
-              right: 30 / _kWidth * width,
-              left: 30 / _kWidth * width,
-              top: 15 / _kHeight * height,
-              bottom: 19 / _kHeight * height,
+            const EdgeInsets.only(
+              right: 30,
+              left: 30,
+              top: 15,
+              bottom: 19,
             ),
           ),
           backgroundColor: MaterialStateProperty.all(Colors.transparent),
