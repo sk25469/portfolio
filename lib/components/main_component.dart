@@ -34,9 +34,9 @@ class _HomePageState extends State<HomePage> {
     _controller.addListener(() {
       setState(() {
         if (_controller.offset >= 100) {
-          _showBackToTopButton = true; // show the back-to-top button
+          _showBackToTopButton = true;
         } else {
-          _showBackToTopButton = false; // hide the back-to-top button
+          _showBackToTopButton = false;
         }
       });
     });
