@@ -4,6 +4,13 @@ A Software Developer porfolio website made using Flutter for Web. The design is 
 
 ## ⚡Samples
 
+
+### 📱 Mobile
+
+![Portfolio Sample](/assets/demo/portfolio-sample-mob1.gif "Portfolio")
+
+### 💻 Desktop
+
 ![Portfolio Sample](/assets/demo/portfolio-sample.gif "Portfolio")
 
 ![Portfolio Sample](/assets/demo/portfolio-1.jpg "Portfolio")
