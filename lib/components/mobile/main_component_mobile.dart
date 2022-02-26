@@ -1,6 +1,8 @@
 import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:portfolio/components/mobile/bio_component_mobile.dart';
+import 'package:portfolio/components/mobile/know_me_component_mobile.dart';
+import 'package:portfolio/components/mobile/project_component_mobile.dart';
 import 'package:portfolio/components/mobile/skills_component_mobile.dart';
 import 'package:portfolio/constants/custom_theme.dart';
 import 'package:portfolio/widgets/custom_button.dart';
@@ -19,9 +21,14 @@ class MainComponentMobile extends StatefulWidget {
 
 class _MainComponentMobileState extends State<MainComponentMobile> {
   bool _isDarkMode = false;
+  final ScrollController _controller = ScrollController();
+  bool _showBackToTopButton = false;
+
   final List<Widget> _widgets = [
     const BioComponentMobile(),
     const SkillComponentMobile(),
+    const KnowMeComponentMobile(),
+    const ProjectComponentMobile(),
     // AboutComponentMobile(),
     // ProjectsComponentMobile(),
     // ContactComponentMobile(),
@@ -30,20 +37,52 @@ class _MainComponentMobileState extends State<MainComponentMobile> {
   @override
   void initState() {
     super.initState();
+    _controller.addListener(() {
+      setState(() {
+        if (_controller.offset >= 50) {
+          _showBackToTopButton = true;
+        } else {
+          _showBackToTopButton = false;
+        }
+      });
+    });
     _isDarkMode = widget.adaptiveThemeMode == AdaptiveThemeMode.dark;
   }
 
   @override
+  void dispose() {
+    _controller.dispose(); // dispose the controller
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
+    void _animateToIndex(int index, double height) {
+      _controller.animateTo(
+        index * height,
+        duration: const Duration(seconds: 1),
+        curve: Curves.fastOutSlowIn,
+      );
+    }
+
     final textTheme = Theme.of(context).textTheme;
+
     return Scaffold(
+      floatingActionButton: _showBackToTopButton
+          ? FloatingActionButton(
+              onPressed: () {
+                _animateToIndex(0, 0);
+              },
+              child: const Icon(
+                Icons.arrow_upward_outlined,
+                color: Colors.white,
+              ),
+              backgroundColor: lightPurple,
+            )
+          : null,
       drawer: Drawer(
         backgroundColor: _isDarkMode ? Colors.black : Colors.white,
-        // Add a ListView to the drawer. This ensures the user can scroll
-        // through the options in the drawer if there isn't enough vertical
-        // space to fit everything.
         child: ListView(
-          // Important: Remove any padding from the ListView.
           padding: EdgeInsets.zero,
           children: [
             Container(
@@ -150,59 +189,65 @@ class _MainComponentMobileState extends State<MainComponentMobile> {
         ),
       ),
       backgroundColor: _isDarkMode ? darkBackgroundColor : lightBackgroundColor,
-      body: CustomScrollView(
-        slivers: [
-          SliverAppBar(
-            iconTheme: IconThemeData(
-              color: _isDarkMode ? Colors.white : Colors.black,
-            ),
-            elevation: 10,
-            floating: true,
-            toolbarHeight: 80,
-            centerTitle: true,
-            backgroundColor: _isDarkMode ? darkBackgroundColor : lightBackgroundColor,
-            title: Image.asset(
-              "assets/images/signature.png",
-              alignment: Alignment.center,
-              width: 200,
-              height: 200,
-            ),
-            actions: [
-              IconButton(
-                padding: const EdgeInsets.only(right: 10),
-                onPressed: () {
-                  setState(() {
-                    if (_isDarkMode) {
-                      AdaptiveTheme.of(context).setLight();
-                    } else {
-                      AdaptiveTheme.of(context).setDark();
-                    }
-                    _isDarkMode = !_isDarkMode;
-                  });
-                },
-                icon: _isDarkMode
-                    ? const Icon(
-                        Icons.dark_mode,
-                        color: Colors.white,
-                        size: 25,
-                      )
-                    : const Icon(
-                        Icons.dark_mode_outlined,
-                        color: Colors.black,
-                        size: 25,
-                      ),
+      body: Scrollbar(
+        showTrackOnHover: true,
+        thickness: 10,
+        controller: _controller,
+        child: CustomScrollView(
+          controller: _controller,
+          slivers: [
+            SliverAppBar(
+              iconTheme: IconThemeData(
+                color: _isDarkMode ? Colors.white : Colors.black,
               ),
-            ],
-          ),
-          SliverList(
-            delegate: SliverChildBuilderDelegate(
-              (context, index) {
-                return _widgets[index];
-              },
-              childCount: _widgets.length,
+              elevation: 10,
+              floating: true,
+              toolbarHeight: 80,
+              centerTitle: true,
+              backgroundColor: _isDarkMode ? darkBackgroundColor : lightBackgroundColor,
+              title: Image.asset(
+                "assets/images/signature.png",
+                alignment: Alignment.center,
+                width: 200,
+                height: 200,
+              ),
+              actions: [
+                IconButton(
+                  padding: const EdgeInsets.only(right: 10),
+                  onPressed: () {
+                    setState(() {
+                      if (_isDarkMode) {
+                        AdaptiveTheme.of(context).setLight();
+                      } else {
+                        AdaptiveTheme.of(context).setDark();
+                      }
+                      _isDarkMode = !_isDarkMode;
+                    });
+                  },
+                  icon: _isDarkMode
+                      ? const Icon(
+                          Icons.dark_mode,
+                          color: Colors.white,
+                          size: 25,
+                        )
+                      : const Icon(
+                          Icons.dark_mode_outlined,
+                          color: Colors.black,
+                          size: 25,
+                        ),
+                ),
+              ],
             ),
-          ),
-        ],
+            SliverList(
+              delegate: SliverChildBuilderDelegate(
+                (context, index) {
+                  return _widgets[index];
+                },
+                childCount: _widgets.length,
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

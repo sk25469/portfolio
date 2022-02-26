@@ -1,10 +1,7 @@
 import 'package:emojis/emojis.dart';
 import 'package:flutter/material.dart';
-import 'package:portfolio/constants/custom_theme.dart';
 import 'package:portfolio/widgets/hovering_animation.dart';
 
-const _kWidth = 1536;
-const _kHeight = 745;
 const String bioText =
     'I am a third year undergraduate from National Institute of Technology Silchar' +
         Emojis.classicalBuilding +
@@ -17,40 +14,31 @@ const String bioText =
         '.' +
         ' Hit me up! ${Emojis.wavingHand}';
 
-class KnowMeComponent extends StatelessWidget {
-  const KnowMeComponent({Key? key}) : super(key: key);
+class KnowMeComponentMobile extends StatelessWidget {
+  const KnowMeComponentMobile({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    bool _isDark = Theme.of(context).brightness == Brightness.dark;
-    final theme = Theme.of(context);
-    final currentTextTheme = Theme.of(context).textTheme;
-    double width = MediaQuery.of(context).size.width;
-    double height = MediaQuery.of(context).size.height;
-
+    final textTheme = Theme.of(context).textTheme;
     return Container(
-      decoration: ComponentBoxDecoration.getBoxDecoration(_isDark, theme),
-      child: Stack(
+      padding: const EdgeInsets.symmetric(
+        horizontal: 16,
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Positioned(
-            left: 30 / _kWidth * width,
-            child: _welcomeText(currentTextTheme),
+          _welcomeText(textTheme),
+          const SizedBox(height: 20),
+          const SizedBox(
+            width: double.infinity,
+            height: 300,
+            child: HoveringAnimation(),
           ),
-          Positioned(
-            right: 10 / _kWidth * width,
-            top: 20 / _kHeight * height,
-            child: const HoveringAnimation(),
-            width: 500 / _kWidth * width,
-            height: 500 / _kHeight * height,
-          ),
-          Positioned(
-            child: _bioText(
-              textTheme: currentTextTheme,
-              text: bioText,
-            ),
-            left: 30 / _kWidth * width,
-            top: 90 / _kHeight * height,
-          ),
+          const SizedBox(height: 20),
+          _bioText(
+            textTheme: textTheme,
+            text: bioText,
+          )
         ],
       ),
     );
@@ -76,12 +64,17 @@ class _bioText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double width = MediaQuery.of(context).size.width;
+    // double width = MediaQuery.of(context).size.width;
+    bool _isDark = Theme.of(context).brightness == Brightness.dark;
     return SizedBox(
-      width: 900 / _kWidth * width,
+      width: double.infinity,
       child: SelectableText(
         text,
-        style: textTheme.subtitle2,
+        style: TextStyle(
+          color: _isDark ? Colors.white : Colors.black,
+          fontSize: 20,
+          fontFamily: 'ZenKakuGothicAntique-Regular',
+        ),
       ),
     );
   }

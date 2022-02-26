@@ -32,17 +32,19 @@ class _SplashOnHover extends State<SplashOnHover> {
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
 
+    bool _isMobile = width <= 640;
+
     return MouseRegion(
       onEnter: (e) => _mouseEnter(true),
       onExit: (e) => _mouseEnter(false),
       child: SizedBox(
-        width: 0.45 * width,
-        height: 180 / _kHeight * height,
+        width: !_isMobile ? 0.45 * width : width,
+        height: 187,
         child: Stack(
           children: [
             Positioned(
-              top: -20 / _kHeight * height,
-              right: -20 / _kWidth * width,
+              top: -20,
+              right: -20,
               child: AnimatedContainer(
                 width: _hovering ? 1500 : 40,
                 height: _hovering ? 1500 : 40,
