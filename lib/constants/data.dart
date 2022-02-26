@@ -8,7 +8,7 @@ class ProjectData {
     Project(
       title: 'library-tracking-system',
       description:
-          'An API made using Spring Boot and Postgres which contains the database of different books, their availability count, the location in a library',
+          'An API made using Spring Boot and Postgres for displaying the locations and count in the library',
       size: 63,
       language: 'Java',
       languageColor: Colors.orange,

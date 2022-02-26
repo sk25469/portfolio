@@ -39,7 +39,7 @@ class ProjectTile extends StatelessWidget {
         },
         child: Container(
           width: !_isMobile ? 0.45 * width : width,
-          height: 187,
+          height: !_isMobile ? 0.26 * height : 0.3 * height,
           decoration: BoxDecoration(
             boxShadow: [
               BoxShadow(
@@ -147,7 +147,7 @@ class _projectDetail extends StatelessWidget {
     return Container(
       width: _isMobile ? 0.95 * width : 0.45 * width,
       margin: !_isMobile
-          ? const EdgeInsets.only(bottom: 20, left: 10, right: 30)
+          ? const EdgeInsets.only(bottom: 20, left: 10, right: 10)
           : const EdgeInsets.only(bottom: 10, left: 10, right: 30),
       child: Row(
         children: [

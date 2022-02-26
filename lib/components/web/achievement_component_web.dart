@@ -16,6 +16,7 @@ class AchievementComponent extends StatelessWidget {
     final textTheme = theme.textTheme;
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
+
     return Container(
       decoration: ComponentBoxDecoration.getBoxDecoration(_isDark, theme),
       child: Column(
@@ -23,20 +24,20 @@ class AchievementComponent extends StatelessWidget {
         children: [
           _welcomeText(textTheme, width),
           Padding(
-            padding: EdgeInsets.only(
-              left: 30 / _kWidth * width,
-              top: 15 / _kHeight * height,
+            padding: const EdgeInsets.only(
+              left: 30,
+              top: 15,
             ),
             child: Row(
               children: [
                 AchievementTile(achievement: AchievementsData.achievements[0]),
-                SizedBox(width: 30 / _kWidth * width),
+                const SizedBox(width: 30),
                 AchievementTile(achievement: AchievementsData.achievements[1]),
-                SizedBox(width: 30 / _kWidth * width),
+                const SizedBox(width: 30),
                 AchievementTile(achievement: AchievementsData.achievements[2]),
-                SizedBox(width: 30 / _kWidth * width),
+                const SizedBox(width: 30),
                 AchievementTile(achievement: AchievementsData.achievements[3]),
-                SizedBox(width: 30 / _kWidth * width),
+                const SizedBox(width: 30),
               ],
             ),
           ),
@@ -48,7 +49,7 @@ class AchievementComponent extends StatelessWidget {
 
 Widget _welcomeText(TextTheme currentTextTheme, double width) {
   return Padding(
-    padding: EdgeInsets.symmetric(horizontal: 30.0 / _kWidth * width),
+    padding: const EdgeInsets.symmetric(horizontal: 30.0),
     child: Column(
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,

@@ -1,6 +1,8 @@
 import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:portfolio/components/mobile/achievement_component_mobile.dart';
 import 'package:portfolio/components/mobile/bio_component_mobile.dart';
+import 'package:portfolio/components/mobile/contact_me_component_mobile.dart';
 import 'package:portfolio/components/mobile/know_me_component_mobile.dart';
 import 'package:portfolio/components/mobile/project_component_mobile.dart';
 import 'package:portfolio/components/mobile/skills_component_mobile.dart';
@@ -29,9 +31,8 @@ class _MainComponentMobileState extends State<MainComponentMobile> {
     const SkillComponentMobile(),
     const KnowMeComponentMobile(),
     const ProjectComponentMobile(),
-    // AboutComponentMobile(),
-    // ProjectsComponentMobile(),
-    // ContactComponentMobile(),
+    const AchivementComponentMobile(),
+    const ContactMeComponentMobile(),
   ];
 
   @override
@@ -57,21 +58,22 @@ class _MainComponentMobileState extends State<MainComponentMobile> {
 
   @override
   Widget build(BuildContext context) {
-    void _animateToIndex(int index, double height) {
+    void _animateToIndex(double _height) {
       _controller.animateTo(
-        index * height,
+        _height,
         duration: const Duration(seconds: 1),
         curve: Curves.fastOutSlowIn,
       );
     }
 
     final textTheme = Theme.of(context).textTheme;
+    double height = MediaQuery.of(context).size.height;
 
     return Scaffold(
       floatingActionButton: _showBackToTopButton
           ? FloatingActionButton(
               onPressed: () {
-                _animateToIndex(0, 0);
+                _animateToIndex(0);
               },
               child: const Icon(
                 Icons.arrow_upward_outlined,
@@ -115,6 +117,7 @@ class _MainComponentMobileState extends State<MainComponentMobile> {
                 // ...
                 // Then close the drawer
                 Navigator.pop(context);
+                _animateToIndex(height * 1.56);
               },
             ),
             ListTile(
@@ -132,6 +135,7 @@ class _MainComponentMobileState extends State<MainComponentMobile> {
                 // ...
                 // Then close the drawer
                 Navigator.pop(context);
+                _animateToIndex(height * 4.1);
               },
             ),
             ListTile(
@@ -149,6 +153,7 @@ class _MainComponentMobileState extends State<MainComponentMobile> {
                 // ...
                 // Then close the drawer
                 Navigator.pop(context);
+                _animateToIndex(height * 5.45);
               },
             ),
             ListTile(
@@ -166,6 +171,7 @@ class _MainComponentMobileState extends State<MainComponentMobile> {
                 // ...
                 // Then close the drawer
                 Navigator.pop(context);
+                _animateToIndex(height * 8.25);
               },
             ),
             const SizedBox(height: 20),

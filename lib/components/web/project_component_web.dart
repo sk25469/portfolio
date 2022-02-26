@@ -34,7 +34,7 @@ class ProjectComponent extends StatelessWidget {
             ),
             Positioned(
               left: 30 / _kWidth * width,
-              top: 300 / _kHeight * height,
+              top: 315 / _kHeight * height,
               child: SplashOnHover(project: ProjectData.projectList[1]),
             ),
             Positioned(
@@ -44,12 +44,12 @@ class ProjectComponent extends StatelessWidget {
             ),
             Positioned(
               left: 0.5 * width,
-              top: 300 / _kHeight * height,
+              top: 315 / _kHeight * height,
               child: SplashOnHover(project: ProjectData.projectList[3]),
             ),
             Positioned(
               left: 0.40 * width,
-              top: 520 / _kHeight * height,
+              top: 535 / _kHeight * height,
               child: const CustomButton(
                 text: 'MORE PROJECTS',
                 isResume: false,

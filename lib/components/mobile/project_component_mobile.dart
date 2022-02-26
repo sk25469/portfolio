@@ -9,17 +9,15 @@ class ProjectComponentMobile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
+    bool _isDark = Theme.of(context).brightness == Brightness.dark;
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 16),
       width: double.infinity,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          _welcomeText(textTheme),
-          Container(
-            width: double.infinity,
-            child: SplashOnHover(project: ProjectData.projectList[0]),
-          ),
+          _welcomeText(textTheme, _isDark),
+          SplashOnHover(project: ProjectData.projectList[0]),
           const SizedBox(height: 16),
           SplashOnHover(project: ProjectData.projectList[1]),
           const SizedBox(height: 16),
@@ -39,9 +37,13 @@ class ProjectComponentMobile extends StatelessWidget {
   }
 }
 
-Widget _welcomeText(TextTheme currentTextTheme) {
+Widget _welcomeText(TextTheme currentTextTheme, bool isDark) {
   return SelectableText(
     'Open Source Projects',
-    style: currentTextTheme.bodyText1,
+    style: TextStyle(
+      color: isDark ? Colors.white : Colors.black,
+      fontFamily: 'ZenKakuGothicAntique-Medium',
+      fontSize: 50,
+    ),
   );
 }

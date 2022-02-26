@@ -39,7 +39,7 @@ class _SplashOnHover extends State<SplashOnHover> {
       onExit: (e) => _mouseEnter(false),
       child: SizedBox(
         width: !_isMobile ? 0.45 * width : width,
-        height: 187,
+        height: 0.26 * height,
         child: Stack(
           children: [
             Positioned(

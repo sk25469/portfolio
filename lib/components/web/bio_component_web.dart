@@ -49,7 +49,7 @@ class BioComponent extends StatelessWidget {
               iconPadding: 15,
               iconSize: 60,
             ),
-            bottom: 0 / _kHeight * height,
+            bottom: 20 / _kHeight * height,
             left: 30 / _kWidth * width,
           )
         ],
