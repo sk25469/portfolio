@@ -15,6 +15,7 @@ class ContactMeCard extends HookWidget {
     double height = MediaQuery.of(context).size.height;
     double _height = 400;
     bool _isDark = Theme.of(context).brightness == Brightness.dark;
+    bool _isMobile = width <= 620;
 
     final isHovering = useState(false);
 
@@ -26,7 +27,7 @@ class ContactMeCard extends HookWidget {
       onEnter: (_) => _mouseEnter(true),
       onExit: (_) => _mouseEnter(false),
       child: Container(
-        width: 0.45 * width,
+        width: !_isMobile ? 0.45 * width : width,
         height: _height,
         decoration: BoxDecoration(
           image: const DecorationImage(
@@ -44,9 +45,9 @@ class ContactMeCard extends HookWidget {
           ],
         ),
         child: Padding(
-          padding: EdgeInsets.only(
-            top: 15.0 / _kHeight * height,
-            left: 25 / _kWidth * width,
+          padding: const EdgeInsets.only(
+            top: 15.0,
+            left: 25,
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -62,7 +63,7 @@ class ContactMeCard extends HookWidget {
               ),
               SizedBox(height: 8 / _kHeight * height),
               SizedBox(
-                width: 0.45 * width,
+                width: !_isMobile ? 0.45 * width : width,
                 height: 0.8 * _height,
                 child: const ReachMe(),
               ),
@@ -83,18 +84,19 @@ class ReachMe extends StatelessWidget {
     // final _isDark = Theme.of(context).brightness == Brightness.dark;
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
+    bool _isMobile = width <= 620;
     return Stack(
       children: [
         Positioned(
           left: 0,
           top: 0,
           child: SizedBox(
-            width: 450 / _kWidth * width,
-            child: const SelectableText(
+            width: !_isMobile ? 450 : 0.5 * width,
+            child: SelectableText(
               'Want to discuss a project? Or just say hi?\nMy inbox is open for all!',
               style: TextStyle(
                 fontFamily: 'ZenKakuGothicAntique-Light',
-                fontSize: 25,
+                fontSize: !_isMobile ? 25 : 20,
                 fontWeight: FontWeight.bold,
                 color: Colors.black,
               ),
@@ -102,16 +104,16 @@ class ReachMe extends StatelessWidget {
           ),
         ),
         Positioned(
-          right: 15 / _kWidth * width,
+          right: 15,
           child: CircleAvatar(
             backgroundColor: lightPurple,
-            radius: 100,
+            radius: !_isMobile ? 100 : 60,
             child: CircleAvatar(
               child: ClipRRect(
                 child: Image.asset('assets/images/sahil_selfie.jpg'),
                 borderRadius: BorderRadius.circular(100),
               ),
-              radius: 95,
+              radius: !_isMobile ? 95 : 55,
             ),
           ),
         ),
@@ -161,14 +163,14 @@ class ReachMe extends StatelessWidget {
         //   top: 120,
         //   width: 400,
         // ),
-        Positioned(
-          child: const SocialMediaContacts(
+        const Positioned(
+          child: SocialMediaContacts(
             hasResume: false,
             iconSize: 50,
-            iconPadding: 0,
+            iconPadding: 20,
           ),
-          top: 250 / _kHeight * height,
-          width: 400 / _kWidth * width,
+          top: 250,
+          width: 400,
         ),
       ],
     );

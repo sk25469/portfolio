@@ -41,10 +41,10 @@ class ContactMeComponent extends StatelessWidget {
               ),
             ],
           ),
-          SizedBox(height: 50 / _kHeight * height),
+          const Spacer(),
           Container(
             width: double.infinity,
-            height: 33 / _kHeight * height,
+            height: 33,
             decoration: const BoxDecoration(
               color: Colors.blue,
             ),

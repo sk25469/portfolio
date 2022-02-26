@@ -16,7 +16,7 @@ class BioComponentMobile extends StatelessWidget {
           welcomeText(currentTextTheme: textTheme),
           const SizedBox(height: 10),
           bioTextBox(currentTextTheme: textTheme),
-          const SizedBox(height: 10),
+          // const SizedBox(height: 10),
           const _profileImage(),
         ],
       ),
@@ -57,7 +57,7 @@ class bioTextBox extends StatelessWidget {
     double height = MediaQuery.of(context).size.height;
     return SizedBox(
       width: double.infinity,
-      height: 460,
+      height: 0.8 * height,
       child: DefaultTextStyle(
         style: currentTextTheme.bodyText2!,
         child: AnimatedTextKit(
@@ -85,27 +85,38 @@ class welcomeText extends StatelessWidget {
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
+    bool isDark = Theme.of(context).brightness == Brightness.dark;
 
-    return Row(
-      children: [
-        DefaultTextStyle(
-          style: currentTextTheme.bodyText1!,
-          child: AnimatedTextKit(
-            animatedTexts: [
-              TypewriterAnimatedText('Hi, I\'m Sahil'),
-            ],
+    return SizedBox(
+      width: double.infinity,
+      child: Row(
+        children: [
+          DefaultTextStyle(
+            style: TextStyle(
+              color: isDark ? Colors.white : Colors.black,
+              fontFamily: 'ZenKakuGothicAntique-Medium',
+              fontSize: 50,
+            ),
+            child: AnimatedTextKit(
+              animatedTexts: [
+                TypewriterAnimatedText('Hi, I\'m Sahil'),
+              ],
+            ),
           ),
-        ),
-        const SizedBox(width: 10),
-        Padding(
-          padding: const EdgeInsets.only(top: 3.0),
-          child: Image.asset(
-            'assets/images/hello_world.png',
-            height: 75,
-            width: 75,
+          const Spacer(),
+          Padding(
+            padding: const EdgeInsets.only(
+              top: 3.0,
+              right: 10,
+            ),
+            child: Image.asset(
+              'assets/images/hello_world.png',
+              height: 55,
+              width: 55,
+            ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

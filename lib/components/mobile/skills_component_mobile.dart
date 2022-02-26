@@ -9,6 +9,7 @@ class SkillComponentMobile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
+    bool _isDark = Theme.of(context).brightness == Brightness.dark;
     return Container(
       padding: const EdgeInsets.symmetric(
         horizontal: 16,
@@ -18,7 +19,7 @@ class SkillComponentMobile extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          _welcomeText(textTheme),
+          _welcomeText(textTheme, _isDark),
           const SizedBox(height: 16),
           const SizedBox(
             width: double.infinity,
@@ -49,10 +50,14 @@ class SkillComponentMobile extends StatelessWidget {
   }
 }
 
-Widget _welcomeText(TextTheme currentTextTheme) {
+Widget _welcomeText(TextTheme currentTextTheme, bool isDark) {
   return SelectableText(
     'What I do',
-    style: currentTextTheme.bodyText1,
+    style: TextStyle(
+      color: isDark ? Colors.white : Colors.black,
+      fontFamily: 'ZenKakuGothicAntique-Medium',
+      fontSize: 50,
+    ),
   );
 }
 

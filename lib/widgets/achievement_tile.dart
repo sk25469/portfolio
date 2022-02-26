@@ -54,64 +54,47 @@ class AchievementTile extends HookWidget {
             ),
           ],
         ),
-        child: Stack(
+        child: Column(
           children: [
-            Positioned(
-              child: Container(
-                width: containerWidth,
-                height: containerHeight / 2,
-                alignment: Alignment.topCenter,
-                padding: const EdgeInsets.symmetric(horizontal: 20),
-                decoration: const BoxDecoration(
-                  color: Colors.transparent,
-                  borderRadius: BorderRadius.all(Radius.circular(20)),
-                ),
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(containerWidth / 2 + 20),
-                  child: Image.asset(
-                    achievement.assetName,
-                    width: containerWidth,
-                    height: containerHeight / 2,
-                    fit: BoxFit.contain,
-                  ),
-                ),
-              ),
-              top: containerHeight / 32,
-              left: containerWidth / 64 - 5 / _kWidth * width,
-            ),
-            if (_isYearNeeded)
-              Positioned(
-                child: const Text(
-                  '2021',
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontFamily: 'ZenKakuGothicAntique-Medium',
-                    fontSize: 60,
-                  ),
-                ),
-                top: containerHeight / 8 + 18 / _kHeight * height,
-                left: containerWidth / 2 - 50 / _kWidth * width,
-              ),
-            Positioned(
-              child: Container(
-                width: containerWidth,
-                height: containerHeight / 2,
+            Container(
+              width: containerWidth,
+              alignment: Alignment.topCenter,
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+              decoration: const BoxDecoration(
                 color: Colors.transparent,
-                child: Padding(
-                  padding: EdgeInsets.symmetric(
-                    horizontal: 8.0 / _kWidth * width,
-                    vertical: 5 / _kHeight * height,
-                  ),
-                  child: _buildAchievementDescription(
-                    achievement: achievement,
-                    textTheme: textTheme,
-                  ),
+                borderRadius: BorderRadius.all(Radius.circular(20)),
+              ),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(300),
+                child: Image.asset(
+                  achievement.assetName,
+                  width: containerWidth,
+                  height: containerHeight / 2,
+                  fit: achievement.assetName.contains("coding_school")
+                      ? BoxFit.fill
+                      : BoxFit.contain,
                 ),
               ),
-              top: 0.535 * containerHeight,
-              left: 10 / _kWidth * width,
             ),
-            Positioned(
+            Container(
+              width: containerWidth,
+              // height: containerHeight / 2,
+              color: Colors.transparent,
+              child: Padding(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 10.0,
+                  vertical: 5,
+                ),
+                child: _buildAchievementDescription(
+                  achievement: achievement,
+                  textTheme: textTheme,
+                ),
+              ),
+            ),
+            const Spacer(),
+            Container(
+              alignment: Alignment.bottomCenter,
+              padding: const EdgeInsets.symmetric(vertical: 15),
               child: GradientButton(
                 text: 'View Certificate',
                 onPressed: () {
@@ -119,9 +102,7 @@ class AchievementTile extends HookWidget {
                 },
                 isCertificate: true,
               ),
-              bottom: 0.05 * containerHeight,
-              left: containerWidth / 2 - 65 / _kWidth * width,
-            )
+            ),
           ],
         ),
       ),
