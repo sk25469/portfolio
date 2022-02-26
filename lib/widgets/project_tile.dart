@@ -29,6 +29,8 @@ class ProjectTile extends StatelessWidget {
       if (!await launch(_url)) throw 'Could not launch $_url';
     }
 
+    bool _isMobile = width <= 640;
+
     return Material(
       color: Colors.transparent,
       child: InkWell(
@@ -36,8 +38,8 @@ class ProjectTile extends StatelessWidget {
           _launchURL(project.projectUrl);
         },
         child: Container(
-          width: 0.45 * width,
-          height: 180 / _kHeight * height,
+          width: !_isMobile ? 0.45 * width : width,
+          height: 187,
           decoration: BoxDecoration(
             boxShadow: [
               BoxShadow(
@@ -56,15 +58,17 @@ class ProjectTile extends StatelessWidget {
                 isDark: _isDark,
                 isHovering: isHovering,
               ),
-              SizedBox(height: 10 / _kHeight * height),
+              const SizedBox(height: 10),
               Container(
-                width: double.infinity,
-                padding: EdgeInsets.symmetric(horizontal: 20 / _kWidth * width),
+                width: !_isMobile ? 0.45 * width : 0.95 * width,
+                padding: const EdgeInsets.symmetric(horizontal: 10),
                 child: Text(
                   project.description,
                   style: ComponentTextStyle.getTextStyle(isHovering, _isDark).headline3,
                 ),
               ),
+              // const SizedBox(height: 5),
+              !_isMobile ? const Spacer() : const SizedBox(height: 10),
               _projectDetail(
                 project: project,
                 textTheme: textTheme,
@@ -97,19 +101,24 @@ class _projectTitle extends StatelessWidget {
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
     return Padding(
-      padding: EdgeInsets.fromLTRB(
-          10 / _kWidth * width, 10 / _kHeight * height, 10 / _kWidth * width, 0),
+      padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
       child: Row(
         children: [
           Image.asset(
             'assets/icons/idea.png',
-            height: 30 / _kHeight * height,
-            width: 30 / _kWidth * width,
+            height: 30,
+            width: 30,
           ),
-          SizedBox(width: 10 / _kWidth * width),
-          Text(
-            text,
-            style: ComponentTextStyle.getTextStyle(isHovering, isDark).headline5,
+          const SizedBox(width: 10),
+          Padding(
+            padding: const EdgeInsets.only(
+              left: 4,
+              right: 4,
+            ),
+            child: Text(
+              text,
+              style: ComponentTextStyle.getTextStyle(isHovering, isDark).headline5,
+            ),
           ),
         ],
       ),
@@ -134,38 +143,38 @@ class _projectDetail extends StatelessWidget {
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
-    return Row(
-      children: [
-        Container(
-          width: 15 / _kWidth * width,
-          height: 15 / _kHeight * height,
-          margin: EdgeInsets.fromLTRB(
-            20.0 / _kWidth * width,
-            15 / _kHeight * height,
-            10 / _kWidth * width,
-            5 / _kHeight * height,
+    bool _isMobile = width <= 640;
+    return Container(
+      width: _isMobile ? 0.95 * width : 0.45 * width,
+      margin: !_isMobile
+          ? const EdgeInsets.only(bottom: 20, left: 10, right: 30)
+          : const EdgeInsets.only(bottom: 10, left: 10, right: 30),
+      child: Row(
+        children: [
+          Container(
+            width: 15,
+            height: 15,
+            padding: const EdgeInsets.only(top: 10),
+            decoration: BoxDecoration(
+              color: project.languageColor,
+              shape: BoxShape.circle,
+            ),
           ),
-          decoration: BoxDecoration(
-            color: project.languageColor,
-            shape: BoxShape.circle,
-          ),
-        ),
-        Padding(
-          padding: EdgeInsets.only(top: 8.0 / _kHeight * height),
-          child: Text(
+          const SizedBox(width: 10),
+          Text(
             project.language,
             style: ComponentTextStyle.getTextStyle(isHovering, isDark).headline3,
           ),
-        ),
-        SizedBox(width: 500 / _kWidth * width),
-        Padding(
-          padding: EdgeInsets.only(top: 8.0 / _kHeight * height),
-          child: Text(
-            kbToMB(project.size),
-            style: ComponentTextStyle.getTextStyle(isHovering, isDark).headline3,
-          ),
-        )
-      ],
+          const Spacer(),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 10.0),
+            child: Text(
+              kbToMB(project.size),
+              style: ComponentTextStyle.getTextStyle(isHovering, isDark).headline3,
+            ),
+          )
+        ],
+      ),
     );
   }
 }

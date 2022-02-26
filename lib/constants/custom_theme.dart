@@ -55,6 +55,9 @@ class ComponentTextStyle {
 
 final darkTheme = ThemeData(
   fontFamily: 'Festive-Regular',
+  drawerTheme: const DrawerThemeData(
+    scrimColor: Colors.transparent,
+  ),
   brightness: Brightness.dark,
   primaryColor: Colors.black,
   accentColor: darkBackgroundColor,
@@ -127,6 +130,9 @@ final darkTheme = ThemeData(
 final lightTheme = ThemeData(
   fontFamily: 'Festive-Regular',
   brightness: Brightness.light,
+  drawerTheme: const DrawerThemeData(
+    scrimColor: Colors.transparent,
+  ),
   primaryColor: const Color.fromARGB(169, 255, 255, 255),
   accentColor: lightBackgroundColor,
   scaffoldBackgroundColor: Colors.grey[900],
