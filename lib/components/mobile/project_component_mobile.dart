@@ -17,6 +17,7 @@ class ProjectComponentMobile extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           _welcomeText(textTheme, _isDark),
+          const SizedBox(height: 16),
           SplashOnHover(project: ProjectData.projectList[0]),
           const SizedBox(height: 16),
           SplashOnHover(project: ProjectData.projectList[1]),
@@ -29,6 +30,16 @@ class ProjectComponentMobile extends StatelessWidget {
             child: CustomButton(
               text: 'MORE PROJECTS',
               isResume: false,
+            ),
+          ),
+          const SizedBox(height: 10),
+          Center(
+            child: Divider(
+              height: 15,
+              thickness: 1,
+              indent: 10,
+              endIndent: 10,
+              color: _isDark ? Colors.white : Colors.black,
             ),
           ),
         ],

@@ -32,6 +32,16 @@ class AchivementComponentMobile extends StatelessWidget {
           Center(
             child: AchievementTile(achievement: AchievementsData.achievements[3]),
           ),
+          const SizedBox(height: 10),
+          Center(
+            child: Divider(
+              height: 15,
+              thickness: 1,
+              indent: 10,
+              endIndent: 10,
+              color: _isDark ? Colors.white : Colors.black,
+            ),
+          ),
         ],
       ),
     );

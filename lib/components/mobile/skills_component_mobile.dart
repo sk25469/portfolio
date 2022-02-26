@@ -13,7 +13,7 @@ class SkillComponentMobile extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(
         horizontal: 16,
-        vertical: 20,
+        vertical: 10,
       ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
@@ -43,7 +43,17 @@ class SkillComponentMobile extends StatelessWidget {
           _detailText2(
             '⚡Building the backend along with integrating with third party APIs such as Firebase',
             textTheme,
-          )
+          ),
+          const SizedBox(height: 10),
+          Center(
+            child: Divider(
+              height: 15,
+              thickness: 1,
+              indent: 10,
+              endIndent: 10,
+              color: _isDark ? Colors.white : Colors.black,
+            ),
+          ),
         ],
       ),
     );

@@ -81,7 +81,7 @@ class _HomePageState extends State<HomePage> {
           return PreferredSize(
             preferredSize: Size(width, height),
             child: Scaffold(
-              backgroundColor: _isDarkMode ? Colors.black : Colors.white,
+              backgroundColor: _isDarkMode ? darkBackgroundColor : lightBackgroundColor,
               floatingActionButton: _showBackToTopButton
                   ? FloatingActionButton(
                       onPressed: () {

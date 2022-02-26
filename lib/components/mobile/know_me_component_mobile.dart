@@ -39,7 +39,17 @@ class KnowMeComponentMobile extends StatelessWidget {
           _bioText(
             textTheme: textTheme,
             text: bioText,
-          )
+          ),
+          const SizedBox(height: 10),
+          Center(
+            child: Divider(
+              height: 15,
+              thickness: 1,
+              indent: 10,
+              endIndent: 10,
+              color: _isDark ? Colors.white : Colors.black,
+            ),
+          ),
         ],
       ),
     );

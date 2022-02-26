@@ -45,7 +45,7 @@ class SocialMediaContacts extends StatelessWidget {
     return Material(
       color: Colors.transparent,
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           InkWell(
             onTap: () {
@@ -60,7 +60,8 @@ class SocialMediaContacts extends StatelessWidget {
               ),
             ),
           ),
-          SizedBox(width: iconPadding / _kWidth * width),
+          SizedBox(width: iconPadding),
+          // const Spacer(),
           InkWell(
             onTap: () {
               const url = 'https://github.com/sk25469';
@@ -75,7 +76,8 @@ class SocialMediaContacts extends StatelessWidget {
               ),
             ),
           ),
-          SizedBox(width: iconPadding / _kWidth * width),
+          SizedBox(width: iconPadding),
+          // const Spacer(),
           InkWell(
             onTap: () {
               const url = 'https://www.linkedin.com/in/sahilsarwar1/';
@@ -90,7 +92,8 @@ class SocialMediaContacts extends StatelessWidget {
               ),
             ),
           ),
-          SizedBox(width: iconPadding / _kWidth * width),
+          SizedBox(width: iconPadding),
+          // const Spacer(),
           InkWell(
             onTap: () {
               const url = 'https://twitter.com/SahilSarwar15';
@@ -105,7 +108,8 @@ class SocialMediaContacts extends StatelessWidget {
               ),
             ),
           ),
-          SizedBox(width: iconPadding / _kWidth * width),
+          SizedBox(width: iconPadding),
+          // const Spacer(),
           InkWell(
             onTap: () {
               const url = 'https://www.instagram.com/the_originalsahil';
@@ -120,7 +124,8 @@ class SocialMediaContacts extends StatelessWidget {
               ),
             ),
           ),
-          SizedBox(width: iconPadding / _kWidth * width),
+          SizedBox(width: iconPadding),
+          // const Spacer(),
           InkWell(
             onTap: () {
               const url = 'https://www.facebook.com/TheOriginalSahil';
@@ -135,7 +140,7 @@ class SocialMediaContacts extends StatelessWidget {
               ),
             ),
           ),
-          if (hasResume) SizedBox(width: 150 / _kWidth * width),
+          if (hasResume) const SizedBox(width: 150),
           if (hasResume)
             const CustomButton(
               text: 'SEE MY RESUME',

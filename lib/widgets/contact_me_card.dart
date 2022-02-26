@@ -61,7 +61,7 @@ class ContactMeCard extends HookWidget {
                   fontFamily: 'Monoton-Regular',
                 ),
               ),
-              SizedBox(height: 8 / _kHeight * height),
+              const SizedBox(height: 8),
               SizedBox(
                 width: !_isMobile ? 0.45 * width : width,
                 height: 0.8 * _height,
@@ -163,14 +163,14 @@ class ReachMe extends StatelessWidget {
         //   top: 120,
         //   width: 400,
         // ),
-        const Positioned(
+        Positioned(
           child: SocialMediaContacts(
             hasResume: false,
-            iconSize: 50,
-            iconPadding: 20,
+            iconSize: !_isMobile ? 50 : 40,
+            iconPadding: !_isMobile ? 20 : 0,
           ),
           top: 250,
-          width: 400,
+          width: !_isMobile ? 400 : 0.8 * width,
         ),
       ],
     );

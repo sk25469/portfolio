@@ -19,6 +19,7 @@ class AchievementComponent extends StatelessWidget {
 
     return Container(
       decoration: ComponentBoxDecoration.getBoxDecoration(_isDark, theme),
+      padding: const EdgeInsets.only(bottom: 16),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

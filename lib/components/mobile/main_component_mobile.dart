@@ -87,21 +87,22 @@ class _MainComponentMobileState extends State<MainComponentMobile> {
         child: ListView(
           padding: EdgeInsets.zero,
           children: [
-            Container(
-              // color: _isDarkMode ? Colors.black : Colors.white,
-              padding: const EdgeInsets.all(10),
-              child: CircleAvatar(
-                backgroundColor: lightPurple,
-                radius: 100,
-                child: CircleAvatar(
-                  child: ClipRRect(
-                    child: Image.asset('assets/images/sahil_selfie.jpg'),
-                    borderRadius: BorderRadius.circular(100),
-                  ),
-                  radius: 95,
-                ),
-              ),
-            ),
+            // Container(
+            //   // color: _isDarkMode ? Colors.black : Colors.white,
+            //   padding: const EdgeInsets.all(10),
+            //   child: CircleAvatar(
+            //     backgroundColor: lightPurple,
+            //     radius: 100,
+            //     child: CircleAvatar(
+            //       child: ClipRRect(
+            //         child: Image.asset('assets/images/sahil_selfie.jpg'),
+            //         borderRadius: BorderRadius.circular(100),
+            //       ),
+            //       radius: 95,
+            //     ),
+            //   ),
+            // ),
+            const SizedBox(height: 50),
             ListTile(
               leading: Image.asset(
                 'assets/icons/skills.png',

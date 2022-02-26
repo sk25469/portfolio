@@ -94,7 +94,7 @@ class AchievementTile extends HookWidget {
             const Spacer(),
             Container(
               alignment: Alignment.bottomCenter,
-              padding: const EdgeInsets.symmetric(vertical: 15),
+              padding: const EdgeInsets.only(bottom: 15),
               child: GradientButton(
                 text: 'View Certificate',
                 onPressed: () {

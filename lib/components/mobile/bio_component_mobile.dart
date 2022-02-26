@@ -8,6 +8,7 @@ class BioComponentMobile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
+    bool _isDark = Theme.of(context).brightness == Brightness.dark;
     return Container(
       // height: 1000,
       padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -18,6 +19,16 @@ class BioComponentMobile extends StatelessWidget {
           bioTextBox(currentTextTheme: textTheme),
           // const SizedBox(height: 10),
           const _profileImage(),
+          const SizedBox(height: 10),
+          Center(
+            child: Divider(
+              height: 15,
+              thickness: 1,
+              indent: 10,
+              endIndent: 10,
+              color: _isDark ? Colors.white : Colors.black,
+            ),
+          ),
         ],
       ),
     );
