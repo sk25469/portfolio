@@ -214,11 +214,20 @@ class _MainComponentMobileState extends State<MainComponentMobile> {
               toolbarHeight: 80,
               centerTitle: true,
               backgroundColor: _isDarkMode ? darkBackgroundColor : lightBackgroundColor,
-              title: Image.asset(
-                "assets/images/signature.png",
-                alignment: Alignment.center,
-                width: 200,
-                height: 200,
+              // title: Image.asset(
+              //   "assets/images/signature.png",
+              //   alignment: Alignment.center,
+              //   width: 200,
+              //   height: 200,
+              // ),
+              title: Text(
+                'Sahil Sarwar',
+                style: TextStyle(
+                  color: _isDarkMode ? Colors.white : Colors.black,
+                  fontFamily: 'MeaCulpa-Regular',
+                  fontSize: 50,
+                  fontWeight: FontWeight.w300,
+                ),
               ),
               actions: [
                 IconButton(

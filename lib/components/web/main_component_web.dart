@@ -116,11 +116,17 @@ class _HomePageState extends State<HomePage> {
                                 horizontal: 8.0 / _kWidth * width,
                                 vertical: 8.0 / _kHeight * height,
                               ),
-                              child: Image.asset(
-                                "assets/images/signature.png",
-                                alignment: Alignment.center,
-                                width: 200,
-                                height: 200,
+                              child: FittedBox(
+                                fit: BoxFit.fill,
+                                child: Text(
+                                  'Sahil Sarwar',
+                                  style: TextStyle(
+                                    color: _isDarkMode ? Colors.white : Colors.black,
+                                    fontFamily: 'MeaCulpa-Regular',
+                                    fontSize: 50,
+                                    fontWeight: FontWeight.w300,
+                                  ),
+                                ),
                               ),
                             ),
                           ),

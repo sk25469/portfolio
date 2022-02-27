@@ -93,6 +93,9 @@ flutter:
     - family: Horizon
       fonts:
         - asset: assets/font/Horizon.otf
+    - family: MeaCulpa-Regular
+      fonts:
+        - asset: assets/font/MeaCulpa-Regular.ttf
         # - asset: fonts/Schyler-Italic.ttf
         # style: italic
   #   - family: Trajan Pro
