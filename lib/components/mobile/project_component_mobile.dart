@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:portfolio/constants/data.dart';
 import 'package:portfolio/extensions/splash_on_hover.dart';
 import 'package:portfolio/widgets/custom_button.dart';
+import 'package:portfolio/widgets/divider.dart';
 
 class ProjectComponentMobile extends StatelessWidget {
   const ProjectComponentMobile({Key? key}) : super(key: key);
@@ -33,15 +34,7 @@ class ProjectComponentMobile extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 10),
-          Center(
-            child: Divider(
-              height: 15,
-              thickness: 1,
-              indent: 10,
-              endIndent: 10,
-              color: _isDark ? Colors.white : Colors.black,
-            ),
-          ),
+          const DividerLine(),
         ],
       ),
     );

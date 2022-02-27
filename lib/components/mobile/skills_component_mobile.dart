@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/widgets/divider.dart';
 import 'package:portfolio/widgets/tech_detail.dart';
 
 import '../../widgets/skill_animation.dart';
@@ -13,7 +14,7 @@ class SkillComponentMobile extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(
         horizontal: 16,
-        vertical: 10,
+        // vertical: 10,
       ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
@@ -45,15 +46,7 @@ class SkillComponentMobile extends StatelessWidget {
             textTheme,
           ),
           const SizedBox(height: 10),
-          Center(
-            child: Divider(
-              height: 15,
-              thickness: 1,
-              indent: 10,
-              endIndent: 10,
-              color: _isDark ? Colors.white : Colors.black,
-            ),
-          ),
+          const DividerLine(),
         ],
       ),
     );

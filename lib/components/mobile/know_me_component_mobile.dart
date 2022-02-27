@@ -1,5 +1,6 @@
 import 'package:emojis/emojis.dart';
 import 'package:flutter/material.dart';
+import 'package:portfolio/widgets/divider.dart';
 import 'package:portfolio/widgets/hovering_animation.dart';
 
 const String bioText =
@@ -41,15 +42,7 @@ class KnowMeComponentMobile extends StatelessWidget {
             text: bioText,
           ),
           const SizedBox(height: 10),
-          Center(
-            child: Divider(
-              height: 15,
-              thickness: 1,
-              indent: 10,
-              endIndent: 10,
-              color: _isDark ? Colors.white : Colors.black,
-            ),
-          ),
+          const DividerLine(),
         ],
       ),
     );

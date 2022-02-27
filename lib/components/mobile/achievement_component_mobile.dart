@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:portfolio/constants/data.dart';
 import 'package:portfolio/widgets/achievement_tile.dart';
 
+import '../../widgets/divider.dart';
+
 class AchivementComponentMobile extends StatelessWidget {
   const AchivementComponentMobile({Key? key}) : super(key: key);
 
@@ -33,15 +35,7 @@ class AchivementComponentMobile extends StatelessWidget {
             child: AchievementTile(achievement: AchievementsData.achievements[3]),
           ),
           const SizedBox(height: 10),
-          Center(
-            child: Divider(
-              height: 15,
-              thickness: 1,
-              indent: 10,
-              endIndent: 10,
-              color: _isDark ? Colors.white : Colors.black,
-            ),
-          ),
+          const DividerLine(),
         ],
       ),
     );

@@ -1,6 +1,7 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:emojis/emojis.dart';
 import 'package:flutter/material.dart';
+import 'package:portfolio/widgets/divider.dart';
 
 class BioComponentMobile extends StatelessWidget {
   const BioComponentMobile({Key? key}) : super(key: key);
@@ -20,15 +21,7 @@ class BioComponentMobile extends StatelessWidget {
           // const SizedBox(height: 10),
           const _profileImage(),
           const SizedBox(height: 10),
-          Center(
-            child: Divider(
-              height: 15,
-              thickness: 1,
-              indent: 10,
-              endIndent: 10,
-              color: _isDark ? Colors.white : Colors.black,
-            ),
-          ),
+          const DividerLine(),
         ],
       ),
     );

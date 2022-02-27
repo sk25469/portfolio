@@ -8,6 +8,7 @@ import 'package:portfolio/components/mobile/project_component_mobile.dart';
 import 'package:portfolio/components/mobile/skills_component_mobile.dart';
 import 'package:portfolio/constants/custom_theme.dart';
 import 'package:portfolio/widgets/custom_button.dart';
+import 'package:portfolio/widgets/divider.dart';
 import 'package:portfolio/widgets/social_media.dart';
 
 class MainComponentMobile extends StatefulWidget {
@@ -28,6 +29,7 @@ class _MainComponentMobileState extends State<MainComponentMobile> {
 
   final List<Widget> _widgets = [
     const BioComponentMobile(),
+    // const DividerLine(),
     const SkillComponentMobile(),
     const KnowMeComponentMobile(),
     const ProjectComponentMobile(),
