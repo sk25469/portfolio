@@ -229,7 +229,7 @@ class _HomePageState extends State<HomePage> {
                           ),
                         ],
                       ),
-                      backgroundColor: themeData.accentColor,
+                      backgroundColor: themeData.colorScheme.secondary,
                     ),
                     SliverFixedExtentList(
                       itemExtent: _itemExtent,

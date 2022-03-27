@@ -29,7 +29,7 @@ class AchievementComponent extends StatelessWidget {
               left: 30,
               top: 15,
             ),
-            child: Row(
+            child: Wrap(
               children: [
                 AchievementTile(achievement: AchievementsData.achievements[0]),
                 const SizedBox(width: 30),
@@ -56,7 +56,7 @@ Widget _welcomeText(TextTheme currentTextTheme, double width) {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         SelectableText(
-          'Achievements and Certifications 🏆',
+          'Achievements and Certifications🏆',
           style: currentTextTheme.bodyText1,
         ),
         SelectableText(
