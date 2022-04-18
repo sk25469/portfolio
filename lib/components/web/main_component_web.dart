@@ -4,7 +4,6 @@ import 'package:portfolio/components/mobile/main_component_mobile.dart';
 import 'package:portfolio/components/web/achievement_component_web.dart';
 import 'package:portfolio/components/web/bio_component_web.dart';
 import 'package:portfolio/components/web/contact_me_component_web.dart';
-import 'package:portfolio/components/web/experience_component_web.dart';
 import 'package:portfolio/components/web/know_me_component_web.dart';
 import 'package:portfolio/components/web/project_component_web.dart';
 import 'package:portfolio/components/web/skills_component_web.dart';
