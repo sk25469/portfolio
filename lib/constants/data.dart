@@ -33,13 +33,13 @@ class ProjectData {
       projectUrl: 'https://github.com/sk25469/social-media-demo',
     ),
     Project(
-      title: 'codeforces-visualizer',
+      title: 'dumsharaz backend',
       description:
-          'A flutter app to remind users of the upcoming contests on codeforces, and to show the user details of their codeforces profile',
-      size: 199423,
-      language: 'Dart',
-      languageColor: Colors.blue,
-      projectUrl: 'https://github.com/sk25469/codeforces_visualizer',
+          'Backend for Dumsharaz application built with Go. This uses web-socket implementation provided by Melody.',
+      size: 15700,
+      language: 'Go',
+      languageColor: Colors.blueAccent,
+      projectUrl: 'https://github.com/sk25469/dumsharaz',
     ),
   ];
 }

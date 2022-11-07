@@ -214,11 +214,11 @@ class _techStacks extends StatelessWidget {
             SizedBox(width: widthBetween),
             TechTile(
               techImage: Image.asset(
-                'assets/icons/springBoot.png',
+                'assets/icons/golang.png',
                 width: iconSize,
                 height: iconSize,
               ),
-              techName: 'Spring Boot',
+              techName: 'Go',
             ),
           ],
         )
